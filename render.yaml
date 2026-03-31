@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: first-steps-sports
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: COACH_EMAIL
+        sync: false
+      - key: RESEND_FROM
+        sync: false

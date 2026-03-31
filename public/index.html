@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach Mark Lucas — First Steps Sports</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grass: #2d9e5f;
+    --grass-light: #3dbf74;
+    --grass-dark: #1e7042;
+    --sky: #f0f8ff;
+    --sun: #FFD23F;
+    --orange: #FF6B35;
+    --navy: #1a2e4a;
+    --navy-light: #243d60;
+    --cream: #fffdf5;
+    --chalk: #f5f0e8;
+    --red-sport: #e63946;
+    --sand: #f4c87a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 64px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.25);
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    color: var(--sun);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: #fff; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sun); }
+  .nav-cta {
+    background: var(--orange);
+    color: #fff !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    font-weight: 800 !important;
+  }
+  .nav-cta:hover { background: #ff8552; color: #fff !important; }
+
+  /* hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; gap: 5px; cursor: pointer;
+    background: none; border: none; padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 2px;
+    background: #fff; border-radius: 2px;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--navy);
+    padding: 1.5rem 2rem;
+    z-index: 99;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    flex-direction: column; gap: 1rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-menu a:last-child {
+    border-bottom: none;
+    color: var(--orange);
+    font-size: 1.1rem;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 64px;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 180px;
+    background: var(--grass);
+    clip-path: ellipse(60% 100% at 50% 100%);
+  }
+  .field-lines {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
+    overflow: hidden; pointer-events: none;
+  }
+  .field-lines::before {
+    content: '';
+    position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 300px;
+    border: 3px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+  }
+  .hero-dots {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      radial-gradient(circle, rgba(255,210,63,0.25) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 60px 60px, 30px 30px;
+    background-position: 0 0, 15px 15px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto;
+    padding: 4rem 2rem 10rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(255,210,63,0.15);
+    border: 1px solid rgba(255,210,63,0.4);
+    color: var(--sun);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.8rem; font-weight: 800;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.8rem, 5vw, 4.2rem);
+    line-height: 1.05;
+    color: #fff;
+    margin-bottom: 1.2rem;
+  }
+  h1 em { font-style: italic; color: var(--sun); }
+  .hero-sub {
+    font-size: 1.1rem; line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    max-width: 460px; margin-bottom: 2rem;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--orange); color: #fff;
+    padding: 0.85rem 1.8rem; border-radius: 100px;
+    font-weight: 800; font-size: 1rem; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+    display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,107,53,0.5); }
+  .btn-outline {
+    border: 2px solid rgba(255,255,255,0.3); color: #fff;
+    padding: 0.85rem 1.8rem; border-radius: 100px;
+    font-weight: 700; font-size: 1rem; text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+  .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .stat-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1.4rem 1.2rem;
+    backdrop-filter: blur(10px);
+    transition: transform 0.2s;
+  }
+  .stat-card:hover { transform: translateY(-3px); }
+  .stat-card:first-child { grid-column: 1 / -1; background: rgba(255,210,63,0.1); border-color: rgba(255,210,63,0.25); }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--sun); line-height: 1; }
+  .stat-label { color: rgba(255,255,255,0.65); font-size: 0.85rem; font-weight: 600; margin-top: 0.3rem; }
+  .stat-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
+
+  .floating-balls { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .ball {
+    position: absolute; font-size: 2.2rem; opacity: 0.15;
+    animation: floatBall 8s ease-in-out infinite;
+  }
+  .ball:nth-child(1) { top: 15%; left: 5%; animation-delay: 0s; }
+  .ball:nth-child(2) { top: 35%; right: 8%; animation-delay: 1.5s; font-size: 1.8rem; }
+  .ball:nth-child(3) { top: 60%; left: 12%; animation-delay: 3s; font-size: 1.4rem; }
+  .ball:nth-child(4) { top: 20%; right: 20%; animation-delay: 2s; font-size: 2.6rem; opacity: 0.1; }
+  .ball:nth-child(5) { top: 70%; right: 15%; animation-delay: 4s; font-size: 1.6rem; }
+  @keyframes floatBall {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(15deg); }
+  }
+
+  /* ── SPORTS STRIP ── */
+  .sports-strip { background: var(--grass); padding: 1.2rem 0; overflow: hidden; }
+  .sports-scroll {
+    display: flex; gap: 3rem; white-space: nowrap;
+    animation: scrollSports 20s linear infinite;
+  }
+  .sport-pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: #fff; font-weight: 800; font-size: 0.95rem;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .sport-pill span { font-size: 1.3rem; }
+  @keyframes scrollSports {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 6rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    background: var(--sun); color: var(--navy);
+    padding: 0.3rem 0.9rem; border-radius: 100px;
+    font-weight: 800; font-size: 0.8rem;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1; margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1.05rem; color: #5a6a7e;
+    max-width: 540px; line-height: 1.7; margin-bottom: 3rem;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .step-card {
+    background: #fff; border-radius: 20px; padding: 2rem 1.5rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    border: 2px solid transparent;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .step-card:hover { border-color: var(--grass); transform: translateY(-4px); box-shadow: 0 8px 32px rgba(45,158,95,0.15); }
+  .step-num {
+    width: 44px; height: 44px; background: var(--navy); color: var(--sun);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1.2rem; margin-bottom: 1.2rem;
+  }
+  .step-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.6rem; color: var(--navy); }
+  .step-card p { font-size: 0.92rem; color: #5a6a7e; line-height: 1.65; }
+  .step-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+
+  /* ── WHY MARK ── */
+  .why-section { background: var(--navy); color: #fff; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .why-text h2 { color: #fff; }
+  .why-text .section-sub { color: rgba(255,255,255,0.65); }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
+  .why-list li {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.85);
+  }
+  .why-list li::before {
+    content: '✓'; min-width: 28px; height: 28px;
+    background: var(--grass); color: #fff; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 0.8rem; margin-top: 2px;
+  }
+  .coach-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 24px; padding: 2.5rem; text-align: center;
+  }
+  .coach-avatar {
+    width: 120px; height: 120px;
+    background: linear-gradient(135deg, var(--grass), var(--grass-dark));
+    border-radius: 50%; margin: 0 auto 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3.5rem; border: 4px solid var(--sun);
+  }
+  .coach-name { font-family: 'Fraunces', serif; font-size: 1.7rem; color: #fff; margin-bottom: 0.3rem; }
+  .coach-title { color: var(--sun); font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.5px; }
+  .coach-quote { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; }
+  .coach-sports { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+  .sport-tag {
+    background: rgba(255,210,63,0.15); border: 1px solid rgba(255,210,63,0.3);
+    color: var(--sun); padding: 0.25rem 0.75rem;
+    border-radius: 100px; font-size: 0.8rem; font-weight: 700;
+  }
+
+  /* ── SPORTS CARDS ── */
+  .sports-section { background: var(--chalk); }
+  .sports-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+  .sport-card {
+    background: #fff; border-radius: 20px; padding: 2rem 1.2rem;
+    text-align: center; box-shadow: 0 3px 16px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .sport-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+  .sport-card-icon { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
+  .sport-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .sport-card p { font-size: 0.85rem; color: #5a6a7e; line-height: 1.6; }
+  .sport-card-color { height: 4px; border-radius: 100px; margin-bottom: 1.2rem; }
+
+  /* ── SCHEDULE ── */
+  .schedule-section { background: #fff; }
+  .schedule-ui {
+    background: var(--cream); border: 2px solid #e8e2d8;
+    border-radius: 24px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  }
+  .schedule-header {
+    background: var(--navy); padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .schedule-header h3 { color: #fff; font-size: 1rem; font-weight: 800; }
+  .schedule-filters {
+    padding: 1rem 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;
+    border-bottom: 1px solid #e8e2d8; background: #fff;
+  }
+  .filter-chip {
+    padding: 0.35rem 0.9rem; border-radius: 100px;
+    border: 2px solid #e0dbd0; background: #fff;
+    font-size: 0.8rem; font-weight: 700; cursor: pointer;
+    transition: all 0.15s; font-family: 'Nunito', sans-serif;
+  }
+  .filter-chip.active, .filter-chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .filter-chip.sport-baseball.active { background: var(--red-sport); border-color: var(--red-sport); }
+  .filter-chip.sport-basketball.active { background: var(--orange); border-color: var(--orange); }
+  .filter-chip.sport-football.active { background: var(--grass-dark); border-color: var(--grass-dark); }
+  .filter-chip.sport-pickleball.active { background: #8b5cf6; border-color: #8b5cf6; }
+  .slots-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 1.5rem; }
+  .slots-loading {
+    grid-column: 1 / -1; text-align: center;
+    padding: 3rem; color: #5a6a7e; font-weight: 600;
+  }
+
+  .slot-card {
+    background: #fff; border: 2px solid #e8e2d8;
+    border-radius: 16px; padding: 1.2rem;
+    cursor: pointer; transition: all 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .slot-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  }
+  .slot-card.baseball::before { background: var(--red-sport); }
+  .slot-card.basketball::before { background: var(--orange); }
+  .slot-card.football::before { background: var(--grass-dark); }
+  .slot-card.pickleball::before { background: #8b5cf6; }
+  .slot-card:hover { border-color: var(--grass); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+  .slot-card.full { opacity: 0.5; cursor: not-allowed; }
+  .slot-card.full:hover { transform: none; box-shadow: none; border-color: #e8e2d8; }
+  .slot-sport { font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .slot-name { font-weight: 800; font-size: 0.9rem; color: var(--navy); margin-bottom: 0.2rem; }
+  .slot-time { font-size: 0.82rem; color: #5a6a7e; font-weight: 600; margin-bottom: 0.6rem; }
+  .slot-spots { display: flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 700; }
+  .spot-dots { display: flex; gap: 3px; }
+  .spot-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grass); }
+  .spot-dot.taken { background: #d1d5db; }
+  .spots-text { color: #5a6a7e; }
+  .slot-full-badge {
+    display: inline-block; background: #fef2f2; color: var(--red-sport);
+    font-size: 0.72rem; font-weight: 800; padding: 0.15rem 0.5rem;
+    border-radius: 100px; border: 1px solid #fecaca;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(10,20,40,0.7);
+    z-index: 500; display: flex; align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    background: #fff; border-radius: 24px;
+    width: min(520px, 92vw); max-height: 90vh; overflow-y: auto;
+    padding: 2.5rem; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    transform: translateY(20px); transition: transform 0.25s;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+  .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+  .modal-header h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #f5f0e8; border: none; cursor: pointer;
+    font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
+  }
+  .modal-close:hover { background: #ede8e0; }
+  .modal-slot-info {
+    background: var(--chalk); border-radius: 14px; padding: 1.2rem;
+    margin-bottom: 1.5rem; display: flex; gap: 1rem; align-items: center;
+  }
+  .modal-slot-icon { font-size: 2.2rem; }
+  .modal-slot-detail h4 { font-weight: 800; font-size: 1rem; margin-bottom: 0.2rem; }
+  .modal-slot-detail p { font-size: 0.85rem; color: #5a6a7e; }
+  .form-group { margin-bottom: 1.1rem; }
+  .form-group label { display: block; font-weight: 700; font-size: 0.85rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 0.7rem 1rem;
+    border: 2px solid #e8e2d8; border-radius: 10px;
+    font-family: 'Nunito', sans-serif; font-size: 0.95rem;
+    color: var(--navy); transition: border-color 0.2s; background: #fff;
+  }
+  .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--grass); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-note {
+    background: #f0faf5; border: 1px solid #c3e9d5; border-radius: 10px;
+    padding: 0.8rem 1rem; margin-bottom: 1.2rem;
+    font-size: 0.83rem; color: var(--grass-dark); font-weight: 600;
+  }
+  .form-error {
+    background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px;
+    padding: 0.8rem 1rem; margin-bottom: 1.2rem;
+    font-size: 0.83rem; color: var(--red-sport); font-weight: 600;
+    display: none;
+  }
+  .btn-book {
+    width: 100%; background: var(--orange); color: #fff; border: none;
+    padding: 0.9rem; border-radius: 100px;
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem;
+    cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+  }
+  .btn-book:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255,107,53,0.45); }
+  .btn-book:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* confirmation */
+  .confirm-screen { text-align: center; padding: 1rem 0; }
+  .confirm-icon {
+    width: 80px; height: 80px;
+    background: linear-gradient(135deg, var(--grass), var(--grass-dark));
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem; margin: 0 auto 1.2rem;
+  }
+  .confirm-screen h3 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .confirm-screen p { color: #5a6a7e; line-height: 1.7; margin-bottom: 1.5rem; }
+
+  /* ── PRICING ── */
+  .pricing-section { background: var(--chalk); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .price-card {
+    background: #fff; border: 2px solid #e8e2d8;
+    border-radius: 24px; padding: 2.2rem 1.8rem;
+    position: relative; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
+  .price-card.featured {
+    background: var(--navy); border-color: var(--navy); color: #fff;
+    transform: scale(1.04); box-shadow: 0 12px 40px rgba(26,46,74,0.3);
+  }
+  .price-card.featured:hover { transform: scale(1.04) translateY(-4px); }
+  .popular-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--sun); color: var(--navy);
+    padding: 0.25rem 1rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 900; letter-spacing: 0.5px;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .price-sport-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .price-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+  .price-card.featured h3 { color: #fff; }
+  .price-amount { font-family: 'Fraunces', serif; font-size: 2.6rem; line-height: 1; color: var(--navy); margin-bottom: 0.2rem; }
+  .price-card.featured .price-amount { color: var(--sun); }
+  .price-per { font-size: 0.85rem; color: #5a6a7e; margin-bottom: 1.2rem; }
+  .price-card.featured .price-per { color: rgba(255,255,255,0.6); }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .price-features li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: #5a6a7e; }
+  .price-card.featured .price-features li { color: rgba(255,255,255,0.75); }
+  .price-features li::before { content: '✓'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
+  .price-card.featured .price-features li::before { color: var(--sun); }
+
+  /* ── FAQ ── */
+  .faq-section { background: #fff; }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 900px; margin: 0 auto; }
+  .faq-item {
+    background: var(--chalk); border-radius: 16px; padding: 1.4rem 1.5rem;
+    border: 2px solid transparent; transition: border-color 0.2s;
+  }
+  .faq-item:hover { border-color: var(--grass); }
+  .faq-item h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
+  .faq-item p { font-size: 0.88rem; color: #5a6a7e; line-height: 1.65; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--grass) 0%, var(--grass-dark) 100%);
+    padding: 6rem 2rem; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: '⚾🏀🏈🎾';
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 20rem; opacity: 0.04;
+    pointer-events: none; white-space: nowrap;
+  }
+  .cta-section h2 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+  .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
+  .cta-btn {
+    display: inline-block; background: var(--sun); color: var(--navy);
+    padding: 1rem 2.5rem; border-radius: 100px;
+    font-weight: 900; font-size: 1.1rem; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+  }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.6);
+    padding: 2rem; text-align: center; font-size: 0.85rem;
+  }
+  footer strong { color: var(--sun); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 8rem; }
+    .hero-stats { order: 2; }
+    .steps { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .sports-grid { grid-template-columns: 1fr 1fr; }
+    .slots-grid { grid-template-columns: 1fr 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .price-card.featured { transform: none; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+  @media (max-width: 480px) {
+    .slots-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Coach <span>Mark Lucas</span></div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#sports">Sports</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#schedule" class="nav-cta">Book a Session</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#sports" onclick="closeMobileMenu()">Sports</a>
+  <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
+  <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
+  <a href="#schedule" onclick="closeMobileMenu()">Book a Session →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="floating-balls">
+    <div class="ball">⚾</div>
+    <div class="ball">🏀</div>
+    <div class="ball">🏈</div>
+    <div class="ball">🎾</div>
+    <div class="ball">⚾</div>
+  </div>
+  <div class="hero-dots"></div>
+  <div class="field-lines"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">⚡ Ages 4–9 · No Season Commitment</div>
+      <h1>Sports starts <em>before</em> the team does.</h1>
+      <p class="hero-sub">
+        Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for fun.
+      </p>
+      <div class="hero-btns">
+        <a href="#schedule" class="btn-primary">Book a Session →</a>
+        <a href="#how" class="btn-outline">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-icon">🏆</div>
+        <div class="stat-num">Zero</div>
+        <div class="stat-label">pressure. Just teaching, laughing, and learning.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">👧</div>
+        <div class="stat-num">4–6</div>
+        <div class="stat-label">kids max per session</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-num">Your</div>
+        <div class="stat-label">schedule — book single sessions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS MARQUEE -->
+<div class="sports-strip">
+  <div class="sports-scroll">
+    <div class="sport-pill"><span>⚾</span> Baseball</div>
+    <div class="sport-pill"><span>🏀</span> Basketball</div>
+    <div class="sport-pill"><span>🏈</span> Football</div>
+    <div class="sport-pill"><span>🏓</span> Pickleball</div>
+    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⚾</span> Baseball</div>
+    <div class="sport-pill"><span>🏀</span> Basketball</div>
+    <div class="sport-pill"><span>🏈</span> Football</div>
+    <div class="sport-pill"><span>🏓</span> Pickleball</div>
+    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⚾</span> Baseball</div>
+    <div class="sport-pill"><span>🏀</span> Basketball</div>
+    <div class="sport-pill"><span>🏈</span> Football</div>
+    <div class="sport-pill"><span>🏓</span> Pickleball</div>
+    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⚾</span> Baseball</div>
+    <div class="sport-pill"><span>🏀</span> Basketball</div>
+    <div class="sport-pill"><span>🏈</span> Football</div>
+    <div class="sport-pill"><span>🏓</span> Pickleball</div>
+    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="section-inner">
+    <div class="section-tag">How It Works</div>
+    <h2>Simple, flexible, fun.</h2>
+    <p class="section-sub">No season sign-ups. No worrying if your kid will lose interest. Just pick a slot, show up, and let them fall in love with sport.</p>
+    <div class="steps reveal">
+      <div class="step-card">
+        <span class="step-emoji">📅</span>
+        <div class="step-num">1</div>
+        <h3>Pick a Time Slot</h3>
+        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Mark keeps slots flexible.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <span class="step-emoji">👨‍👧‍👦</span>
+        <h3>Bring Friends (Optional)</h3>
+        <p>Coordinate with other parents and book the same session. Up to 6 kids per session so it never feels like a crowd.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <span class="step-emoji">🎉</span>
+        <h3>Show Up & Play</h3>
+        <p>No gear required to start. Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY MARK -->
+<section class="section why-section" id="about">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-text">
+        <div class="section-tag" style="background: var(--sun); color: var(--navy);">Why Coach Mark</div>
+        <h2>Kid sports should be fun. Full stop.</h2>
+        <p class="section-sub">
+          Mark gets it. Your 5-year-old doesn't need a coach yelling from the dugout — they need someone who makes learning feel like playing.
+        </p>
+        <ul class="why-list">
+          <li>No season commitment — book one session at a time</li>
+          <li>Small groups (4–6 kids) means real attention for every child</li>
+          <li>Multi-sport: baseball, basketball, football, pickleball</li>
+          <li>Perfect for 4–9 year olds who've never played before</li>
+          <li>Parents can coordinate with friends to fill a session together</li>
+          <li>Zero pressure — this is about building confidence, not stats</li>
+        </ul>
+      </div>
+      <div class="coach-card">
+        <div class="coach-avatar">👨‍🏫</div>
+        <div class="coach-name">Coach Mark Lucas</div>
+        <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
+        <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
+        <div class="coach-sports">
+          <span class="sport-tag">⚾ Baseball</span>
+          <span class="sport-tag">🏀 Basketball</span>
+          <span class="sport-tag">🏈 Football</span>
+          <span class="sport-tag">🏓 Pickleball</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS -->
+<section class="section sports-section" id="sports">
+  <div class="section-inner">
+    <div class="section-tag">Sports Offered</div>
+    <h2>Pick your sport. Or try them all.</h2>
+    <p class="section-sub">Every session is sport-specific so kids learn the real fundamentals without information overload.</p>
+    <div class="sports-grid reveal">
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--red-sport);"></div>
+        <span class="sport-card-icon">⚾</span>
+        <h3>Baseball</h3>
+        <p>Throwing, catching, fielding ground balls, and hitting off a tee. Before tee ball starts, let's make sure they know the basics.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--orange);"></div>
+        <span class="sport-card-icon">🏀</span>
+        <h3>Basketball</h3>
+        <p>Dribbling, passing, shooting form — without making a 5-year-old feel like they're in a drill. It's all games and movement.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--grass-dark);"></div>
+        <span class="sport-card-icon">🏈</span>
+        <h3>Football</h3>
+        <p>Throwing spirals, catching, route running. Flag football fundamentals in a safe, fun setting with no tackling.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: #8b5cf6;"></div>
+        <span class="sport-card-icon">🏓</span>
+        <h3>Pickleball</h3>
+        <p>The fastest-growing sport in America — and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULING -->
+<section class="section schedule-section" id="schedule">
+  <div class="section-inner">
+    <div class="section-tag">Book a Session</div>
+    <h2>Pick your slot.</h2>
+    <p class="section-sub">All sessions are 4–6 kids max. Green dots = open spots. Gray = taken. Grab a slot and sign your little one up.</p>
+    <div class="schedule-ui reveal">
+      <div class="schedule-header">
+        <h3>📅 Available Sessions</h3>
+      </div>
+      <div class="schedule-filters">
+        <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
+        <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">⚾ Baseball</button>
+        <button class="filter-chip sport-basketball" onclick="filterSlots('basketball', this)">🏀 Basketball</button>
+        <button class="filter-chip sport-football" onclick="filterSlots('football', this)">🏈 Football</button>
+        <button class="filter-chip sport-pickleball" onclick="filterSlots('pickleball', this)">🏓 Pickleball</button>
+      </div>
+      <div class="slots-grid" id="slotsGrid">
+        <div class="slots-loading">Loading sessions…</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-tag">Pricing</div>
+    <h2>No season. No subscription. No stress.</h2>
+    <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <span class="price-sport-icon">⚾🏓</span>
+        <h3>Single Session</h3>
+        <div class="price-amount">$35</div>
+        <div class="price-per">per child, per session</div>
+        <ul class="price-features">
+          <li>One 60-min group session</li>
+          <li>4–6 kids per group</li>
+          <li>Your choice of sport</li>
+          <li>No commitment required</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">⭐ Most Popular</div>
+        <span class="price-sport-icon">🏀🏈</span>
+        <h3>3-Session Pack</h3>
+        <div class="price-amount">$90</div>
+        <div class="price-per">per child — save $15</div>
+        <ul class="price-features">
+          <li>3 sessions, use anytime</li>
+          <li>Mix sports across sessions</li>
+          <li>Book as you go</li>
+          <li>Invite friends to each</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <span class="price-sport-icon">🏆</span>
+        <h3>5-Session Pack</h3>
+        <div class="price-amount">$140</div>
+        <div class="price-per">per child — save $35</div>
+        <ul class="price-features">
+          <li>5 sessions, use anytime</li>
+          <li>All sports included</li>
+          <li>Priority booking access</li>
+          <li>Progress check-in included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-inner" style="text-align: center;">
+    <div class="section-tag">FAQ</div>
+    <h2 style="margin-bottom: 0.5rem;">Common questions from parents</h2>
+    <p class="section-sub" style="margin: 0.5rem auto 2.5rem;">We've heard them all.</p>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <h4>My kid has never played before. Is that okay?</h4>
+        <p>That's literally the whole point! Coach Mark specializes in first-timers. Zero experience needed — not even knowing what the sport is.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can I book just one session and see how it goes?</h4>
+        <p>Absolutely. Single sessions are available. No pressure to buy a pack, no commitment to anything after that first session.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Can we fill a session with our friend group?</h4>
+        <p>Yes! Grab 4–6 families, all book the same time slot, and make it your own little crew. It's the most fun way to do it.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What ages are sessions for?</h4>
+        <p>Ages 4 through 9. Too young for most leagues, but exactly the right age to start learning and building that love of sport.</p>
+      </div>
+      <div class="faq-item">
+        <h4>Do we need to bring equipment?</h4>
+        <p>Nope. Coach Mark has everything you need. Just bring your kid in comfortable clothes and sneakers.</p>
+      </div>
+      <div class="faq-item">
+        <h4>What if my kid wants to try different sports?</h4>
+        <p>Each session is sport-specific, but your pack sessions can be used across any sport. Great for kids who haven't found their thing yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div style="position: relative; z-index: 1;">
+    <h2>Ready to book your kid's first session?</h2>
+    <p>No commitment. Just a good time on the field, court, or diamond. Pick a slot and let's go.</p>
+    <a href="#schedule" class="cta-btn">Browse Open Sessions →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p><strong>Coach Mark Lucas</strong> · Youth Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
+  <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>mark@firststepssports.com</strong> · (555) 123-4567</p>
+</footer>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div id="modalContent"></div>
+  </div>
+</div>
+
+<script>
+// ── SLOTS ──
+let slots = [];
+let allSlots = [];
+let activeFilter = 'all';
+
+async function loadSlots() {
+  try {
+    const res = await fetch('/api/slots');
+    if (!res.ok) throw new Error('Failed to load');
+    allSlots = await res.json();
+    slots = allSlots;
+    renderSlots('all');
+  } catch {
+    // Fallback to demo data if backend isn't reachable
+    allSlots = [
+      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 5', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 5', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
+      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 5', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
+      { id: 4, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sun Apr 6', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
+      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 6', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
+      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 9', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
+      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 10', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
+      { id: 8, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sat Apr 12', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 12', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
+    ];
+    slots = allSlots;
+    renderSlots('all');
+  }
+}
+
+function renderSlots(filter) {
+  const grid = document.getElementById('slotsGrid');
+  const filtered = filter === 'all' ? allSlots : allSlots.filter(s => s.sport === filter);
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="slots-loading">No sessions available right now. Check back soon!</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(slot => {
+    const isFull = slot.taken >= slot.total;
+    const open = slot.total - slot.taken;
+    const dots = Array.from({ length: slot.total }, (_, i) =>
+      `<div class="spot-dot${i < slot.taken ? ' taken' : ''}"></div>`).join('');
+    return `
+      <div class="slot-card ${slot.sport}${isFull ? ' full' : ''}"
+           ${isFull ? '' : `onclick="openBooking('${slot.id}')"`}>
+        <div class="slot-sport">${slot.icon}</div>
+        <div class="slot-name">${slot.name}</div>
+        <div class="slot-time">📅 ${slot.day} · ${slot.time}</div>
+        <div class="slot-spots">
+          <div class="spot-dots">${dots}</div>
+          ${isFull
+            ? '<span class="slot-full-badge">Full</span>'
+            : `<span class="spots-text">${open} spot${open !== 1 ? 's' : ''} left</span>`}
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function filterSlots(sport, btn) {
+  activeFilter = sport;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  renderSlots(sport);
+}
+
+function openBooking(slotId) {
+  const slot = allSlots.find(s => String(s.id) === String(slotId));
+  if (!slot) return;
+  const open = slot.total - slot.taken;
+
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-header">
+      <h3>Book Your Spot</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-slot-info">
+      <div class="modal-slot-icon">${slot.icon}</div>
+      <div class="modal-slot-detail">
+        <h4>${slot.name}</h4>
+        <p>${slot.day} · ${slot.time}</p>
+        <p style="color: var(--grass); font-weight: 700; margin-top: 4px;">${open} spot${open !== 1 ? 's' : ''} remaining</p>
+      </div>
+    </div>
+    <div class="form-note">📌 No payment due now. Mark will confirm and send payment info within 24 hours.</div>
+    <div class="form-error" id="formError"></div>
+    <div class="form-group">
+      <label>Your Name (Parent/Guardian)</label>
+      <input type="text" placeholder="Jane Smith" id="parentName">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Child's Name</label>
+        <input type="text" placeholder="Alex" id="kidName">
+      </div>
+      <div class="form-group">
+        <label>Child's Age</label>
+        <select id="kidAge">
+          <option value="">Select age</option>
+          <option>4</option><option>5</option><option>6</option>
+          <option>7</option><option>8</option><option>9</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Your Phone / Email</label>
+      <input type="text" placeholder="jane@example.com or (555) 000-0000" id="contactInfo">
+    </div>
+    <div class="form-group">
+      <label>Anything Mark should know? (optional)</label>
+      <input type="text" placeholder="e.g. First time ever holding a bat!" id="notes">
+    </div>
+    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Request This Spot →</button>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+async function submitBooking(slotId) {
+  const parent = document.getElementById('parentName').value.trim();
+  const kid = document.getElementById('kidName').value.trim();
+  const age = document.getElementById('kidAge').value;
+  const contact = document.getElementById('contactInfo').value.trim();
+  const notes = document.getElementById('notes').value.trim();
+  const errEl = document.getElementById('formError');
+
+  if (!parent || !kid || !age || !contact) {
+    errEl.textContent = 'Please fill in all required fields.';
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('bookBtn');
+  btn.disabled = true;
+  btn.textContent = 'Booking…';
+
+  try {
+    const res = await fetch('/api/book', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId: slotId, parentName: parent, kidName: kid, kidAge: age, contactInfo: contact, notes }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Booking failed');
+
+    // Update local count so the slot reflects the new booking immediately
+    const slot = allSlots.find(s => String(s.id) === String(slotId));
+    if (slot) slot.taken = Math.min(slot.taken + 1, slot.total);
+    renderSlots(activeFilter);
+
+    document.getElementById('modalContent').innerHTML = `
+      <div class="confirm-screen">
+        <div class="confirm-icon">🎉</div>
+        <h3>You're on the list!</h3>
+        <p>Thanks, ${parent}! Coach Mark will reach out to confirm ${kid}'s spot and handle payment details within 24 hours. Get ready for some fun!</p>
+        <button class="btn-book" onclick="closeModal()">Close</button>
+      </div>
+    `;
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Request This Spot →';
+    errEl.textContent = err.message || 'Something went wrong. Please try again.';
+    errEl.style.display = 'block';
+  }
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ── MOBILE MENU ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Init
+loadSlots();
+</script>
+</body>
+</html>
