@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --grass: #0033A0;
-    --grass-light: #0044CC;
-    --grass-dark: #002080;
+    --grass: #2d9e5f;
+    --grass-light: #3dbf74;
+    --grass-dark: #1e7042;
     --sky: #f0f8ff;
-    --sun: #FFFFFF;
-    --orange: #CC0000;
-    --navy: #002147;
-    --navy-light: #003166;
-    --cream: #FFFFFF;
-    --chalk: #F0F4FF;
+    --sun: #FFD23F;
+    --orange: #FF6B35;
+    --navy: #1a2e4a;
+    --navy-light: #243d60;
+    --cream: #fffdf5;
+    --chalk: #f5f0e8;
     --red-sport: #e63946;
     --sand: #f4c87a;
   }
@@ -406,7 +406,7 @@
   .modal-header h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; }
   .modal-close {
     width: 36px; height: 36px; border-radius: 50%;
-    background: #F0F4FF; border: none; cursor: pointer;
+    background: #f5f0e8; border: none; cursor: pointer;
     font-size: 1.2rem; display: flex; align-items: center; justify-content: center;
   }
   .modal-close:hover { background: #ede8e0; }
@@ -509,7 +509,7 @@
   }
   .price-card.featured .btn-stripe:hover { box-shadow: 0 6px 20px rgba(255,210,63,0.5); }
 
-  .calendly-wrapper { display:none !important;
+  .calendly-wrapper {
     border-radius: 20px; overflow: hidden;
     box-shadow: 0 8px 40px rgba(0,0,0,0.08);
     border: 2px solid #e8e2d8;
@@ -584,7 +584,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">First Play Sports</div>
+  <div class="nav-logo">Coach <span>Mark Lucas</span></div>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#sports">Sports</a></li>
@@ -621,7 +621,7 @@
       <div class="hero-badge">⚡ Ages 4–9 · No Season Commitment</div>
       <h1>Sports starts <em>before</em> the team does.</h1>
       <p class="hero-sub">
-        Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.
+        Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for fun.
       </p>
       <div class="hero-btns">
         <a href="#schedule" class="btn-primary">Book a Session →</a>
@@ -642,7 +642,7 @@
       <div class="stat-card">
         <div class="stat-icon">📅</div>
         <div class="stat-num">Your</div>
-        <div class="stat-label">schedule — book Gamedays</div>
+        <div class="stat-label">schedule — book single sessions</div>
       </div>
     </div>
   </div>
@@ -685,7 +685,7 @@
         <span class="step-emoji">📅</span>
         <div class="step-num">1</div>
         <h3>Pick a Time Slot</h3>
-        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Coach Mark keeps slots flexible.</p>
+        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Mark keeps slots flexible.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -697,7 +697,7 @@
         <div class="step-num">3</div>
         <span class="step-emoji">🎉</span>
         <h3>Show Up & Play</h3>
-        <p>No gear required to start. Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
+        <p>No gear required to start. Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
       </div>
     </div>
   </div>
@@ -709,9 +709,9 @@
     <div class="why-grid">
       <div class="why-text">
         <div class="section-tag" style="background: var(--sun); color: var(--navy);">Why Coach Mark</div>
-        <h2>Kid sports should be fun. </h2>
+        <h2>Kid sports should be fun. Full stop.</h2>
         <p class="section-sub">
-          Coach Mark gets it. Your 5-year-old doesn't need a coach yelling from the dugout — they need someone who makes learning feel like playing.
+          Mark gets it. Your 5-year-old doesn't need a coach yelling from the dugout — they need someone who makes learning feel like playing.
         </p>
         <ul class="why-list">
           <li>No season commitment — book one session at a time</li>
@@ -724,7 +724,7 @@
       </div>
       <div class="coach-card">
         <div class="coach-avatar">👨‍🏫</div>
-        <div class="coach-name">Coach Mark</div>
+        <div class="coach-name">Coach Mark Lucas</div>
         <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
         <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
         <div class="coach-sports">
@@ -780,10 +780,10 @@
     <h2>Pick your time.</h2>
     <p class="section-sub">Mark's calendar is always up to date — pick a slot, fill in a few details, and you're confirmed. No back-and-forth needed.</p>
     <div class="calendly-wrapper reveal">
-      <!-- TODO: Replace firstplaysports with Mark's actual Calendly link -->
+      <!-- TODO: Replace YOUR_CALENDLY_URL with Mark's actual Calendly link -->
       <!-- Example: https://calendly.com/coach-mark-lucas/sports-session -->
       <div class="calendly-inline-widget"
-           data-url="https://calendly.com/firstplaysports?hide_gdpr_banner=1&primary_color=2d9e5f"
+           data-url="https://calendly.com/YOUR_CALENDLY_URL?hide_gdpr_banner=1&primary_color=2d9e5f"
            style="min-width:320px;height:700px;">
       </div>
     </div>
@@ -799,46 +799,46 @@
     <div class="pricing-grid reveal">
       <div class="price-card">
         <span class="price-sport-icon">⚾🏓</span>
-        <h3>Gameday</h3>
-        <div class="price-amount">$22</div>
+        <h3>Single Session</h3>
+        <div class="price-amount">$35</div>
         <div class="price-per">per child, per session</div>
         <ul class="price-features">
-          <li>One 45-min group session</li>
+          <li>One 60-min group session</li>
           <li>4–6 kids per group</li>
           <li>Your choice of sport</li>
           <li>No commitment required</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Gameday -->
-        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now — $22 →</a>
+        <!-- TODO: Replace with Mark's Stripe payment link for single session -->
+        <a href="https://buy.stripe.com/SINGLE_SESSION_LINK" class="btn-stripe" target="_blank">Buy Now — $35 →</a>
       </div>
       <div class="price-card featured">
         <div class="popular-badge">⭐ Most Popular</div>
         <span class="price-sport-icon">🏀🏈</span>
-        <h3>Double Play</h3>
-        <div class="price-amount">$38</div>
+        <h3>3-Session Pack</h3>
+        <div class="price-amount">$90</div>
         <div class="price-per">per child — save $15</div>
         <ul class="price-features">
-          <li>2 sessions, use anytime</li>
-          <li>Repeat the same sport or try a new one</li>
+          <li>3 sessions, use anytime</li>
+          <li>Mix sports across sessions</li>
           <li>Book as you go</li>
           <li>Invite friends to each</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Double Play -->
-        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now — $38 →</a>
+        <!-- TODO: Replace with Mark's Stripe payment link for 3-session pack -->
+        <a href="https://buy.stripe.com/THREE_PACK_LINK" class="btn-stripe" target="_blank">Buy Now — $90 →</a>
       </div>
       <div class="price-card">
         <span class="price-sport-icon">🏆</span>
-        <h3>Starting Five</h3>
-        <div class="price-amount">$80</div>
-        <div class="price-per">per child — save $22</div>
+        <h3>5-Session Pack</h3>
+        <div class="price-amount">$140</div>
+        <div class="price-per">per child — save $35</div>
         <ul class="price-features">
           <li>5 sessions, use anytime</li>
           <li>All sports included</li>
           <li>Priority booking access</li>
           <li>Progress check-in included</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Starting Five -->
-        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now — $80 →</a>
+        <!-- TODO: Replace with Mark's Stripe payment link for 5-session pack -->
+        <a href="https://buy.stripe.com/FIVE_PACK_LINK" class="btn-stripe" target="_blank">Buy Now — $140 →</a>
       </div>
     </div>
   </div>
@@ -857,7 +857,7 @@
       </div>
       <div class="faq-item">
         <h4>Can I book just one session and see how it goes?</h4>
-        <p>Absolutely. Gamedays are available. No pressure to buy a pack, no commitment to anything after that first session.</p>
+        <p>Absolutely. Single sessions are available. No pressure to buy a pack, no commitment to anything after that first session.</p>
       </div>
       <div class="faq-item">
         <h4>Can we fill a session with our friend group?</h4>
@@ -869,7 +869,7 @@
       </div>
       <div class="faq-item">
         <h4>Do we need to bring equipment?</h4>
-        <p>Nope. Coach Mark supplies everything you need. Just bring your kid in comfortable clothes and sneakers. That said, if your child has their own glove, bat, or set of golf clubs they love, bring them! There is nothing better than a kid playing with gear that already feels like theirs.</p>
+        <p>Nope. Coach Mark has everything you need. Just bring your kid in comfortable clothes and sneakers.</p>
       </div>
       <div class="faq-item">
         <h4>What if my kid wants to try different sports?</h4>
@@ -890,7 +890,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
+  <p><strong>Coach Mark Lucas</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
   <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>mark@firstplaysports.com</strong> · (555) 123-4567</p>
 </footer>
 
@@ -1102,4 +1102,3 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
-
