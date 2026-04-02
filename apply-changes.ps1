@@ -59,5 +59,12 @@ $content = $content -replace '<em>before</em> the team does', '<em style="color:
 $newFaq = '<div class="faq-item"><h4>What if my child has already played the sport?</h4><p>Even better. A child who has already been on a field comes in with a foundation we can build on. Coach Mark works with every athlete at their level. Every kid leaves better than they arrived.</p></div><div class="faq-item"><h4>My child is currently in season. Can they still come see Coach Mark?</h4><p>Absolutely. What Coach Mark works on translates directly to what your child does in their next game. We are not competing with your childs team or coach. We are complementing it. Coach Mark is ready.</p></div>'
 $content = $content -replace "Great for kids who haven't found their thing yet\.</p>", "Great for kids who haven't found their thing yet.</p></div>$newFaq"
 
+# Fix Box 3
+$content = $content -replace 'schedule .* book Gamedays', 'sport, your schedule, your pace. Switch sports any session, any time.'
+
+# Fix triple Coach Mark in booking form
+$content = $content -replace 'Coach Coach Coach Mark', 'Coach Mark'
+
+powershell -ExecutionPolicy Bypass -File apply-changes.ps1
 Set-Content $file $content
-Write-Host "All changes applied successfully!"
+Write-Host "All changes applied successfully!"$content = $content -replace 'schedule .* book Gamedays', 'sport, your schedule, your pace. Switch sports any session, any time.'
