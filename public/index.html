@@ -188,7 +188,7 @@
   .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
   .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .stat-card {
+  .stat-card { border-left: 4px solid #B22234; background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)); box-shadow: 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.12); padding: 1.8rem;
     background: rgba(255,255,255,0.07);
     border: 1px solid rgba(255,255,255,0.12);
     border-radius: 16px; padding: 1.4rem 1.2rem;
@@ -197,8 +197,8 @@
   }
   .stat-card:hover { transform: translateY(-3px); }
   .stat-card:first-child { grid-column: 1 / -1; background: rgba(255,210,63,0.1); border-color: rgba(255,210,63,0.25); }
-  .stat-num { font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--sun); line-height: 1; }
-  .stat-label { color: rgba(255,255,255,0.65); font-size: 0.85rem; font-weight: 600; margin-top: 0.3rem; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 3.5rem; color: #fff; line-height: 1; font-weight: 900; }
+  .stat-label { color: rgba(255,255,255,0.9); font-size: 1rem; font-weight: 500; margin-top: 0.5rem; }
   .stat-icon { font-size: 1.6rem; margin-bottom: 0.5rem; }
 
   .floating-balls { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
@@ -509,7 +509,7 @@
   }
   .price-card.featured .btn-stripe:hover { box-shadow: 0 6px 20px rgba(255,210,63,0.5); }
 
-  .calendly-wrapper { display:none !important;
+  .calendly-wrapper { display:none !important; display:none !important;
     border-radius: 20px; overflow: hidden;
     box-shadow: 0 8px 40px rgba(0,0,0,0.08);
     border: 2px solid #e8e2d8;
@@ -632,12 +632,12 @@
       <div class="stat-card">
         <div class="stat-icon">🏆</div>
         <div class="stat-num">Zero</div>
-        <div class="stat-label">pressure. Just teaching, laughing, and learning.</div>
+        <div class="stat-label">pressure. No tryouts, no seasons, no scoreboards. Just Coach Mark and your kid.</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">👧</div>
         <div class="stat-num">4–6</div>
-        <div class="stat-label">kids max per session</div>
+        <div class="stat-label">kids per session. Every child gets coached, not just watched.</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon">📅</div>
@@ -685,7 +685,7 @@
         <span class="step-emoji">📅</span>
         <div class="step-num">1</div>
         <h3>Pick a Time Slot</h3>
-        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Coach Mark keeps slots flexible.</p>
+        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Coach Coach Mark keeps slots flexible.</p>
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
@@ -697,7 +697,7 @@
         <div class="step-num">3</div>
         <span class="step-emoji">🎉</span>
         <h3>Show Up & Play</h3>
-        <p>No gear required to start. Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
+        <p>No gear required to start. Coach Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
       </div>
     </div>
   </div>
@@ -711,7 +711,7 @@
         <div class="section-tag" style="background: var(--sun); color: var(--navy);">Why Coach Mark</div>
         <h2>Kid sports should be fun. </h2>
         <p class="section-sub">
-          Coach Mark gets it. Your 5-year-old doesn't need a coach yelling from the dugout — they need someone who makes learning feel like playing.
+          Coach Coach Mark gets it. Your 5-year-old doesn't need a coach yelling from the dugout — they need someone who makes learning feel like playing.
         </p>
         <ul class="why-list">
           <li>No season commitment — book one session at a time</li>
@@ -1102,4 +1102,5 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
 
