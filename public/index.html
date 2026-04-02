@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coach Mark Lucas — First Steps Sports</title>
+<title>Coach Mark Lucas — First Play Sports</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -493,6 +493,28 @@
   .price-features li::before { content: '✓'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
   .price-card.featured .price-features li::before { color: var(--sun); }
 
+  .btn-stripe {
+    display: block; margin-top: 1.5rem;
+    background: var(--grass); color: #fff;
+    padding: 0.75rem 1rem; border-radius: 100px;
+    font-weight: 800; font-size: 0.95rem;
+    text-decoration: none; text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 3px 12px rgba(45,158,95,0.3);
+  }
+  .btn-stripe:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(45,158,95,0.4); }
+  .price-card.featured .btn-stripe {
+    background: var(--sun); color: var(--navy);
+    box-shadow: 0 3px 12px rgba(255,210,63,0.35);
+  }
+  .price-card.featured .btn-stripe:hover { box-shadow: 0 6px 20px rgba(255,210,63,0.5); }
+
+  .calendly-wrapper {
+    border-radius: 20px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    border: 2px solid #e8e2d8;
+  }
+
   /* ── FAQ ── */
   .faq-section { background: #fff; }
   .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 900px; margin: 0 auto; }
@@ -633,22 +655,22 @@
     <div class="sport-pill"><span>🏀</span> Basketball</div>
     <div class="sport-pill"><span>🏈</span> Football</div>
     <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
     <div class="sport-pill"><span>⚾</span> Baseball</div>
     <div class="sport-pill"><span>🏀</span> Basketball</div>
     <div class="sport-pill"><span>🏈</span> Football</div>
     <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
     <div class="sport-pill"><span>⚾</span> Baseball</div>
     <div class="sport-pill"><span>🏀</span> Basketball</div>
     <div class="sport-pill"><span>🏈</span> Football</div>
     <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
     <div class="sport-pill"><span>⚾</span> Baseball</div>
     <div class="sport-pill"><span>🏀</span> Basketball</div>
     <div class="sport-pill"><span>🏈</span> Football</div>
     <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Steps Sports</div>
+    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
   </div>
 </div>
 
@@ -755,21 +777,14 @@
 <section class="section schedule-section" id="schedule">
   <div class="section-inner">
     <div class="section-tag">Book a Session</div>
-    <h2>Pick your slot.</h2>
-    <p class="section-sub">All sessions are 4–6 kids max. Green dots = open spots. Gray = taken. Grab a slot and sign your little one up.</p>
-    <div class="schedule-ui reveal">
-      <div class="schedule-header">
-        <h3>📅 Available Sessions</h3>
-      </div>
-      <div class="schedule-filters">
-        <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
-        <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">⚾ Baseball</button>
-        <button class="filter-chip sport-basketball" onclick="filterSlots('basketball', this)">🏀 Basketball</button>
-        <button class="filter-chip sport-football" onclick="filterSlots('football', this)">🏈 Football</button>
-        <button class="filter-chip sport-pickleball" onclick="filterSlots('pickleball', this)">🏓 Pickleball</button>
-      </div>
-      <div class="slots-grid" id="slotsGrid">
-        <div class="slots-loading">Loading sessions…</div>
+    <h2>Pick your time.</h2>
+    <p class="section-sub">Mark's calendar is always up to date — pick a slot, fill in a few details, and you're confirmed. No back-and-forth needed.</p>
+    <div class="calendly-wrapper reveal">
+      <!-- TODO: Replace YOUR_CALENDLY_URL with Mark's actual Calendly link -->
+      <!-- Example: https://calendly.com/coach-mark-lucas/sports-session -->
+      <div class="calendly-inline-widget"
+           data-url="https://calendly.com/YOUR_CALENDLY_URL?hide_gdpr_banner=1&primary_color=2d9e5f"
+           style="min-width:320px;height:700px;">
       </div>
     </div>
   </div>
@@ -793,6 +808,8 @@
           <li>Your choice of sport</li>
           <li>No commitment required</li>
         </ul>
+        <!-- TODO: Replace with Mark's Stripe payment link for single session -->
+        <a href="https://buy.stripe.com/SINGLE_SESSION_LINK" class="btn-stripe" target="_blank">Buy Now — $35 →</a>
       </div>
       <div class="price-card featured">
         <div class="popular-badge">⭐ Most Popular</div>
@@ -806,6 +823,8 @@
           <li>Book as you go</li>
           <li>Invite friends to each</li>
         </ul>
+        <!-- TODO: Replace with Mark's Stripe payment link for 3-session pack -->
+        <a href="https://buy.stripe.com/THREE_PACK_LINK" class="btn-stripe" target="_blank">Buy Now — $90 →</a>
       </div>
       <div class="price-card">
         <span class="price-sport-icon">🏆</span>
@@ -818,6 +837,8 @@
           <li>Priority booking access</li>
           <li>Progress check-in included</li>
         </ul>
+        <!-- TODO: Replace with Mark's Stripe payment link for 5-session pack -->
+        <a href="https://buy.stripe.com/FIVE_PACK_LINK" class="btn-stripe" target="_blank">Buy Now — $140 →</a>
       </div>
     </div>
   </div>
@@ -869,8 +890,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Coach Mark Lucas</strong> · Youth Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
-  <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>mark@firststepssports.com</strong> · (555) 123-4567</p>
+  <p><strong>Coach Mark Lucas</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
+  <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>mark@firstplaysports.com</strong> · (555) 123-4567</p>
 </footer>
 
 <!-- BOOKING MODAL -->
@@ -1077,5 +1098,7 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 // Init
 loadSlots();
 </script>
+<!-- Calendly widget script -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>

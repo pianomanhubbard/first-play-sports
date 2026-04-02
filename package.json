@@ -1,7 +1,7 @@
 {
-  "name": "first-steps-sports",
+  "name": "first-play-sports",
   "version": "1.0.0",
-  "description": "Coach Mark Lucas — Youth sports coaching booking site",
+  "description": "Coach Mark Lucas — First Play Sports booking site",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

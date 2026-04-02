@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: first-steps-sports
+    name: first-play-sports
     runtime: node
     buildCommand: npm install
     startCommand: node server.js

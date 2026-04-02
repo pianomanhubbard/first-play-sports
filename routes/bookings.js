@@ -77,8 +77,8 @@ router.post('/book', async (req, res) => {
   if (bookingErr) return res.status(500).json({ error: bookingErr.message });
 
   // Email Mark
-  const markEmail = process.env.COACH_EMAIL || 'mark@firststepssports.com';
-  const fromEmail = process.env.RESEND_FROM || 'noreply@firststepssports.com';
+  const markEmail = process.env.COACH_EMAIL || 'mark@firstplaysports.com';
+  const fromEmail = process.env.RESEND_FROM || 'noreply@firstplaysports.com';
 
   const spotsLeft = session.total_spots - taken - 1;
 
@@ -91,7 +91,7 @@ router.post('/book', async (req, res) => {
         <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
           <div style="background:#1a2e4a;padding:24px 32px;border-radius:12px 12px 0 0;">
             <h1 style="color:#FFD23F;margin:0;font-size:1.4rem;">⚽ New Booking Request</h1>
-            <p style="color:rgba(255,255,255,0.7);margin:6px 0 0;">First Steps Sports</p>
+            <p style="color:rgba(255,255,255,0.7);margin:6px 0 0;">First Play Sports</p>
           </div>
           <div style="border:1px solid #e8e2d8;border-top:none;border-radius:0 0 12px 12px;padding:24px 32px;">
             <h2 style="color:#1a2e4a;margin-top:0;">${session.icon} ${session.name}</h2>
