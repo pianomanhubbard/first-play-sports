@@ -66,5 +66,9 @@ $content = $content -replace 'schedule .* book Gamedays', 'sport, your schedule,
 $content = $content -replace 'Coach Coach Coach Mark', 'Coach Mark'
 
 powershell -ExecutionPolicy Bypass -File apply-changes.ps1
+$content = $content -replace 'calendly-wrapper reveal', 'calendly-wrapper'
+$content = $content -replace '<div class="calendly-wrapper">', '<div class="calendly-wrapper" style="display:none">'
+
+powershell -ExecutionPolicy Bypass -File apply-changes.ps1
 Set-Content $file $content
 Write-Host "All changes applied successfully!"$content = $content -replace 'schedule .* book Gamedays', 'sport, your schedule, your pace. Switch sports any session, any time.'
