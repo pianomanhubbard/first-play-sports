@@ -620,7 +620,8 @@
     <div class="hero-text">
       <div class="hero-badge">⚡ Ages 4–9 · No Season Commitment</div>
       <h1>Sports start <em>before</em> the team does.</h1>
-      <p class="hero-sub">
+      <p class="hero-accent" style="font-style:italic;font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:0.8rem;">For most kids, Coach Mark will be the first coach they ever have. We take that seriously.</p>
+    <p class="hero-sub">
         Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.
       </p>
       <div class="hero-btns">
@@ -641,8 +642,8 @@
       </div>
       <div class="stat-card">
         
-        <div class="stat-num">Your call.</div>
-        <div class="stat-label">Pick your sport, your schedule, your pace. Switch any session, any time.</div>
+        <div class="stat-num">No schedule.</div>
+        <div class="stat-label">No season, no commitment. Book one session and see what your kid thinks.</div>
       </div>
     </div>
   </div>
@@ -682,7 +683,6 @@
     <p class="section-sub">No season sign-ups. No worrying if your kid will lose interest. Just pick a slot, show up, and let them fall in love with sport.</p>
     <div class="steps reveal">
       <div class="step-card">
-        <span class="step-emoji">📅</span>
         <div class="step-num">1</div>
         <h3>Pick a Time Slot</h3>
         <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — Coach Mark keeps slots flexible.</p>
@@ -723,7 +723,7 @@
         </ul>
       </div>
       <div class="coach-card">
-        <div class="coach-avatar">👨‍🏫</div>
+        <div class="coach-avatar" style="background:var(--navy-light);display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:rgba(255,255,255,0.6);text-align:center;padding:1rem;">Photo Coming Soon</div>
         <div class="coach-name">Coach Mark</div>
         <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
         <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
@@ -742,6 +742,26 @@
   </div>
 </section>
 
+<section class="section" style="background:var(--navy);color:#fff;">
+  <div class="section-inner">
+    <h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
+    <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. Coach Mark runs drills, teaches fundamentals, and gives every kid individual attention. Your child will know what it feels like to have a coach in their corner before they ever step onto a team. That foundation is something they carry with them forever.</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+      <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
+        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Structure</div>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">Every session has a plan, a skill focus, and a clear beginning and end.</p>
+      </div>
+      <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
+        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Instruction</div>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">Coach Mark teaches. Every kid leaves having learned something specific.</p>
+      </div>
+      <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
+        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Individual Attention</div>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">4-6 kids per session means your child is never invisible.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- SPORTS -->
 <section class="section sports-section" id="sports">
   <div class="section-inner">
@@ -869,8 +889,8 @@
         <ul class="price-features">
           <li>5 sessions, use anytime</li>
           <li>All sports included</li>
-          <li>Priority booking access</li>
-          <li>Progress check-in included</li>
+          <li>First Play Sports jersey included on first visit</li>
+          <li>Your number, your choice - yours to keep</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Starting Five -->
         <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now — $80 →</a>
@@ -899,7 +919,7 @@
         <p>Yes! Grab 4–6 families, all book the same time slot, and make it your own little crew. It's the most fun way to do it.</p>
       </div>
       <div class="faq-item">
-        <h4>What ages are sessions for?</h4>
+        <h4 style="border:none;">What ages are sessions for?</h4>
         <p>Ages 4 through 9. Too young for most leagues, but exactly the right age to start learning and building that love of sport.</p>
       </div>
       <div class="faq-item">
@@ -926,7 +946,7 @@
 <!-- FOOTER -->
 <footer>
   <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
-  <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>mark@firstplaysports.com</strong> · (555) 123-4567</p>
+  <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>firstplaysportswv@gmail.com</strong> · (724) 799-4778</p>
 </footer>
 
 <!-- BOOKING MODAL -->
@@ -952,15 +972,15 @@ async function loadSlots() {
   } catch {
     // Fallback to demo data if backend isn't reachable
     allSlots = [
-      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 5', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 5', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
-      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 5', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
-      { id: 4, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sun Apr 6', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
-      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 6', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
-      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 9', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
-      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 10', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
-      { id: 8, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sat Apr 12', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 12', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
+      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
+      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
+      { id: 4, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
+      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
+      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
+      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
+      { id: 8, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
     ];
     slots = allSlots;
     renderSlots('all');
@@ -1137,6 +1157,11 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
+
+
+
+
 
 
 
