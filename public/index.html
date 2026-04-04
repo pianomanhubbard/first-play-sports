@@ -273,11 +273,11 @@
   .step-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
 
   /* -- WHY MARK -- */
-  .why-section { padding-bottom: 2rem; background: #002147 !important; color: #fff !important; }
+  .why-section { padding-bottom: 2rem; background-color: #0d1f3c !important; color: #fff !important; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .why-text h2 { color: #002147; }
-  .why-text h2 { color: #fff; }
-  .why-text .section-sub { color: rgba(255,255,255,0.75); }
+  .why-text h2 { color: #ffffff; }
+  .why-text .section-sub { color: rgba(255,255,255,0.8); }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
   .why-list li {
     display: flex; align-items: flex-start; gap: 0.9rem;
     font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.85);
@@ -320,8 +320,8 @@
   }
   .sport-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
   .sport-card-icon { font-size: 3rem; margin-bottom: 0.8rem; display: block; }
-  .sport-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; }
-  .sport-card p { font-size: 0.85rem; color: #5a6a7e; line-height: 1.6; }
+  .sport-card h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 0.5rem; color: #1B3A6B; }
+  .sport-card p { font-size: 0.85rem; color: #333333; line-height: 1.6; }
   .sport-card-color { height: 4px; border-radius: 100px; margin-bottom: 1.2rem; }
 
   /* -- SCHEDULE -- */
@@ -523,8 +523,8 @@
     border: 2px solid transparent; transition: border-color 0.2s;
   }
   .faq-item:hover { border-color: var(--grass); }
-  .faq-item h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
-  .faq-item p { font-size: 0.88rem; color: #5a6a7e; line-height: 1.65; }
+  .faq-item h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.5rem; color: #1B3A6B; }
+  .faq-item p { font-size: 0.88rem; color: #333333; line-height: 1.65; }
 
   /* -- CTA -- */
   .cta-section { background: #1B3A6B !important;
@@ -606,7 +606,7 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" style="background-color:#1B3A6B;">
   <div class="floating-balls">
     <div class="ball">?</div>
     <div class="ball">??</div>
@@ -616,7 +616,7 @@
   </div>
   <div class="hero-dots"></div>
   <div class="field-lines"></div>
-  <div class="hero-inner">
+  <div class="hero-inner" style="max-width:1100px;margin:0 auto;padding:0 48px;">
     <div class="hero-text">
       <div class="hero-badge">? Ages 4–9 · No Season Commitment</div>
       <h1>Sports start <em>before</em> the team does.</h1>
@@ -654,7 +654,7 @@
 </div>
 
 <!-- HOW IT WORKS -->
-<section class="section" style="background:#fff;" id="how">
+<section class="section" id="how" style="background-color:#ffffff;">
   <div class="section-inner">
     <div class="section-tag">How It Works</div>
     <h2>Simple, flexible, fun.</h2>
@@ -667,13 +667,13 @@
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <span class="step-emoji">????????</span>
+        
         <h3>Bring Friends (Optional)</h3>
         <p>Coordinate with other parents and book the same session. Up to 6 kids per session so it never feels like a crowd.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <span class="step-emoji">??</span>
+        
         <h3>Show Up & Play</h3>
         <p>No gear required to start. Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
       </div>
@@ -682,14 +682,14 @@
 </section>
 
 <!-- ABOUT COACH MARK -->
-<section class="section" style="background:#002147;color:#fff;">
+<section class="section" style="background-color:#1B3A6B;color:#fff;">
   <div class="section-inner">
     <div style="display:inline-block;background:#B22234;color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1px;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">MEET COACH MARK</div>
     <h2 style="color:#fff;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:2rem;">He has been coaching kids his whole career. Yours is next.</h2>
     <div style="display:grid;grid-template-columns:400px 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
       <div>
         <img src="/coach-photo.jpg" style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark with Joey">
-        <p style="font-size:0.85rem;font-style:italic;color:rgba(255,255,255,0.75);margin-top:0.8rem;">Coach Mark with his daughter Joey at a local league game in Charles Town, WV.</p>
+        <p style="font-size:0.85rem;font-style:italic;color:rgba(0,0,0,0.55);margin-top:0.8rem;">Coach Mark with his daughter Joey at a local league game in Charles Town, WV.</p>
       </div>
       <div style="font-size:1.05rem;line-height:1.9;color:rgba(0,0,0,0.85);">
         <p style="margin-bottom:1.2rem;color:#fff;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
@@ -717,7 +717,7 @@
   </div>
 </section>
 <!-- WHY MARK -->
-<section class="section why-section" style="background:#F0F4FF;color:#002147;" id="about">
+<section class="section why-section" id="about" style="background-color:#0d1f3c;color:#fff;">
   <div class="section-inner">
     <div class="why-grid">
       <div class="why-text">
@@ -741,26 +741,26 @@
         <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
         <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
         <div class="coach-sports">
-          <span class="sport-tag">? Baseball</span>
-          <span class="sport-tag">?? Basketball</span>
-          <span class="sport-tag">?? Football</span>
-          <span class="sport-tag">?? Pickleball</span>
-          <span class="sport-tag">Golf</span>
-          <span class="sport-tag">Volleyball</span>
-          <span class="sport-tag">Soccer</span>
-          <span class="sport-tag">Yard Games</span>
+          <span class="sport-tag">&#9918; Baseball</span>
+          <span class="sport-tag">&#127936; Basketball</span>
+          <span class="sport-tag">&#127944; Football</span>
+          <span class="sport-tag">&#127955; Pickleball</span>
+          <span class="sport-tag">&#9971; Golf</span>
+          <span class="sport-tag">&#127952; Volleyball</span>
+          <span class="sport-tag">&#9917; Soccer</span>
+          <span class="sport-tag">&#127919; Yard Games</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:#002147;color:#fff;">
+<section class="section" style="background-color:#1B3A6B;color:#fff;">
   <div class="section-inner">
     <div style="width:60px;height:4px;background:#B22234;margin-bottom:1.5rem;"></div><h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
     <img src="/coach-group.jpg" style="width:100%;max-width:100%;max-height:350px;object-fit:cover;object-position:center center;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);margin-bottom:2rem;" alt="Coach Mark coaching kids on the baseball field">
     <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. Coach Mark runs drills, teaches fundamentals, and gives every kid individual attention. Your child will know what it feels like to have a coach in their corner before they ever step onto a team. That foundation is something they carry with them forever.</p>
-    </div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
         <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Structure</div>
         <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">Every session has a plan, a skill focus, and a clear beginning and end.</p>
@@ -776,69 +776,65 @@
     </div>
   </div>
 </section>
-<section class="section" style="background:#F0F4FF;color:#002147;">
+<section class="section" style="background-color:#0d1f3c;color:#fff;">
   <div class="section-inner">
     <div style="display:inline-block;background:#B22234;color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1px;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">EVERY TIME. EVERY SESSION.</div>
     <div style="display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:start;">
     <div>
-    <h2 style="color:#002147;font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem;">You always know who is coaching your kid.</h2>
+    <h2 style="color:#ffffff;font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem;">You always know who is coaching your kid.</h2>
     <div style="max-width:720px;font-size:1.05rem;line-height:1.9;">
-      <p style="margin-bottom:1.5rem;color:#3a3a3a;">When you sign your child up for a rec league, you get whoever shows up. Maybe a great coach. Maybe a well-meaning dad who volunteered because nobody else did. You have no idea until you get there.</p>
+      <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">When you sign your child up for a rec league, you get whoever shows up. Maybe a great coach. Maybe a well-meaning dad who volunteered because nobody else did. You have no idea until you get there.</p>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;margin-bottom:1.5rem;">
-        <p style="font-weight:800;color:#B22234;font-size:1.15rem;">First Play Sports does not work that way.</p>
+        <p style="font-weight:800;color:#fff;font-size:1.15rem;">First Play Sports does not work that way.</p>
       </div>
-      <p style="margin-bottom:1.5rem;color:#3a3a3a;">Every session is <strong style="color:#B22234;">Coach Mark</strong>. Not a substitute. Not a staff rotation. Not whoever was available that day. <strong style="color:#B22234;">Coach Mark</strong> shows up, runs the session, coaches your kid, and goes home. You know exactly who your child is spending 45 minutes with — and you know they are going to be good at it. Because <strong style="color:#B22234;">Coach Mark</strong> is the only reason First Play Sports exists.</p>
-      <p style="font-weight:800;color:#002147;font-size:1.2rem;">That is not a small thing. That is the whole thing.</p>
+      <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">Every session is <strong style="color:#B22234;">Coach Mark</strong>. Not a substitute. Not a staff rotation. Not whoever was available that day. <strong style="color:#B22234;">Coach Mark</strong> shows up, runs the session, coaches your kid, and goes home. You know exactly who your child is spending 45 minutes with — and you know they are going to be good at it. Because <strong style="color:#B22234;">Coach Mark</strong> is the only reason First Play Sports exists.</p>
+      <p style="font-weight:800;color:#ffffff;font-size:1.2rem;">That is not a small thing. That is the whole thing.</p>
     </div>
     </div>
     <img src="/coach-joey.jpg" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark giving individual attention">
     </div>
-<section class="section sports-section" style="background:#002147;color:#fff;" id="sports">
+<section class="section sports-section" id="sports" style="background-color:#f5f7fa;">
   <div class="section-inner">
     <div class="section-tag">Sports Offered</div>
-    <h2>Pick your sport. Or try them all.</h2>
+    <h2><span style="color:#1B3A6B;">Pick your sport. Or try them all.</h2>
     <p class="section-sub">Every session is sport-specific so kids learn the real fundamentals without information overload.</p>
     <div class="sports-grid reveal">
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
-        <span class="sport-card-icon">?</span>
-        <h3>Baseball</h3>
+        <span class="sport-card-icon">&#9918;</span><h3>Baseball</h3>
         <p>Throwing, catching, fielding ground balls, and hitting off a tee. Before tee ball starts, let's make sure they know the basics.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--orange);"></div>
-        <span class="sport-card-icon">??</span>
-        <h3>Basketball</h3>
+        <span class="sport-card-icon">&#127936;</span><h3>Basketball</h3>
         <p>Dribbling, passing, shooting form — without making a 5-year-old feel like they're in a drill. It's all games and movement.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--grass-dark);"></div>
-        <span class="sport-card-icon">??</span>
-        <h3>Football</h3>
+        <span class="sport-card-icon">&#127944;</span><h3>Football</h3>
         <p>Throwing spirals, catching, route running. Flag football fundamentals in a safe, fun setting with no tackling.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: #8b5cf6;"></div>
-        <span class="sport-card-icon">??</span>
-        <h3>Pickleball</h3>
+        <span class="sport-card-icon">&#127955;</span><h3>Pickleball</h3>
         <p>The fastest-growing sport in America â€” and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
         <span class="sport-card-icon">&#x26F3;</span>
-        <h3>Golf</h3>
+        <h3>&#9971; Golf</h3>
         <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill â€” we start it early.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--navy);"></div>
         <span class="sport-card-icon">&#x1F3D0;</span>
-        <h3>Volleyball</h3>
+        <h3>&#127952; Volleyball</h3>
         <p>Bumping, setting, and serving at kid height. Just the fundamentals and a lot of laughing.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
         <span class="sport-card-icon">&#x26BD;</span>
-        <h3>Soccer</h3>
+        <h3>&#9917; Soccer</h3>
         <p>Dribbling, passing, shooting, and basic field awareness. Room to run and room to mess up.</p>
       </div>
       <div class="sport-card">
@@ -852,7 +848,7 @@
 </section>
 
 <!-- SCHEDULING -->
-<section class="section schedule-section" style="background:#F0F4FF;color:#002147;" id="schedule">
+<section class="section schedule-section" id="schedule" style="background-color:#1B3A6B;color:#fff;">
   <div class="section-inner">
     <div class="section-tag">Book a Session</div>
     <h2>Pick your time.</h2>
@@ -876,14 +872,14 @@
 </section>
 
 <!-- PRICING -->
-<section class="section pricing-section" style="background:#002147;color:#fff;" id="pricing">
+<section class="section pricing-section" id="pricing" style="background-color:#f5f7fa;">
   <div class="section-inner">
     <div class="section-tag">Pricing</div>
-    <h2>No season. No subscription. No stress.</h2>
+    <h2><span style="color:#1B3A6B;">No season. No subscription. No stress.</h2>
     <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
     <div class="pricing-grid reveal">
       <div class="price-card">
-        <span class="price-sport-icon">???</span>
+        <span class="price-sport-icon">&#9918;</span>
         <h3>Gameday</h3>
         <div class="price-amount">$22</div>
         <div class="price-per">per child, per session</div>
@@ -894,11 +890,11 @@
           <li>No commitment required</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Gameday -->
-        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now — $22 ?</a>
+        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now - $22</a>
       </div>
       <div class="price-card featured">
-        <div class="popular-badge">? Most Popular</div>
-        <span class="price-sport-icon">????</span>
+        <div class="popular-badge">&#9733; Most Popular</div>
+        <span class="price-sport-icon">&#127936;</span>
         <h3>Double Play</h3>
         <div class="price-amount">$38</div>
         <div class="price-per">per child — save $15</div>
@@ -909,10 +905,10 @@
           <li>Invite friends to each</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Double Play -->
-        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now — $38 ?</a>
+        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now - $38</a>
       </div>
       <div class="price-card">
-        <span class="price-sport-icon">??</span>
+        <span class="price-sport-icon">&#127942;</span>
         <h3>Starting Five</h3>
         <div class="price-amount">$90</div>
         <div class="price-per">per child — save $22</div>
@@ -923,17 +919,17 @@
           <li>Your number, your choice - yours to keep</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Starting Five -->
-        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now — $90 ?</a>
+        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now - $90</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="section faq-section" style="background:#F0F4FF;color:#002147;">
+<section class="section faq-section" style="background-color:#ffffff;">
   <div class="section-inner" style="text-align: center;">
     <div class="section-tag">FAQ</div>
-    <h2 style="margin-bottom: 0.5rem;">Common questions from parents</h2>
+    <h2 style="color:#1B3A6B;" style="margin-bottom: 0.5rem;">Common questions from parents</h2>
     <p class="section-sub" style="margin: 0.5rem auto 2.5rem;">We've heard them all.</p>
     <div class="faq-grid reveal">
       <div class="faq-item">
@@ -965,7 +961,7 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" style="background-color:#1B3A6B;">
   <div style="position: relative; z-index: 1;">
     <h2>Ready to book your kid's first session?</h2>
     <p>No commitment. Just a good time on the field, court, or diamond. Pick a slot and let's go.</p>
@@ -1187,6 +1183,8 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
+
 
 
 
