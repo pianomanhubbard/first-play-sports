@@ -30,7 +30,7 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* -- NAV -- */
   nav {
     position: fixed; top: 0; width: 100%; z-index: 100;
     background: var(--navy);
@@ -104,7 +104,7 @@
     font-size: 1.1rem;
   }
 
-  /* ── HERO ── */
+  /* -- HERO -- */
   .hero {
     min-height: 100vh;
     background: var(--navy);
@@ -116,7 +116,7 @@
     content: '';
     position: absolute; bottom: 0; left: 0; right: 0;
     height: 180px;
-    background: var(--grass);
+    background: #1B3A6B;
     clip-path: ellipse(60% 100% at 50% 100%);
   }
   .field-lines {
@@ -216,8 +216,8 @@
     50% { transform: translateY(-20px) rotate(15deg); }
   }
 
-  /* ── SPORTS STRIP ── */
-  .sports-strip { background: var(--grass); padding: 1.2rem 0; overflow: hidden; }
+  /* -- SPORTS STRIP -- */
+  .sports-strip { background: #1B3A6B; padding: 1.2rem 0; overflow: hidden; }
   .sports-scroll {
     display: flex; gap: 3rem; white-space: nowrap;
     animation: scrollSports 20s linear infinite;
@@ -233,7 +233,7 @@
     to { transform: translateX(-50%); }
   }
 
-  /* ── SECTIONS ── */
+  /* -- SECTIONS -- */
   .section { padding: 6rem 2rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-tag {
@@ -254,7 +254,7 @@
     max-width: 540px; line-height: 1.7; margin-bottom: 3rem;
   }
 
-  /* ── HOW IT WORKS ── */
+  /* -- HOW IT WORKS -- */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .step-card {
     background: #fff; border-radius: 20px; padding: 2rem 1.5rem;
@@ -272,19 +272,19 @@
   .step-card p { font-size: 0.92rem; color: #5a6a7e; line-height: 1.65; }
   .step-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
 
-  /* ── WHY MARK ── */
-  .why-section { background: var(--navy); color: #fff; }
+  /* -- WHY MARK -- */
+  .why-section { padding-bottom: 2rem; background: #F0F4FF !important; color: #002147 !important; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .why-text h2 { color: #fff; }
-  .why-text .section-sub { color: rgba(255,255,255,0.65); }
+  .why-text h2 { color: #002147; }
+  .why-text .section-sub { color: #444444; }
   .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.1rem; }
   .why-list li {
     display: flex; align-items: flex-start; gap: 0.9rem;
     font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.85);
   }
   .why-list li::before {
-    content: '✓'; min-width: 28px; height: 28px;
-    background: var(--grass); color: #fff; border-radius: 50%;
+    content: '?'; min-width: 28px; height: 28px;
+    background: #1B3A6B; color: #fff; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-weight: 900; font-size: 0.8rem; margin-top: 2px;
   }
@@ -310,8 +310,8 @@
     border-radius: 100px; font-size: 0.8rem; font-weight: 700;
   }
 
-  /* ── SPORTS CARDS ── */
-  .sports-section { background: var(--chalk); }
+  /* -- SPORTS CARDS -- */
+  .sports-section { background: #F0F4FF; }
   .sports-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
   .sport-card {
     background: #fff; border-radius: 20px; padding: 2rem 1.2rem;
@@ -324,7 +324,7 @@
   .sport-card p { font-size: 0.85rem; color: #5a6a7e; line-height: 1.6; }
   .sport-card-color { height: 4px; border-radius: 100px; margin-bottom: 1.2rem; }
 
-  /* ── SCHEDULE ── */
+  /* -- SCHEDULE -- */
   .schedule-section { background: #fff; }
   .schedule-ui {
     background: var(--cream); border: 2px solid #e8e2d8;
@@ -378,7 +378,7 @@
   .slot-time { font-size: 0.82rem; color: #5a6a7e; font-weight: 600; margin-bottom: 0.6rem; }
   .slot-spots { display: flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 700; }
   .spot-dots { display: flex; gap: 3px; }
-  .spot-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--grass); }
+  .spot-dot { width: 8px; height: 8px; border-radius: 50%; background: #1B3A6B; }
   .spot-dot.taken { background: #d1d5db; }
   .spots-text { color: #5a6a7e; }
   .slot-full-badge {
@@ -387,7 +387,7 @@
     border-radius: 100px; border: 1px solid #fecaca;
   }
 
-  /* ── MODAL ── */
+  /* -- MODAL -- */
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(10,20,40,0.7);
     z-index: 500; display: flex; align-items: center; justify-content: center;
@@ -459,8 +459,8 @@
   .confirm-screen h3 { font-family: 'Fraunces', serif; font-size: 1.8rem; margin-bottom: 0.5rem; }
   .confirm-screen p { color: #5a6a7e; line-height: 1.7; margin-bottom: 1.5rem; }
 
-  /* ── PRICING ── */
-  .pricing-section { background: var(--chalk); }
+  /* -- PRICING -- */
+  .pricing-section { background: #fff; }
   .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
   .price-card {
     background: #fff; border: 2px solid #e8e2d8;
@@ -490,12 +490,12 @@
   .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
   .price-features li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: #5a6a7e; }
   .price-card.featured .price-features li { color: rgba(255,255,255,0.75); }
-  .price-features li::before { content: '✓'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
+  .price-features li::before { content: '?'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
   .price-card.featured .price-features li::before { color: var(--sun); }
 
   .btn-stripe {
     display: block; margin-top: 1.5rem;
-    background: var(--grass); color: #fff;
+    background: #1B3A6B; color: #fff;
     padding: 0.75rem 1rem; border-radius: 100px;
     font-weight: 800; font-size: 0.95rem;
     text-decoration: none; text-align: center;
@@ -515,8 +515,8 @@
     border: 2px solid #e8e2d8;
   }
 
-  /* ── FAQ ── */
-  .faq-section { background: #fff; }
+  /* -- FAQ -- */
+  .faq-section { background: #F0F4FF; }
   .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 900px; margin: 0 auto; }
   .faq-item {
     background: var(--chalk); border-radius: 16px; padding: 1.4rem 1.5rem;
@@ -526,14 +526,14 @@
   .faq-item h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--navy); }
   .faq-item p { font-size: 0.88rem; color: #5a6a7e; line-height: 1.65; }
 
-  /* ── CTA ── */
-  .cta-section {
+  /* -- CTA -- */
+  .cta-section { background: #1B3A6B !important;
     background: linear-gradient(135deg, var(--grass) 0%, var(--grass-dark) 100%);
     padding: 6rem 2rem; text-align: center;
     position: relative; overflow: hidden;
   }
   .cta-section::before {
-    content: '⚾🏀🏈🎾';
+    content: '???????';
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     font-size: 20rem; opacity: 0.04;
     pointer-events: none; white-space: nowrap;
@@ -549,14 +549,14 @@
   }
   .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
 
-  /* ── FOOTER ── */
+  /* -- FOOTER -- */
   footer {
     background: var(--navy); color: rgba(255,255,255,0.6);
     padding: 2rem; text-align: center; font-size: 0.85rem;
   }
   footer strong { color: var(--sun); }
 
-  /* ── RESPONSIVE ── */
+  /* -- RESPONSIVE -- */
   @media (max-width: 768px) {
     .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; padding-bottom: 8rem; }
     .hero-stats { order: 2; }
@@ -602,30 +602,30 @@
   <a href="#sports" onclick="closeMobileMenu()">Sports</a>
   <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-  <a href="#schedule" onclick="closeMobileMenu()">Book a Session →</a>
+  <a href="#schedule" onclick="closeMobileMenu()">Book a Session ?</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="floating-balls">
-    <div class="ball">⚾</div>
-    <div class="ball">🏀</div>
-    <div class="ball">🏈</div>
-    <div class="ball">🎾</div>
-    <div class="ball">⚾</div>
+    <div class="ball">?</div>
+    <div class="ball">??</div>
+    <div class="ball">??</div>
+    <div class="ball">??</div>
+    <div class="ball">?</div>
   </div>
   <div class="hero-dots"></div>
   <div class="field-lines"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-badge">⚡ Ages 4–9 · No Season Commitment</div>
+      <div class="hero-badge">? Ages 4–9 · No Season Commitment</div>
       <h1>Sports start <em>before</em> the team does.</h1>
       <p class="hero-accent" style="font-style:italic;font-size:1rem;color:rgba(255,255,255,0.8);margin-bottom:0.8rem;">For most kids, Coach Mark will be the first coach they ever have. We take that seriously.</p>
     <p class="hero-sub">
         Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.
       </p>
       <div class="hero-btns">
-        <a href="#schedule" class="btn-primary">Book a Session →</a>
+        <a href="#schedule" class="btn-primary">Book a Session ?</a>
         <a href="#how" class="btn-outline">How It Works</a>
       </div>
     </div>
@@ -650,33 +650,11 @@
 </section>
 
 <!-- SPORTS MARQUEE -->
-<div class="sports-strip">
-  <div class="sports-scroll">
-    <div class="sport-pill"><span>⚾</span> Baseball</div>
-    <div class="sport-pill"><span>🏀</span> Basketball</div>
-    <div class="sport-pill"><span>🏈</span> Football</div>
-    <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
-    <div class="sport-pill"><span>⚾</span> Baseball</div>
-    <div class="sport-pill"><span>🏀</span> Basketball</div>
-    <div class="sport-pill"><span>🏈</span> Football</div>
-    <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
-    <div class="sport-pill"><span>⚾</span> Baseball</div>
-    <div class="sport-pill"><span>🏀</span> Basketball</div>
-    <div class="sport-pill"><span>🏈</span> Football</div>
-    <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
-    <div class="sport-pill"><span>⚾</span> Baseball</div>
-    <div class="sport-pill"><span>🏀</span> Basketball</div>
-    <div class="sport-pill"><span>🏈</span> Football</div>
-    <div class="sport-pill"><span>🏓</span> Pickleball</div>
-    <div class="sport-pill"><span>⭐</span> First Play Sports</div>
-  </div>
+
 </div>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how">
+<section class="section" style="background:#fff;" id="how">
   <div class="section-inner">
     <div class="section-tag">How It Works</div>
     <h2>Simple, flexible, fun.</h2>
@@ -689,13 +667,13 @@
       </div>
       <div class="step-card">
         <div class="step-num">2</div>
-        <span class="step-emoji">👨‍👧‍👦</span>
+        <span class="step-emoji">????????</span>
         <h3>Bring Friends (Optional)</h3>
         <p>Coordinate with other parents and book the same session. Up to 6 kids per session so it never feels like a crowd.</p>
       </div>
       <div class="step-card">
         <div class="step-num">3</div>
-        <span class="step-emoji">🎉</span>
+        <span class="step-emoji">??</span>
         <h3>Show Up & Play</h3>
         <p>No gear required to start. Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
       </div>
@@ -711,35 +689,35 @@
     <div style="display:grid;grid-template-columns:400px 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
       <div>
         <img src="/coach-photo.jpg" style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark with Joey">
-        <p style="font-size:0.85rem;font-style:italic;color:rgba(255,255,255,0.55);margin-top:0.8rem;">Coach Mark with his daughter Joey at a local league game in Charles Town, WV.</p>
+        <p style="font-size:0.85rem;font-style:italic;color:rgba(0,0,0,0.55);margin-top:0.8rem;">Coach Mark with his daughter Joey at a local league game in Charles Town, WV.</p>
       </div>
-      <div style="font-size:1.05rem;line-height:1.9;color:rgba(255,255,255,0.85);">
-        <p style="margin-bottom:1.2rem;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
-        <p style="margin-bottom:1.2rem;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
-        <p style="margin-bottom:1.2rem;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
+      <div style="font-size:1.05rem;line-height:1.9;color:rgba(0,0,0,0.85);">
+        <p style="margin-bottom:1.2rem;color:#fff;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
+        <p style="margin-bottom:1.2rem;color:#fff;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
+        <p style="margin-bottom:1.2rem;color:#fff;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
         <img src="/palmer-joey.jpg" style="width:100%;max-width:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);margin-top:1rem;" alt="Palmer and Joey in batting stances">
-        <p style="margin-bottom:1.2rem;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
+        <p style="margin-bottom:1.2rem;color:#fff;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
         <p style="font-size:1.1rem;font-style:italic;color:#fff;border-left:4px solid #B22234;padding-left:1.2rem;margin-top:1.5rem;">When you bring your child to First Play Sports, you are not dropping them off with a stranger. You are handing them to someone who has spent a career earning the right to be called Coach.</p>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,0.15);padding-top:2rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,0.3);padding-top:2rem;">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
         <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">16 Years</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.5;">High school teacher in Jefferson County</p>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">High school teacher in Jefferson County</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
         <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">Every Level</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.5;">Tee ball through high school in baseball, basketball, and soccer</p>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">Tee ball through high school in baseball, basketball, and soccer</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
         <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">2 Kids</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.5;">Palmer, 7, and Joey, 4 â€” his proof of concept</p>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">Palmer, 7, and Joey, 4 â€” his proof of concept</p>
       </div>
     </div>
   </div>
 </section>
 <!-- WHY MARK -->
-<section class="section why-section" id="about">
+<section class="section why-section" style="background:#F0F4FF;color:#002147;" id="about">
   <div class="section-inner">
     <div class="why-grid">
       <div class="why-text">
@@ -763,10 +741,10 @@
         <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
         <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
         <div class="coach-sports">
-          <span class="sport-tag">⚾ Baseball</span>
-          <span class="sport-tag">🏀 Basketball</span>
-          <span class="sport-tag">🏈 Football</span>
-          <span class="sport-tag">🏓 Pickleball</span>
+          <span class="sport-tag">? Baseball</span>
+          <span class="sport-tag">?? Basketball</span>
+          <span class="sport-tag">?? Football</span>
+          <span class="sport-tag">?? Pickleball</span>
           <span class="sport-tag">Golf</span>
           <span class="sport-tag">Volleyball</span>
           <span class="sport-tag">Soccer</span>
@@ -777,9 +755,9 @@
   </div>
 </section>
 
-<section class="section" style="background:var(--navy);color:#fff;">
+<section class="section" style="background:#002147;color:#fff;">
   <div class="section-inner">
-    <h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
+    <div style="width:60px;height:4px;background:#B22234;margin-bottom:1.5rem;"></div><h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
     <img src="/coach-group.jpg" style="width:100%;max-width:100%;max-height:350px;object-fit:cover;object-position:center center;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);margin-bottom:2rem;" alt="Coach Mark coaching kids on the baseball field">
     <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. Coach Mark runs drills, teaches fundamentals, and gives every kid individual attention. Your child will know what it feels like to have a coach in their corner before they ever step onto a team. That foundation is something they carry with them forever.</p>
     </div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;">
@@ -798,19 +776,19 @@
     </div>
   </div>
 </section>
-<section class="section" style="background:#1B3A6B;padding:5rem 2rem;">
+<section class="section" style="background:#F0F4FF;color:#002147;">
   <div class="section-inner">
     <div style="display:inline-block;background:#B22234;color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1px;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">EVERY TIME. EVERY SESSION.</div>
     <div style="display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:start;">
     <div>
-    <h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem;">You always know who is coaching your kid.</h2>
+    <h2 style="color:#002147;font-size:clamp(2rem,4vw,3rem);margin-bottom:2rem;">You always know who is coaching your kid.</h2>
     <div style="max-width:720px;font-size:1.05rem;line-height:1.9;">
-      <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">When you sign your child up for a rec league, you get whoever shows up. Maybe a great coach. Maybe a well-meaning dad who volunteered because nobody else did. You have no idea until you get there.</p>
+      <p style="margin-bottom:1.5rem;color:#3a3a3a;">When you sign your child up for a rec league, you get whoever shows up. Maybe a great coach. Maybe a well-meaning dad who volunteered because nobody else did. You have no idea until you get there.</p>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;margin-bottom:1.5rem;">
         <p style="font-weight:800;color:#fff;font-size:1.15rem;">First Play Sports does not work that way.</p>
       </div>
-      <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">Every session is <strong style="color:#B22234;">Coach Mark</strong>. Not a substitute. Not a staff rotation. Not whoever was available that day. <strong style="color:#B22234;">Coach Mark</strong> shows up, runs the session, coaches your kid, and goes home. You know exactly who your child is spending 45 minutes with — and you know they are going to be good at it. Because <strong style="color:#B22234;">Coach Mark</strong> is the only reason First Play Sports exists.</p>
-      <p style="font-weight:800;color:#fff;font-size:1.2rem;">That is not a small thing. That is the whole thing.</p>
+      <p style="margin-bottom:1.5rem;color:#3a3a3a;">Every session is <strong style="color:#B22234;">Coach Mark</strong>. Not a substitute. Not a staff rotation. Not whoever was available that day. <strong style="color:#B22234;">Coach Mark</strong> shows up, runs the session, coaches your kid, and goes home. You know exactly who your child is spending 45 minutes with — and you know they are going to be good at it. Because <strong style="color:#B22234;">Coach Mark</strong> is the only reason First Play Sports exists.</p>
+      <p style="font-weight:800;color:#002147;font-size:1.2rem;">That is not a small thing. That is the whole thing.</p>
     </div>
     </div>
     <img src="/coach-joey.jpg" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark giving individual attention">
@@ -823,25 +801,25 @@
     <div class="sports-grid reveal">
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
-        <span class="sport-card-icon">⚾</span>
+        <span class="sport-card-icon">?</span>
         <h3>Baseball</h3>
         <p>Throwing, catching, fielding ground balls, and hitting off a tee. Before tee ball starts, let's make sure they know the basics.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--orange);"></div>
-        <span class="sport-card-icon">🏀</span>
+        <span class="sport-card-icon">??</span>
         <h3>Basketball</h3>
         <p>Dribbling, passing, shooting form — without making a 5-year-old feel like they're in a drill. It's all games and movement.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--grass-dark);"></div>
-        <span class="sport-card-icon">🏈</span>
+        <span class="sport-card-icon">??</span>
         <h3>Football</h3>
         <p>Throwing spirals, catching, route running. Flag football fundamentals in a safe, fun setting with no tackling.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: #8b5cf6;"></div>
-        <span class="sport-card-icon">🏓</span>
+        <span class="sport-card-icon">??</span>
         <h3>Pickleball</h3>
         <p>The fastest-growing sport in America â€” and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
       </div>
@@ -898,14 +876,14 @@
 </section>
 
 <!-- PRICING -->
-<section class="section pricing-section" id="pricing">
+<section class="section pricing-section" style="background:#F0F4FF;" id="pricing">
   <div class="section-inner">
     <div class="section-tag">Pricing</div>
     <h2>No season. No subscription. No stress.</h2>
     <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
     <div class="pricing-grid reveal">
       <div class="price-card">
-        <span class="price-sport-icon">⚾🏓</span>
+        <span class="price-sport-icon">???</span>
         <h3>Gameday</h3>
         <div class="price-amount">$22</div>
         <div class="price-per">per child, per session</div>
@@ -916,11 +894,11 @@
           <li>No commitment required</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Gameday -->
-        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now — $22 →</a>
+        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now — $22 ?</a>
       </div>
       <div class="price-card featured">
-        <div class="popular-badge">⭐ Most Popular</div>
-        <span class="price-sport-icon">🏀🏈</span>
+        <div class="popular-badge">? Most Popular</div>
+        <span class="price-sport-icon">????</span>
         <h3>Double Play</h3>
         <div class="price-amount">$38</div>
         <div class="price-per">per child — save $15</div>
@@ -931,12 +909,12 @@
           <li>Invite friends to each</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Double Play -->
-        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now — $38 →</a>
+        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now — $38 ?</a>
       </div>
       <div class="price-card">
-        <span class="price-sport-icon">🏆</span>
+        <span class="price-sport-icon">??</span>
         <h3>Starting Five</h3>
-        <div class="price-amount">$80</div>
+        <div class="price-amount">$90</div>
         <div class="price-per">per child — save $22</div>
         <ul class="price-features">
           <li>5 sessions, use anytime</li>
@@ -945,7 +923,7 @@
           <li>Your number, your choice - yours to keep</li>
         </ul>
         <!-- TODO: Replace with Mark's Stripe payment link for Starting Five -->
-        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now — $80 →</a>
+        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now — $90 ?</a>
       </div>
     </div>
   </div>
@@ -991,13 +969,13 @@
   <div style="position: relative; z-index: 1;">
     <h2>Ready to book your kid's first session?</h2>
     <p>No commitment. Just a good time on the field, court, or diamond. Pick a slot and let's go.</p>
-    <a href="#schedule" class="cta-btn">Browse Open Sessions →</a>
+    <a href="#schedule" class="cta-btn">Browse Open Sessions ?</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 🏓</p>
+  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ? ?? ?? ??</p>
   <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>firstplaysportswv@gmail.com</strong> · (724) 799-4778</p>
 </footer>
 
@@ -1009,7 +987,7 @@
 </div>
 
 <script>
-// ── SLOTS ──
+// -- SLOTS --
 let slots = [];
 let allSlots = [];
 let activeFilter = 'all';
@@ -1024,15 +1002,15 @@ async function loadSlots() {
   } catch {
     // Fallback to demo data if backend isn't reachable
     allSlots = [
-      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
-      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
-      { id: 4, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
-      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
-      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
-      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
-      { id: 8, sport: 'pickleball', icon: '🏓', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
+      { id: 1, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 2, sport: 'basketball', icon: '??', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
+      { id: 3, sport: 'football', icon: '??', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
+      { id: 4, sport: 'pickleball', icon: '??', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
+      { id: 5, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
+      { id: 6, sport: 'basketball', icon: '??', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
+      { id: 7, sport: 'football', icon: '??', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
+      { id: 8, sport: 'pickleball', icon: '??', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 9, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
     ];
     slots = allSlots;
     renderSlots('all');
@@ -1058,7 +1036,7 @@ function renderSlots(filter) {
            ${isFull ? '' : `onclick="openBooking('${slot.id}')"`}>
         <div class="slot-sport">${slot.icon}</div>
         <div class="slot-name">${slot.name}</div>
-        <div class="slot-time">📅 ${slot.day} · ${slot.time}</div>
+        <div class="slot-time">?? ${slot.day} · ${slot.time}</div>
         <div class="slot-spots">
           <div class="spot-dots">${dots}</div>
           ${isFull
@@ -1084,7 +1062,7 @@ function openBooking(slotId) {
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header">
       <h3>Book Your Spot</h3>
-      <button class="modal-close" onclick="closeModal()">✕</button>
+      <button class="modal-close" onclick="closeModal()">?</button>
     </div>
     <div class="modal-slot-info">
       <div class="modal-slot-icon">${slot.icon}</div>
@@ -1094,7 +1072,7 @@ function openBooking(slotId) {
         <p style="color: var(--grass); font-weight: 700; margin-top: 4px;">${open} spot${open !== 1 ? 's' : ''} remaining</p>
       </div>
     </div>
-    <div class="form-note">📌 No payment due now. Mark will confirm and send payment info within 24 hours.</div>
+    <div class="form-note">?? No payment due now. Mark will confirm and send payment info within 24 hours.</div>
     <div class="form-error" id="formError"></div>
     <div class="form-group">
       <label>Your Name (Parent/Guardian)</label>
@@ -1122,7 +1100,7 @@ function openBooking(slotId) {
       <label>Anything Mark should know? (optional)</label>
       <input type="text" placeholder="e.g. First time ever holding a bat!" id="notes">
     </div>
-    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Request This Spot →</button>
+    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Request This Spot ?</button>
   `;
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -1162,7 +1140,7 @@ async function submitBooking(slotId) {
 
     document.getElementById('modalContent').innerHTML = `
       <div class="confirm-screen">
-        <div class="confirm-icon">🎉</div>
+        <div class="confirm-icon">??</div>
         <h3>You're on the list!</h3>
         <p>Thanks, ${parent}! Coach Mark will reach out to confirm ${kid}'s spot and handle payment details within 24 hours. Get ready for some fun!</p>
         <button class="btn-book" onclick="closeModal()">Close</button>
@@ -1170,7 +1148,7 @@ async function submitBooking(slotId) {
     `;
   } catch (err) {
     btn.disabled = false;
-    btn.textContent = 'Request This Spot →';
+    btn.textContent = 'Request This Spot ?';
     errEl.textContent = err.message || 'Something went wrong. Please try again.';
     errEl.style.display = 'block';
   }
@@ -1184,7 +1162,7 @@ document.getElementById('modalOverlay').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
-// ── MOBILE MENU ──
+// -- MOBILE MENU --
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => {
@@ -1196,7 +1174,7 @@ function closeMobileMenu() {
   mobileMenu.classList.remove('open');
 }
 
-// ── SCROLL REVEAL ──
+// -- SCROLL REVEAL --
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
@@ -1209,6 +1187,16 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
