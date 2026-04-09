@@ -113,24 +113,12 @@
     position: relative; overflow: hidden;
     padding-top: 64px;
   }
-  .hero::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0;
-    height: 180px;
-    background: #1B3A6B;
-    clip-path: ellipse(60% 100% at 50% 100%);
-  }
+  .hero::after { display: none; }
   .field-lines {
     position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
     overflow: hidden; pointer-events: none;
   }
-  .field-lines::before {
-    content: '';
-    position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-    width: 300px; height: 300px;
-    border: 3px solid rgba(255,255,255,0.15);
-    border-radius: 50%;
-  }
+  .field-lines::before { display: none; }
   .hero-dots {
     position: absolute; inset: 0; pointer-events: none;
     background-image:
