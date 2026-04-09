@@ -601,9 +601,9 @@
   <div class="nav-logo" style="display:flex;flex-direction:column;line-height:1.2;"><span style="color:#B22234;">Coach Mark</span><span style="font-size:0.65rem;font-weight:400;opacity:0.75;letter-spacing:0.03em;">First Play Sports · Ages 4–9</span></div>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#sports">Sports</a></li>
-    <li><a href="#schedule">Schedule</a></li>
     <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#sports">Sports</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#schedule" class="nav-cta">Book a Session</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
@@ -612,11 +612,11 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#schedule" onclick="closeMobileMenu()">Book a Session ⚾</a>
   <a href="#how" onclick="closeMobileMenu()">How It Works</a>
-  <a href="#sports" onclick="closeMobileMenu()">Sports</a>
-  <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
-  <a href="#schedule" onclick="closeMobileMenu()">Book a Session ?</a>
+  <a href="#sports" onclick="closeMobileMenu()">Sports</a>
+  <a href="#about" onclick="closeMobileMenu()">About Coach Mark</a>
 </div>
 
 <!-- HERO -->
@@ -663,6 +663,30 @@
   </div>
 </section>
 
+<!-- SCHEDULING -->
+<section class="section schedule-section" id="schedule" style="background-color:#1B3A6B;color:#fff;">
+  <div class="section-inner">
+    <div class="section-tag">Book a Session</div>
+    <h2>Pick your time.</h2>
+    <p class="section-sub">Coach Mark is always up to date — pick a slot, fill in details, and you are confirmed.</p>
+    <div class="schedule-ui reveal">
+      <div class="schedule-header">
+        <h3>Upcoming Sessions</h3>
+        <div class="schedule-filters">
+          <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
+          <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">Baseball</button>
+          
+          
+          
+        </div>
+      </div>
+      <div class="slots-grid" id="slotsGrid">
+        <div class="slots-loading">Loading sessions...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
 <section class="section" id="how" style="background-color:#ffffff;">
   <div class="section-inner">
@@ -686,6 +710,111 @@
         
         <h3>Show Up & Play</h3>
         <p>No gear required to start. Coach Mark handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section" id="pricing" style="background-color:#f5f7fa;">
+  <div class="section-inner">
+    <div class="section-tag">Pricing</div>
+    <h2><span style="color:#1B3A6B;">No season. No subscription. No stress.</h2>
+    <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
+    <div class="pricing-grid reveal">
+      <div class="price-card">
+        <span class="price-sport-icon">&#9918;</span>
+        <h3>Gameday</h3>
+        <div class="price-amount">$22</div>
+        <div class="price-per">per child, per session</div>
+        <ul class="price-features">
+          <li>One 45-min group session</li>
+          <li>4–6 kids per group</li>
+          <li>Your choice of sport</li>
+          <li>No commitment required</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now - $22</a>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">&#9733; Most Popular</div>
+        <span class="price-sport-icon">&#127936;</span>
+        <h3>Double Play</h3>
+        <div class="price-amount">$38</div>
+        <div class="price-per">per child — save $6</div>
+        <ul class="price-features">
+          <li>2 sessions, use anytime</li>
+          <li>Repeat the same sport or try a new one</li>
+          <li>Book as you go</li>
+          <li>Invite friends to each</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now - $38</a>
+      </div>
+      <div class="price-card">
+        <span class="price-sport-icon">&#127942;</span>
+        <h3>Starting Five</h3>
+        <div class="price-amount">$90</div>
+        <div class="price-per">per child — save $20</div>
+        <ul class="price-features">
+          <li>5 sessions, use anytime</li>
+          <li>All sports included</li>
+          <li>First Play Sports jersey included on first visit</li>
+          <li>Your number, your choice - yours to keep</li>
+        </ul>
+        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now - $90</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section sports-section" id="sports" style="background-color:#f5f7fa;">
+  <div class="section-inner">
+    <div class="section-tag">Sports Offered</div>
+    <h2><span style="color:#1B3A6B;">Pick your sport. Or try them all.</h2>
+    <p class="section-sub">Every session is sport-specific so kids learn the real fundamentals without information overload.</p>
+    <div class="sports-grid reveal">
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--red-sport);"></div>
+        <span class="sport-card-icon">&#9918;</span><h3>Baseball</h3>
+        <p>Throwing, catching, fielding ground balls, and hitting off a tee. Before tee ball starts, let's make sure they know the basics.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--orange);"></div>
+        <span class="sport-card-icon">&#127936;</span><h3>Basketball</h3>
+        <p>Dribbling, passing, shooting form — without making a 5-year-old feel like they're in a drill. It's all games and movement.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--grass-dark);"></div>
+        <span class="sport-card-icon">&#127944;</span><h3>Football</h3>
+        <p>Throwing spirals, catching, route running. Flag football fundamentals in a safe, fun setting with no tackling.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: #8b5cf6;"></div>
+        <span class="sport-card-icon">&#127955;</span><h3>Pickleball</h3>
+        <p>The fastest-growing sport in America — and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--red-sport);"></div>
+        <span class="sport-card-icon">&#x26F3;</span>
+        <h3>Golf</h3>
+        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill — we start it early.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--navy);"></div>
+        <span class="sport-card-icon">&#x1F3D0;</span>
+        <h3>Volleyball</h3>
+        <p>Bumping, setting, and serving at kid height. Just the fundamentals and a lot of laughing.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--red-sport);"></div>
+        <span class="sport-card-icon">&#x26BD;</span>
+        <h3>Soccer</h3>
+        <p>Dribbling, passing, shooting, and basic field awareness. Room to run and room to mess up.</p>
+      </div>
+      <div class="sport-card">
+        <div class="sport-card-color" style="background: var(--navy);"></div>
+        <span class="sport-card-icon">&#x1F3AF;</span>
+        <h3>Yard Games and Skills</h3>
+        <p>Cornhole, frisbee toss, and athletic development. Sometimes the best practice does not look like practice at all.</p>
       </div>
     </div>
   </div>
@@ -804,135 +933,6 @@
     </div>
     <img src="/coach-joey.jpg" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark giving individual attention">
     </div>
-<section class="section sports-section" id="sports" style="background-color:#f5f7fa;">
-  <div class="section-inner">
-    <div class="section-tag">Sports Offered</div>
-    <h2><span style="color:#1B3A6B;">Pick your sport. Or try them all.</h2>
-    <p class="section-sub">Every session is sport-specific so kids learn the real fundamentals without information overload.</p>
-    <div class="sports-grid reveal">
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--red-sport);"></div>
-        <span class="sport-card-icon">&#9918;</span><h3>Baseball</h3>
-        <p>Throwing, catching, fielding ground balls, and hitting off a tee. Before tee ball starts, let's make sure they know the basics.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--orange);"></div>
-        <span class="sport-card-icon">&#127936;</span><h3>Basketball</h3>
-        <p>Dribbling, passing, shooting form — without making a 5-year-old feel like they're in a drill. It's all games and movement.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--grass-dark);"></div>
-        <span class="sport-card-icon">&#127944;</span><h3>Football</h3>
-        <p>Throwing spirals, catching, route running. Flag football fundamentals in a safe, fun setting with no tackling.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: #8b5cf6;"></div>
-        <span class="sport-card-icon">&#127955;</span><h3>Pickleball</h3>
-        <p>The fastest-growing sport in America — and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--red-sport);"></div>
-        <span class="sport-card-icon">&#x26F3;</span>
-        <h3>Golf</h3>
-        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill — we start it early.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--navy);"></div>
-        <span class="sport-card-icon">&#x1F3D0;</span>
-        <h3>Volleyball</h3>
-        <p>Bumping, setting, and serving at kid height. Just the fundamentals and a lot of laughing.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--red-sport);"></div>
-        <span class="sport-card-icon">&#x26BD;</span>
-        <h3>Soccer</h3>
-        <p>Dribbling, passing, shooting, and basic field awareness. Room to run and room to mess up.</p>
-      </div>
-      <div class="sport-card">
-        <div class="sport-card-color" style="background: var(--navy);"></div>
-        <span class="sport-card-icon">&#x1F3AF;</span>
-        <h3>Yard Games and Skills</h3>
-        <p>Cornhole, frisbee toss, and athletic development. Sometimes the best practice does not look like practice at all.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SCHEDULING -->
-<section class="section schedule-section" id="schedule" style="background-color:#1B3A6B;color:#fff;">
-  <div class="section-inner">
-    <div class="section-tag">Book a Session</div>
-    <h2>Pick your time.</h2>
-    <p class="section-sub">Coach Mark is always up to date — pick a slot, fill in details, and you are confirmed.</p>
-    <div class="schedule-ui reveal">
-      <div class="schedule-header">
-        <h3>Upcoming Sessions</h3>
-        <div class="schedule-filters">
-          <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
-          <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">Baseball</button>
-          
-          
-          
-        </div>
-      </div>
-      <div class="slots-grid" id="slotsGrid">
-        <div class="slots-loading">Loading sessions...</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section class="section pricing-section" id="pricing" style="background-color:#f5f7fa;">
-  <div class="section-inner">
-    <div class="section-tag">Pricing</div>
-    <h2><span style="color:#1B3A6B;">No season. No subscription. No stress.</h2>
-    <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
-    <div class="pricing-grid reveal">
-      <div class="price-card">
-        <span class="price-sport-icon">&#9918;</span>
-        <h3>Gameday</h3>
-        <div class="price-amount">$22</div>
-        <div class="price-per">per child, per session</div>
-        <ul class="price-features">
-          <li>One 45-min group session</li>
-          <li>4–6 kids per group</li>
-          <li>Your choice of sport</li>
-          <li>No commitment required</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now - $22</a>
-      </div>
-      <div class="price-card featured">
-        <div class="popular-badge">&#9733; Most Popular</div>
-        <span class="price-sport-icon">&#127936;</span>
-        <h3>Double Play</h3>
-        <div class="price-amount">$38</div>
-        <div class="price-per">per child — save $6</div>
-        <ul class="price-features">
-          <li>2 sessions, use anytime</li>
-          <li>Repeat the same sport or try a new one</li>
-          <li>Book as you go</li>
-          <li>Invite friends to each</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now - $38</a>
-      </div>
-      <div class="price-card">
-        <span class="price-sport-icon">&#127942;</span>
-        <h3>Starting Five</h3>
-        <div class="price-amount">$90</div>
-        <div class="price-per">per child — save $20</div>
-        <ul class="price-features">
-          <li>5 sessions, use anytime</li>
-          <li>All sports included</li>
-          <li>First Play Sports jersey included on first visit</li>
-          <li>Your number, your choice - yours to keep</li>
-        </ul>
-        <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now - $90</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="section faq-section" style="background-color:#ffffff;">
   <div class="section-inner" style="text-align: center;">
