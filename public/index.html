@@ -22,12 +22,13 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
   body {
     font-family: 'Nunito', sans-serif;
     background: var(--cream);
     color: var(--navy);
     overflow-x: hidden;
+    width: 100%;
   }
 
   /* -- NAV -- */
@@ -537,21 +538,55 @@
 
   /* -- RESPONSIVE -- */
   @media (max-width: 768px) {
-    .hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; max-width:1100px; margin:0 auto; padding:4rem 2rem 10rem; }
-    .hero-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-    .steps { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .sports-grid { grid-template-columns: 1fr 1fr; }
-    .slots-grid { grid-template-columns: 1fr 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; }
-    .price-card.featured { transform: none; }
-    .faq-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    /* HARD STOP - nothing wider than screen */
+    *, *::before, *::after {
+      max-width: 100vw;
+    }
+    section, .section, .section-inner, .hero, .hero-inner, nav, footer {
+      width: 100% !important;
+      max-width: 100vw !important;
+      overflow-x: hidden !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+    /* Force all grids to single column */
+    [style*="grid-template-columns"] {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+    }
+    /* Fix hero specifically */
+    .hero-inner {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 2rem !important;
+      padding: 2rem 1rem 6rem !important;
+    }
+    .hero-stats {
+      display: flex !important;
+      flex-direction: column !important;
+      width: 100% !important;
+    }
+    /* All images responsive */
+    img {
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    .steps { grid-template-columns: 1fr !important; }
+    .why-grid { grid-template-columns: 1fr !important; }
+    .sports-grid { grid-template-columns: 1fr 1fr !important; }
+    .slots-grid { grid-template-columns: 1fr !important; }
+    .pricing-grid { grid-template-columns: 1fr !important; }
+    .faq-grid { grid-template-columns: 1fr !important; }
+    .nav-links { display: none !important; }
+    .nav-hamburger { display: flex !important; }
   }
   @media (max-width: 480px) {
-    .slots-grid { grid-template-columns: 1fr; }
-    .form-row { grid-template-columns: 1fr; }
+    .sports-grid { grid-template-columns: 1fr 1fr !important; }
+    .form-row { grid-template-columns: 1fr !important; }
+    .hero-btns { flex-direction: column !important; }
+    .hero-btns a { text-align: center !important; }
   }
 
   /* scroll reveal */
@@ -595,7 +630,7 @@
   </div>
   <div class="hero-dots"></div>
   <div class="field-lines"></div>
-  <div class="hero-inner" style="max-width:1100px;margin:0 auto;padding:0 48px;">
+  <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge">&#9889; AGES 4-9 &middot; NO SEASON COMMITMENT</div>
       <h1>Sports start <em>before</em> the team does.</h1>
@@ -627,10 +662,6 @@
     </div>
   </div>
 </section>
-
-<!-- SPORTS MARQUEE -->
-
-</div>
 
 <!-- HOW IT WORKS -->
 <section class="section" id="how" style="background-color:#ffffff;">
@@ -797,24 +828,24 @@
       <div class="sport-card">
         <div class="sport-card-color" style="background: #8b5cf6;"></div>
         <span class="sport-card-icon">&#127955;</span><h3>Pickleball</h3>
-        <p>The fastest-growing sport in America â€” and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
+        <p>The fastest-growing sport in America — and surprisingly perfect for young kids. Great hand-eye coordination and super fun.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
         <span class="sport-card-icon">&#x26F3;</span>
-        <h3>&#9971; Golf</h3>
-        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill â€” we start it early.</p>
+        <h3>Golf</h3>
+        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill — we start it early.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--navy);"></div>
         <span class="sport-card-icon">&#x1F3D0;</span>
-        <h3>&#127952; Volleyball</h3>
+        <h3>Volleyball</h3>
         <p>Bumping, setting, and serving at kid height. Just the fundamentals and a lot of laughing.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
         <span class="sport-card-icon">&#x26BD;</span>
-        <h3>&#9917; Soccer</h3>
+        <h3>Soccer</h3>
         <p>Dribbling, passing, shooting, and basic field awareness. Room to run and room to mess up.</p>
       </div>
       <div class="sport-card">
@@ -822,7 +853,7 @@
         <span class="sport-card-icon">&#x1F3AF;</span>
         <h3>Yard Games and Skills</h3>
         <p>Cornhole, frisbee toss, and athletic development. Sometimes the best practice does not look like practice at all.</p>
-      </div
+      </div>
     </div>
   </div>
 </section>
@@ -856,9 +887,8 @@
   <div class="section-inner">
     <div class="section-tag">Pricing</div>
     <h2><span style="color:#1B3A6B;">No season. No subscription. No stress.</h2>
-    <p class="section-sub">Start with one session. No commitment, no package required. Most families start with a Game Day â€” $22 gets your kid on the field with Coach Mark and you will know after one session if this is right for you.</p>
-    <p style="font-size:13px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1rem;">Want to commit early and save? We have options.</p>
-    <div class="pricing-grid reveal" style="display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:1.5rem;align-items:start;">
+    <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
+    <div class="pricing-grid reveal">
       <div class="price-card">
         <span class="price-sport-icon">&#9918;</span>
         <h3>Gameday</h3>
@@ -870,35 +900,33 @@
           <li>Your choice of sport</li>
           <li>No commitment required</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Gameday -->
         <a href="https://buy.stripe.com/test_5kQ9AV78271B6N5gtt3Je00" class="btn-stripe" target="_blank">Buy Now - $22</a>
       </div>
-      <div class="price-card">
+      <div class="price-card featured">
+        <div class="popular-badge">&#9733; Most Popular</div>
         <span class="price-sport-icon">&#127936;</span>
         <h3>Double Play</h3>
         <div class="price-amount">$38</div>
-        <div class="price-per">per child — save $15</div>
+        <div class="price-per">per child — save $6</div>
         <ul class="price-features">
           <li>2 sessions, use anytime</li>
           <li>Repeat the same sport or try a new one</li>
           <li>Book as you go</li>
           <li>Invite friends to each</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Double Play -->
         <a href="https://buy.stripe.com/test_5kQfZj0JE4TtfjB9113Je02" class="btn-stripe" target="_blank">Buy Now - $38</a>
       </div>
       <div class="price-card">
         <span class="price-sport-icon">&#127942;</span>
         <h3>Starting Five</h3>
         <div class="price-amount">$90</div>
-        <div class="price-per">per child — save $22</div>
+        <div class="price-per">per child — save $20</div>
         <ul class="price-features">
           <li>5 sessions, use anytime</li>
           <li>All sports included</li>
           <li>First Play Sports jersey included on first visit</li>
           <li>Your number, your choice - yours to keep</li>
         </ul>
-        <!-- TODO: Replace with Mark's Stripe payment link for Starting Five -->
         <a href="https://buy.stripe.com/test_00w9AVfEy1HhgnFgtt3Je04" class="btn-stripe" target="_blank">Buy Now - $90</a>
       </div>
     </div>
@@ -1163,7 +1191,6 @@ loadSlots();
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
-
 
 
 
