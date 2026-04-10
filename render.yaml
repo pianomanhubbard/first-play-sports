@@ -7,13 +7,15 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: SUPABASE_URL
+      - key: STRIPE_SECRET_KEY
         sync: false
-      - key: SUPABASE_KEY
+      - key: STRIPE_PRICE_ID
         sync: false
-      - key: RESEND_API_KEY
+      - key: STRIPE_WEBHOOK_SECRET
         sync: false
-      - key: COACH_EMAIL
+      - key: BASE_URL
         sync: false
-      - key: RESEND_FROM
+      - key: GMAIL_USER
+        sync: false
+      - key: GMAIL_APP_PASSWORD
         sync: false
