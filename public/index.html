@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coach Mark Lucas — First Play Sports</title>
+<title>Coach Mark — First Play Sports</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fraunces:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -11,7 +11,7 @@
     --grass-light: #0044CC;
     --grass-dark: #002080;
     --sky: #f0f8ff;
-    --sun: #FFFFFF;
+    --sun: #FFD23F;
     --orange: #CC0000;
     --navy: #002147;
     --navy-light: #003166;
@@ -43,7 +43,7 @@
   .nav-logo {
     font-family: 'Fraunces', serif;
     font-size: 1.3rem;
-    color: var(--sun);
+    color: #ffffff;
     letter-spacing: -0.5px;
   }
   .nav-logo span { color: #fff; } .nav-logo span.play { color: #B22234 !important; }
@@ -241,7 +241,7 @@
   .step-emoji { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
 
   /* -- WHY MARK -- */
-  .why-section { padding-bottom: 2rem; background-color: #0d1f3c !important; color: #fff !important; }
+  .why-section { padding-bottom: 2rem; background-color: #1B3A6B !important; color: #ffffff !important; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .why-text h2 { color: #ffffff; }
   .why-text .section-sub { color: rgba(255,255,255,0.8); }
@@ -251,14 +251,14 @@
     font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.85);
   }
   .why-list li::before {
-    content: '?'; min-width: 28px; height: 28px;
+    content: '✓'; min-width: 28px; height: 28px;
     background: #1B3A6B; color: #fff; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     font-weight: 900; font-size: 0.8rem; margin-top: 2px;
   }
   .coach-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.10);
+    border: 1px solid rgba(255,255,255,0.20);
     border-radius: 24px; padding: 2.5rem; text-align: center;
   }
   .coach-avatar {
@@ -398,7 +398,7 @@
   .form-note {
     background: #f0faf5; border: 1px solid #c3e9d5; border-radius: 10px;
     padding: 0.8rem 1rem; margin-bottom: 1.2rem;
-    font-size: 0.83rem; color: var(--grass-dark); font-weight: 600;
+    font-size: 0.83rem; color: var(--navy); font-weight: 600;
   }
   .form-error {
     background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px;
@@ -458,7 +458,7 @@
   .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
   .price-features li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.88rem; color: #5a6a7e; }
   .price-card.featured .price-features li { color: rgba(255,255,255,0.75); }
-  .price-features li::before { content: '?'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
+  .price-features li::before { content: '✓'; color: var(--grass); font-weight: 900; font-size: 0.8rem; }
   .price-card.featured .price-features li::before { color: var(--sun); }
 
   .btn-stripe {
@@ -477,7 +477,8 @@
   }
   .price-card.featured .btn-stripe:hover { box-shadow: 0 6px 20px rgba(255,210,63,0.5); }
 
-  .calendly-wrapper { display:none !important; display:none !important;
+  .calendly-wrapper {
+    display: none;
     border-radius: 20px; overflow: hidden;
     box-shadow: 0 8px 40px rgba(0,0,0,0.08);
     border: 2px solid #e8e2d8;
@@ -487,8 +488,9 @@
   .faq-section { background: #F0F4FF; }
   .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; max-width: 900px; margin: 0 auto; }
   .faq-item {
-    background: var(--chalk); border-radius: 16px; padding: 1.4rem 1.5rem;
-    border: 2px solid transparent; transition: border-color 0.2s;
+    background: #ffffff; border-radius: 16px; padding: 1.4rem 1.5rem;
+    border: 2px solid #e0e8f4; transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   .faq-item:hover { border-color: var(--grass); }
   .faq-item h4 { font-weight: 800; font-size: 0.95rem; margin-bottom: 0.5rem; color: #1B3A6B; }
@@ -501,7 +503,7 @@
     position: relative; overflow: hidden;
   }
   .cta-section::before {
-    content: '???????';
+    content: '⚾🏀🏈🥒⛳🏐⚽🎯';
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
     font-size: 20rem; opacity: 0.04;
     pointer-events: none; white-space: nowrap;
@@ -522,20 +524,25 @@
     background: var(--navy); color: rgba(255,255,255,0.6);
     padding: 2rem; text-align: center; font-size: 0.85rem;
   }
-  footer strong { color: var(--sun); }
+  footer strong { color: #FFD23F; }
 
   /* -- RESPONSIVE -- */
   @media (max-width: 768px) {
-    /* HARD STOP - nothing wider than screen */
-    *, *::before, *::after {
-      max-width: 100vw;
+    /* Prevent horizontal overflow */
+    body, html {
+      overflow-x: hidden;
     }
-    section, .section, .section-inner, .hero, .hero-inner, nav, footer {
+    section, .section, .section-inner, nav, footer {
       width: 100% !important;
-      max-width: 100vw !important;
+      max-width: 100% !important;
       overflow-x: hidden !important;
       padding-left: 1rem !important;
       padding-right: 1rem !important;
+    }
+    .hero {
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow-x: hidden !important;
     }
     /* Force all grids to single column */
     [style*="grid-template-columns"] {
@@ -577,6 +584,31 @@
     .hero-btns a { text-align: center !important; }
   }
 
+
+  /* Dark section text helpers */
+  .why-section .section-sub { color: rgba(255,255,255,0.78) !important; }
+  .why-section .why-text h2 { color: #ffffff !important; }
+  [style*="background-color:#1B3A6B"] .section-sub,
+  [style*="background-color:#1B3A6B"] h2 { color: #ffffff; }
+  [style*="background-color:#F0F4FF"] .section-sub { color: #4a5a72; }
+  [style*="background-color:#F0F4FF"] h2 { color: #002147; }
+  /* schedule section-sub on light bg */
+  .schedule-section .section-sub { color: #4a5a72; }
+  .schedule-section h2 { color: #002147; }
+  .schedule-section .section-tag { background: #FFD23F; color: #002147; }
+  /* How it works on dark bg */
+  #how h2, #how .section-sub { color: #ffffff; }
+  #how .section-sub { color: rgba(255,255,255,0.78); }
+  /* Sports section on dark */
+  #sports .section-sub { color: rgba(255,255,255,0.78); }
+  /* FAQ on light */
+  .faq-section h2 { color: #002147; }
+  .faq-section .section-sub { color: #4a5a72; }
+  /* Real coaching section on light */
+  .real-coaching-section h2 { color: #002147; }
+  /* About coach on light */
+  .about-coach-section h2 { color: #002147; }
+
   /* scroll reveal */
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -610,11 +642,11 @@
 <!-- HERO -->
 <section class="hero" style="background-color:#1B3A6B;">
   <div class="floating-balls">
-    <div class="ball">?</div>
-    <div class="ball">??</div>
-    <div class="ball">??</div>
-    <div class="ball">??</div>
-    <div class="ball">?</div>
+    <div class="ball">⚾</div>
+    <div class="ball">🏀</div>
+    <div class="ball">🏈</div>
+    <div class="ball">⛳</div>
+    <div class="ball">⚽</div>
   </div>
   <div class="hero-dots"></div>
   <div class="field-lines"></div>
@@ -627,7 +659,7 @@
         Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.
       </p>
       <div class="hero-btns">
-        <a href="#schedule" class="btn-primary">Book a Session ?</a>
+        <a href="#schedule" class="btn-primary">Book a Session ⚾</a>
         <a href="#how" class="btn-outline">How It Works</a>
       </div>
     </div>
@@ -652,7 +684,7 @@
 </section>
 
 <!-- SCHEDULING -->
-<section class="section schedule-section" id="schedule" style="background-color:#1B3A6B;color:#fff;">
+<section class="section schedule-section" id="schedule" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner">
     <div class="section-tag">Book a Session</div>
     <h2>Pick your time.</h2>
@@ -660,13 +692,10 @@
     <div class="schedule-ui reveal">
       <div class="schedule-header">
         <h3>Upcoming Sessions</h3>
-        <div class="schedule-filters">
-          <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
-          <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">Baseball</button>
-          
-          
-          
-        </div>
+      </div>
+      <div class="schedule-filters">
+        <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
+        <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">Baseball</button>
       </div>
       <div class="slots-grid" id="slotsGrid">
         <div class="slots-loading">Loading sessions...</div>
@@ -676,7 +705,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section" id="how" style="background-color:#ffffff;">
+<section class="section" id="how" style="background-color:#1B3A6B;color:#ffffff;">
   <div class="section-inner">
     <div class="section-tag">How It Works</div>
     <h2>Simple, flexible, fun.</h2>
@@ -704,10 +733,10 @@
 </section>
 
 <!-- PRICING -->
-<section class="section pricing-section" id="pricing" style="background-color:#f5f7fa;">
+<section class="section pricing-section" id="pricing" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner">
     <div class="section-tag">Pricing</div>
-    <h2><span style="color:#1B3A6B;">No season. No subscription. No stress.</h2>
+    <h2><span style="color:#002147;">No season. No subscription. No stress.</span></h2>
     <p class="section-sub">Pay per session. That's it. No commitment to a whole season, no team fees, no equipment costs upfront.</p>
     <div style="max-width:420px;margin:0 auto;">
       <div class="price-card" style="text-align:center;">
@@ -728,10 +757,10 @@
   </div>
 </section>
 
-<section class="section sports-section" id="sports" style="background-color:#f5f7fa;">
+<section class="section sports-section" id="sports" style="background-color:#1B3A6B;color:#ffffff;">
   <div class="section-inner">
     <div class="section-tag">Sports Offered</div>
-    <h2><span style="color:#1B3A6B;">Pick your sport. Or try them all.</h2>
+    <h2><span style="color:#ffffff;">Pick your sport. Or try them all.</span></h2>
     <p class="section-sub">Every session is sport-specific so kids learn the real fundamentals without information overload.</p>
     <div class="sports-grid reveal">
       <div class="sport-card">
@@ -783,43 +812,43 @@
 </section>
 
 <!-- ABOUT COACH MARK -->
-<section class="section" style="background-color:#1B3A6B;color:#fff;">
+<section class="section about-coach-section" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner">
     <div style="display:inline-block;background:#B22234;color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1px;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">MEET COACH MARK</div>
-    <h2 style="color:#fff;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:2rem;">He has been coaching kids his whole career. Yours is next.</h2>
+    <h2 style="color:#002147;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:2rem;">He has been coaching kids his whole career. Yours is next.</h2>
     <div style="display:grid;grid-template-columns:400px 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
       <div>
-        <img src="/coach-photo.jpg" style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark with Joey">
-        <p style="color:#fff;font-size:0.95rem;line-height:1.7;margin-top:1rem;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
+        <img src="/coach-photo.jpg" style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);" alt="Coach Mark with Joey">
+        <p style="color:#002147;font-size:0.95rem;line-height:1.7;margin-top:1rem;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
 
       </div>
-      <div style="font-size:1.05rem;line-height:1.9;color:rgba(0,0,0,0.85);">
-        <p style="margin-bottom:1.2rem;color:#fff;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
-        <p style="margin-bottom:1.2rem;color:#fff;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
-        <p style="margin-bottom:1.2rem;color:#fff;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
+      <div style="font-size:1.05rem;line-height:1.9;color:#4a5a72;">
+        <p style="margin-bottom:1.2rem;color:#002147;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
+        <p style="margin-bottom:1.2rem;color:#002147;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
+        <p style="margin-bottom:1.2rem;color:#002147;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
 
-        <img src="/palmer-joey.jpg" style="width:100%;max-width:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);margin-bottom:1rem;" alt="Palmer and Joey">
-        <p style="font-size:1.1rem;font-style:italic;color:#fff;border-left:4px solid #B22234;padding-left:1.2rem;margin-top:1.5rem;">When you bring your child to First Play Sports, you are not dropping them off with a stranger. You are handing them to someone who has spent a career earning the right to be called Coach.</p>
+        <img src="/palmer-joey.jpg" style="width:100%;max-width:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:1rem;" alt="Palmer and Joey">
+        <p style="font-size:1.1rem;font-style:italic;color:#002147;border-left:4px solid #B22234;padding-left:1.2rem;margin-top:1.5rem;">When you bring your child to First Play Sports, you are not dropping them off with a stranger. You are handing them to someone who has spent a career earning the right to be called Coach.</p>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(255,255,255,0.3);padding-top:2rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(0,33,71,0.15);padding-top:2rem;">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">16 Years</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">High school teacher in Jefferson County</p>
+        <div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">16 Years</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">High school teacher in Jefferson County</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">Every Level</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">Tee ball through high school in baseball, basketball, and soccer</p>
+        <div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">Every Level</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">Tee ball through high school in baseball, basketball, and soccer</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.4rem;font-weight:900;color:#fff;margin-bottom:0.3rem;">2 Kids</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.5;">Palmer, 7, and Joey, 4 â€” his proof of concept</p>
+        <div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">2 Kids</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">Palmer, 7, and Joey, 4 — his proof of concept</p>
       </div>
     </div>
   </div>
 </section>
 <!-- WHY MARK -->
-<section class="section why-section" id="about" style="background-color:#0d1f3c;color:#fff;">
+<section class="section why-section" id="about" style="background-color:#1B3A6B;color:#ffffff;">
   <div class="section-inner">
     <div class="why-grid">
       <div class="why-text">
@@ -857,28 +886,28 @@
   </div>
 </section>
 
-<section class="section" style="background-color:#1B3A6B;color:#fff;">
+<section class="section real-coaching-section" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner">
-    <div style="width:60px;height:4px;background:#B22234;margin-bottom:1.5rem;"></div><h2 style="color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
-    <img src="/coach-group.jpg" style="width:100%;max-width:100%;max-height:350px;object-fit:cover;object-position:center center;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);margin-bottom:2rem;" alt="Coach Mark coaching kids on the baseball field">
-    <p style="font-size:1.05rem;color:rgba(255,255,255,0.85);max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. Coach Mark runs drills, teaches fundamentals, and gives every kid individual attention. Your child will know what it feels like to have a coach in their corner before they ever step onto a team. That foundation is something they carry with them forever.</p>
+    <div style="width:60px;height:4px;background:#B22234;margin-bottom:1.5rem;"></div><h2 style="color:#002147;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
+    <img src="/coach-group.jpg" style="width:100%;max-width:100%;max-height:350px;object-fit:cover;object-position:center center;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:2rem;" alt="Coach Mark coaching kids on the baseball field">
+    <p style="font-size:1.05rem;color:#4a5a72;max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. Coach Mark runs drills, teaches fundamentals, and gives every kid individual attention. Your child will know what it feels like to have a coach in their corner before they ever step onto a team. That foundation is something they carry with them forever.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Structure</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">Every session has a plan, a skill focus, and a clear beginning and end.</p>
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Structure</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;">Every session has a plan, a skill focus, and a clear beginning and end.</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Instruction</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">Coach Mark teaches. Every kid leaves having learned something specific.</p>
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Instruction</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;">Coach Mark teaches. Every kid leaves having learned something specific.</p>
       </div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;">
-        <div style="font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:0.5rem;">Individual Attention</div>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.6;">4-6 kids per session means your child is never invisible.</p>
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Individual Attention</div>
+        <p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;">4-6 kids per session means your child is never invisible.</p>
       </div>
     </div>
   </div>
 </section>
-<section class="section" style="background-color:#0d1f3c;color:#fff;">
+<section class="section always-know-section" style="background-color:#1B3A6B;color:#ffffff;">
   <div class="section-inner">
     <div style="display:inline-block;background:#B22234;color:#fff;font-size:0.75rem;font-weight:900;letter-spacing:1px;padding:0.35rem 1rem;border-radius:100px;margin-bottom:1.5rem;">EVERY TIME. EVERY SESSION.</div>
     <div style="display:grid;grid-template-columns:1fr 420px;gap:3rem;align-items:start;">
@@ -895,11 +924,14 @@
     </div>
     <img src="/coach-joey.jpg" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark giving individual attention">
     </div>
+  </div>
+</section>
+
 <!-- FAQ -->
-<section class="section faq-section" style="background-color:#ffffff;">
+<section class="section faq-section" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner" style="text-align: center;">
     <div class="section-tag">FAQ</div>
-    <h2 style="color:#1B3A6B;" style="margin-bottom: 0.5rem;">Common questions from parents</h2>
+    <h2 style="color:#1B3A6B; margin-bottom: 0.5rem;">Common questions from parents</h2>
     <p class="section-sub" style="margin: 0.5rem auto 2.5rem;">We've heard them all.</p>
     <div class="faq-grid reveal"><div class="faq-item"><h4>Do you offer all sports every session?</h4><p>Not all at once. Coach Mark runs sport-specific sessions and rotates based on the season and what families are interested in. Baseball is the featured sport this spring. New sports are added regularly — follow along or reach out to find out what is coming next.</p></div>
       <div class="faq-item">
@@ -935,13 +967,13 @@
   <div style="position: relative; z-index: 1;">
     <h2>Ready to book your kid's first session?</h2>
     <p>No commitment. Just a good time on the field, court, or diamond. Pick a slot and let's go.</p>
-    <a href="#schedule" class="cta-btn">Browse Open Sessions ?</a>
+    <a href="#schedule" class="cta-btn">Browse Open Sessions ⚾</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ? ?? ?? ??</p>
+  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 ⛳</p>
   <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>firstplaysportswv@gmail.com</strong> · (724) 799-4778</p>
 </footer>
 
@@ -968,15 +1000,15 @@ async function loadSlots() {
   } catch {
     // Fallback to demo data if backend isn't reachable
     allSlots = [
-      { id: 1, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 2, sport: 'basketball', icon: '??', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
-      { id: 3, sport: 'football', icon: '??', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
-      { id: 4, sport: 'pickleball', icon: '??', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
-      { id: 5, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
-      { id: 6, sport: 'basketball', icon: '??', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
-      { id: 7, sport: 'football', icon: '??', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
-      { id: 8, sport: 'pickleball', icon: '??', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 9, sport: 'baseball', icon: '?', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
+      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
+      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
+      { id: 4, sport: 'pickleball', icon: '🥒', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
+      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
+      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
+      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
+      { id: 8, sport: 'pickleball', icon: '🥒', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
+      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
     ];
     slots = allSlots;
     renderSlots('all');
@@ -1028,7 +1060,7 @@ function openBooking(slotId) {
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header">
       <h3>Book Your Spot</h3>
-      <button class="modal-close" onclick="closeModal()">?</button>
+      <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-slot-info">
       <div class="modal-slot-icon">${slot.icon}</div>
@@ -1038,7 +1070,7 @@ function openBooking(slotId) {
         <p style="color: var(--grass); font-weight: 700; margin-top: 4px;">${open} spot${open !== 1 ? 's' : ''} remaining</p>
       </div>
     </div>
-    <div class="form-note">?? No payment due now. Mark will confirm and send payment info within 24 hours.</div>
+    <div class="form-note">&#x1F4B3; You'll be taken to a secure Stripe checkout to pay $22. Your spot is confirmed once payment is complete.</div>
     <div class="form-error" id="formError"></div>
     <div class="form-group">
       <label>Your Name (Parent/Guardian)</label>
@@ -1066,7 +1098,7 @@ function openBooking(slotId) {
       <label>Anything Mark should know? (optional)</label>
       <input type="text" placeholder="e.g. First time ever holding a bat!" id="notes">
     </div>
-    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Request This Spot ?</button>
+    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Request This Spot ⚾</button>
   `;
   document.getElementById('modalOverlay').classList.add('open');
 }
@@ -1088,7 +1120,7 @@ async function submitBooking(slotId) {
 
   const btn = document.getElementById('bookBtn');
   btn.disabled = true;
-  btn.textContent = 'Booking…';
+  btn.textContent = 'Taking you to payment…';
 
   try {
     const res = await fetch('/api/book', {
@@ -1099,22 +1131,11 @@ async function submitBooking(slotId) {
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Booking failed');
 
-    // Update local count so the slot reflects the new booking immediately
-    const slot = allSlots.find(s => String(s.id) === String(slotId));
-    if (slot) slot.taken = Math.min(slot.taken + 1, slot.total);
-    renderSlots(activeFilter);
-
-    document.getElementById('modalContent').innerHTML = `
-      <div class="confirm-screen">
-        <div class="confirm-icon">??</div>
-        <h3>You're on the list!</h3>
-        <p>Thanks, ${parent}! Coach Mark will reach out to confirm ${kid}'s spot and handle payment details within 24 hours. Get ready for some fun!</p>
-        <button class="btn-book" onclick="closeModal()">Close</button>
-      </div>
-    `;
+    // Redirect to Stripe Checkout
+    window.location.href = data.url;
   } catch (err) {
     btn.disabled = false;
-    btn.textContent = 'Request This Spot ?';
+    btn.textContent = 'Request This Spot ⚾';
     errEl.textContent = err.message || 'Something went wrong. Please try again.';
     errEl.style.display = 'block';
   }
