@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const path = require('path');
 require('dotenv').config();
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY || 'placeholder');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY || 'sk_live_yourfullkeyhere');
 
 const app = express();
 
