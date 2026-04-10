@@ -103,7 +103,7 @@ app.post('/api/book', async (req, res) => {
       payment_method_types: ['card'],
       line_items: [
         {
-          price: process.env.STRIPE_PRICE_ID,
+          price: 'price_1TKVQGJy1rlznfc2FhByhuY6',
           quantity: 1,
         },
       ],
