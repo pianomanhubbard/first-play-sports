@@ -123,7 +123,7 @@ app.post('/api/book', async (req, res) => {
 
     res.json({ url: checkoutSession.url });
   } catch (err) {
-    console.error('Stripe error:', err.message);
+    console.error('Stripe error FULL:', JSON.stringify(err));
     res.status(500).json({ error: 'Could not start checkout. Please try again.' });
   }
 });
