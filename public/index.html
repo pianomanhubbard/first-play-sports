@@ -618,7 +618,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" style="display:flex;flex-direction:column;line-height:1.2;"><span style="color:#B22234;">Coach Mark</span><span style="font-size:0.65rem;font-weight:400;opacity:0.75;letter-spacing:0.03em;">First Play Sports · Ages 4–9</span></div>
+  <a href="#" style="display:flex;align-items:center;"><img src="/firstplay-logo.svg" alt="First Play Sports" style="height:44px;width:auto;display:block;"></a>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -653,8 +653,8 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge">&#9889; AGES 4-9 &middot; NO SEASON COMMITMENT</div>
-      <h1>Sports start <em>before</em> the team does.</h1>
-      <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">For most kids, Coach Mark will be the first coach they ever have. We take that seriously.</p>
+      <img src="/firstplay-logo.svg" alt="First Play Sports" style="height:130px;width:auto;display:block;margin:0 auto 2rem auto;"><h1>Sports start <em>before</em> the team does.</h1>
+      <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">For most kids, Coach Mark will be the first coach they ever have. He takes that seriously.</p>
     <p class="hero-sub">
         Most leagues start at 6 or 7. Coach Mark teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.
       </p>
@@ -745,10 +745,10 @@
         <div class="price-amount" style="font-size:3.5rem;">$22</div>
         <div class="price-per">per child, per session</div>
         <ul class="price-features" style="margin-top:1.2rem;">
-          <li>45-minute group session</li>
+          <li>1-hour group session</li>
           <li>4–6 kids per group</li>
           <li>Your choice of sport</li>
-          <li>No gear needed — Coach Mark brings everything</li>
+          <li>No gear needed — Coach Mark's got it</li>
           <li>No commitment required</li>
         </ul>
         <a href="#schedule" class="btn-stripe" style="margin-top:1.5rem;display:block;background:#1B3A6B;color:#fff;text-align:center;">Book a Session</a>
@@ -787,7 +787,7 @@
         <div class="sport-card-color" style="background: var(--red-sport);"></div>
         <span class="sport-card-icon">&#x26F3;</span>
         <h3>Golf</h3>
-        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill — we start it early.</p>
+        <p>How to act on a course and enough skills to walk 9 holes with dad. Golf is a life skill — Coach Mark starts it early.</p>
       </div>
       <div class="sport-card">
         <div class="sport-card-color" style="background: var(--navy);"></div>
@@ -819,14 +819,12 @@
     <div style="display:grid;grid-template-columns:400px 1fr;gap:3rem;align-items:start;margin-bottom:3rem;">
       <div>
         <img src="/coach-photo.jpg" style="width:100%;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);" alt="Coach Mark with Joey">
-        <p style="color:#002147;font-size:0.95rem;line-height:1.7;margin-top:1rem;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
-
       </div>
       <div style="font-size:1.05rem;line-height:1.9;color:#4a5a72;">
         <p style="margin-bottom:1.2rem;color:#002147;"><strong>Coach Mark Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
         <p style="margin-bottom:1.2rem;color:#002147;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
         <p style="margin-bottom:1.2rem;color:#002147;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
-
+        <p style="margin-bottom:1.2rem;color:#002147;"><strong>Coach Mark</strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
         <img src="/palmer-joey.jpg" style="width:100%;max-width:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:1rem;" alt="Palmer and Joey">
         <p style="font-size:1.1rem;font-style:italic;color:#002147;border-left:4px solid #B22234;padding-left:1.2rem;margin-top:1.5rem;">When you bring your child to First Play Sports, you are not dropping them off with a stranger. You are handing them to someone who has spent a career earning the right to be called Coach.</p>
       </div>
@@ -973,7 +971,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <p><strong>Coach Mark</strong> · First Play Sports · Ages 4–9 · ⚾ 🏀 🏈 ⛳</p>
+  <img src="/firstplay-logo.svg" alt="First Play Sports" style="height:80px;width:auto;display:block;margin:0 auto 1rem auto;">
+  <p style="margin-top:0.5rem;"><strong>Coach Mark</strong> · First Play Sports · Ages 4–9</p>
   <p style="margin-top: 0.4rem;">Questions? Reach out at <strong>firstplaysportswv@gmail.com</strong> · (724) 799-4778</p>
 </footer>
 
@@ -993,22 +992,22 @@ let activeFilter = 'all';
 async function loadSlots() {
   try {
     const res = await fetch('/api/slots');
-    if (!res.ok) throw new Error('Failed to load');
+    if (!res.ok) throw new Error('Server returned ' + res.status);
     allSlots = await res.json();
+    if (!allSlots.length) throw new Error('No sessions returned');
     slots = allSlots;
     renderSlots('all');
-  } catch {
-    // Fallback to demo data if backend isn't reachable
+  } catch (err) {
+    console.error('loadSlots error:', err.message);
+    // Real upcoming sessions as fallback
     allSlots = [
-      { id: 1, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 19', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 2, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Sat Apr 19', time: '10:30 AM – 11:30 AM', taken: 5, total: 6 },
-      { id: 3, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Sat Apr 19', time: '12:00 PM – 1:00 PM', taken: 3, total: 6 },
-      { id: 4, sport: 'pickleball', icon: '🥒', name: 'Pickle Intro', day: 'Sun Apr 20', time: '9:00 AM – 10:00 AM', taken: 1, total: 6 },
-      { id: 5, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 20', time: '10:30 AM – 11:30 AM', taken: 6, total: 6 },
-      { id: 6, sport: 'basketball', icon: '🏀', name: 'Hoop Fundamentals', day: 'Wed Apr 23', time: '4:30 PM – 5:30 PM', taken: 0, total: 6 },
-      { id: 7, sport: 'football', icon: '🏈', name: 'First Down Skills', day: 'Thu Apr 24', time: '4:30 PM – 5:30 PM', taken: 4, total: 6 },
-      { id: 8, sport: 'pickleball', icon: '🥒', name: 'Pickle Intro', day: 'Sat Apr 26', time: '9:00 AM – 10:00 AM', taken: 2, total: 6 },
-      { id: 9, sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 26', time: '10:30 AM – 11:30 AM', taken: 3, total: 6 },
+      { id: '1', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 28', time: '5:30 PM – 6:30 PM', taken: 0, total: 6 },
+      { id: '2', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 28', time: '6:30 PM – 7:30 PM', taken: 0, total: 6 },
+      { id: '3', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Fri May 1',  time: '5:30 PM – 6:30 PM', taken: 0, total: 6 },
+      { id: '4', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 3',  time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '5', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 3',  time: '12:00 PM – 1:00 PM', taken: 0, total: 6 },
+      { id: '6', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 3',  time: '1:00 PM – 2:00 PM', taken: 0, total: 6 },
+      { id: '7', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 3',  time: '2:00 PM – 3:00 PM', taken: 0, total: 6 },
     ];
     slots = allSlots;
     renderSlots('all');
