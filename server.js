@@ -13,6 +13,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Sessions ─────────────────────────────────────────────────────────────────
+const sessions = [
+  // ============================================================
+// PASTE THIS to REPLACE your existing "sessions" array
+// in server.js
+// ============================================================
 
 const sessions = [
   // --- Sat Apr 25 ---
