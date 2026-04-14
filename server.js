@@ -72,7 +72,7 @@ app.post('/api/book', async (req, res) => {
               name: `${session.name} — ${session.day} ${session.time}`,
               description: `Coach Mark · First Play Sports · Kid: ${kidName} (age ${kidAge})`,
             },
-            unit_amount: 2200, // $22.00
+            unit_amount: 2500, // $25.00
           },
           quantity: 1,
         },
