@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const path = require('path');
 require('dotenv').config();
 
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY || 'sk_live_yourfullkeyhere');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
@@ -19,23 +19,22 @@ const sessions = [
   { id: '2',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '3',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
   { id: '4',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
-  { id: '5',  sport: 'football', icon: '🏈', name: 'Flag Football', day: 'Sat Apr 25', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
+  { id: '5',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat Apr 25', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
   // --- Sun Apr 26 ---
   { id: '6',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '7',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
-  { id: '8',  sport: 'football', icon: '🏈', name: 'Flag Football', day: 'Sun Apr 26', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+  { id: '8',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun Apr 26', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
   // --- Sat May 16 ---
   { id: '9',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '10', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '11', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
   { id: '12', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
-  { id: '13', sport: 'football', icon: '🏈', name: 'Flag Football', day: 'Sat May 16', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
+  { id: '13', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat May 16', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
   // --- Sun May 17 ---
   { id: '14', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '15', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
-  { id: '16', sport: 'football', icon: '🏈', name: 'Flag Football', day: 'Sun May 17', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+  { id: '16', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun May 17', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
 ];
-
 
 // — Email transporter ————————————————————————————————————————
 const transporter = nodemailer.createTransport({
@@ -51,6 +50,11 @@ const transporter = nodemailer.createTransport({
 // Get all slots
 app.get('/api/slots', (req, res) => {
   res.json(sessions);
+});
+
+// Success page
+app.get('/success', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
 
 // Create Stripe checkout session
@@ -72,7 +76,7 @@ app.post('/api/book', async (req, res) => {
               name: `${session.name} — ${session.day} ${session.time}`,
               description: `Coach Mark · First Play Sports · Kid: ${kidName} (age ${kidAge})`,
             },
-            unit_amount: 2500, // $25.00
+            unit_amount: 2000, // $20.00
           },
           quantity: 1,
         },
@@ -117,16 +121,34 @@ app.post('/webhook', async (req, res) => {
     const session = sessions.find(s => s.id === sessionId);
     if (session) session.taken += 1;
 
-    // Send confirmation email to Mark
+    const sessionDetails = session
+      ? `${session.name} — ${session.day} ${session.time}`
+      : sessionId;
+
+    // Email to Mark
     try {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: 'firstplaysportswv@gmail.com',
         subject: `New Booking: ${kidName} — ${session ? session.day : sessionId}`,
-        text: `New booking received!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${session ? session.day + ' ' + session.time : sessionId}\nNotes: ${notes || 'None'}\n\nAmount paid: $22.00`,
+        text: `New booking received!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${sessionDetails}\nNotes: ${notes || 'None'}\n\nAmount paid: $20.00`,
       });
     } catch (emailErr) {
-      console.error('Email error:', emailErr.message);
+      console.error('Mark email error:', emailErr.message);
+    }
+
+    // Email to parent (only if they provided an email address)
+    if (contactInfo && contactInfo.includes('@')) {
+      try {
+        await transporter.sendMail({
+          from: process.env.EMAIL_USER,
+          to: contactInfo,
+          subject: `You're booked! First Play Sports — ${session ? session.day : ''}`,
+          text: `Hi ${parentName},\n\nYou're all set! Here are your booking details:\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Huntfield Community Grass Park · Front of neighborhood by the dome · Charles Town, WV\n\nAmount paid: $20.00\n\nJust bring your kid in comfortable clothes and sneakers — Coach Mark handles everything else.\n\nQuestions? Reach Coach Mark at firstplaysportswv@gmail.com or (724) 799-4778.\n\nSee you on the field!\n— Coach Mark\nFirst Play Sports`,
+        });
+      } catch (emailErr) {
+        console.error('Parent email error:', emailErr.message);
+      }
     }
   }
 
