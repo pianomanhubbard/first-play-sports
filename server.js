@@ -125,30 +125,74 @@ app.post('/webhook', async (req, res) => {
       ? `${session.name} — ${session.day} ${session.time}`
       : sessionId;
 
-    // Email to Mark
+    // Extract email from contactInfo (format: "email / phone" or just "email")
+    const emailAddress = contactInfo ? contactInfo.split(' /')[0].trim() : null;
+
+    // Email to Coach Mark
     try {
       await transporter.sendMail({
         from: process.env.EMAIL_USER,
         to: 'firstplaysportswv@gmail.com',
         subject: `New Booking: ${kidName} — ${session ? session.day : sessionId}`,
-        text: `New booking received!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${sessionDetails}\nNotes: ${notes || 'None'}\n\nAmount paid: $20.00`,
+        html: `
+          <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+            <div style="background:#002147;padding:20px;text-align:center;">
+              <h2 style="color:#FFD23F;margin:0;">New Booking Received!</h2>
+            </div>
+            <div style="padding:24px;background:#f9f9f9;">
+              <p style="font-size:16px;"><strong>Parent:</strong> ${parentName}</p>
+              <p style="font-size:16px;"><strong>Kid:</strong> ${kidName} (age ${kidAge})</p>
+              <p style="font-size:16px;"><strong>Contact:</strong> ${contactInfo}</p>
+              <p style="font-size:16px;"><strong>Session:</strong> ${sessionDetails}</p>
+              <p style="font-size:16px;"><strong>Notes:</strong> ${notes || 'None'}</p>
+              <p style="font-size:16px;"><strong>Amount paid:</strong> $20.00</p>
+            </div>
+          </div>
+        `,
+        text: `New booking!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${sessionDetails}\nNotes: ${notes || 'None'}\nAmount paid: $20.00`,
       });
+      console.log('Coach Mark email sent successfully');
     } catch (emailErr) {
-      console.error('Mark email error:', emailErr.message);
+      console.error('Coach Mark email error:', emailErr.message);
     }
 
-    // Email to parent (only if they provided an email address)
-    if (contactInfo && contactInfo.includes('@')) {
+    // Email to parent
+    if (emailAddress && emailAddress.includes('@')) {
       try {
         await transporter.sendMail({
           from: process.env.EMAIL_USER,
-          to: contactInfo,
+          to: emailAddress,
           subject: `You're booked! First Play Sports — ${session ? session.day : ''}`,
-          text: `Hi ${parentName},\n\nYou're all set! Here are your booking details:\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Huntfield Community Grass Park · Front of neighborhood by the dome · Charles Town, WV\n\nAmount paid: $20.00\n\nJust bring your kid in comfortable clothes and sneakers — Coach Mark handles everything else.\n\nQuestions? Reach Coach Mark at firstplaysportswv@gmail.com or (724) 799-4778.\n\nSee you on the field!\n— Coach Mark\nFirst Play Sports`,
+          html: `
+            <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
+              <div style="background:#002147;padding:20px;text-align:center;">
+                <h2 style="color:#FFD23F;margin:0;">You're Booked! ⚾</h2>
+                <p style="color:rgba(255,255,255,0.8);margin:8px 0 0;">First Play Sports</p>
+              </div>
+              <div style="padding:24px;background:#f9f9f9;">
+                <p style="font-size:16px;">Hi ${parentName},</p>
+                <p style="font-size:16px;">You're all set! Here are your booking details:</p>
+                <div style="background:#fff;border-left:4px solid #B22234;padding:16px;margin:16px 0;border-radius:4px;">
+                  <p style="margin:4px 0;font-size:15px;"><strong>Kid:</strong> ${kidName} (age ${kidAge})</p>
+                  <p style="margin:4px 0;font-size:15px;"><strong>Session:</strong> ${sessionDetails}</p>
+                  <p style="margin:4px 0;font-size:15px;"><strong>Coach:</strong> Coach Mark Lucas</p>
+                  <p style="margin:4px 0;font-size:15px;"><strong>Location:</strong> Huntfield Community Grass Park · Front of neighborhood by the dome · Charles Town, WV</p>
+                  <p style="margin:4px 0;font-size:15px;"><strong>Amount paid:</strong> $20.00</p>
+                </div>
+                <p style="font-size:15px;">Just bring ${kidName} in comfortable clothes and sneakers — Coach Mark handles everything else.</p>
+                <p style="font-size:15px;">Questions? Reach Coach Mark at <a href="mailto:firstplaysportswv@gmail.com">firstplaysportswv@gmail.com</a> or (724) 799-4778.</p>
+                <p style="font-size:15px;">See you on the field!<br><strong>— Coach Mark</strong><br>First Play Sports</p>
+              </div>
+            </div>
+          `,
+          text: `Hi ${parentName},\n\nYou're all set!\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Huntfield Community Grass Park · Charles Town, WV\nAmount paid: $20.00\n\nJust bring ${kidName} in comfortable clothes and sneakers — Coach Mark handles everything else.\n\nQuestions? firstplaysportswv@gmail.com or (724) 799-4778\n\nSee you on the field!\n— Coach Mark\nFirst Play Sports`,
         });
+        console.log('Parent confirmation email sent to:', emailAddress);
       } catch (emailErr) {
         console.error('Parent email error:', emailErr.message);
       }
+    } else {
+      console.warn('No valid parent email found in contactInfo:', contactInfo);
     }
   }
 
