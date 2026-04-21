@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — First Play Sports</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Nunito',sans-serif; background:#F0F4FF; color:#002147; min-height:100vh; }
+  .login-wrap { min-height:100vh; display:flex; align-items:center; justify-content:center; }
+  .login-card { background:#fff; border-radius:20px; padding:2.5rem; width:min(400px,92vw); box-shadow:0 8px 40px rgba(0,0,0,0.1); text-align:center; }
+  .login-card h1 { font-family:'Fraunces',serif; font-size:1.8rem; color:#002147; margin-bottom:0.3rem; }
+  .login-card p { color:#5a6a7e; font-size:0.9rem; margin-bottom:1.5rem; }
+  .admin-wrap { max-width:960px; margin:0 auto; padding:2rem 1.5rem; }
+  .admin-header { background:#002147; color:#fff; padding:1rem 1.5rem; border-radius:16px; margin-bottom:2rem; display:flex; align-items:center; justify-content:space-between; }
+  .admin-header h1 { font-family:'Fraunces',serif; font-size:1.4rem; }
+  .admin-header span { color:#FFD23F; font-weight:800; }
+  .logout-btn { background:rgba(255,255,255,0.15); border:none; color:#fff; padding:0.4rem 1rem; border-radius:100px; font-family:'Nunito',sans-serif; font-weight:700; cursor:pointer; font-size:0.85rem; }
+  .logout-btn:hover { background:rgba(255,255,255,0.25); }
+  .card { background:#fff; border-radius:16px; padding:1.8rem; margin-bottom:1.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+  .card h2 { font-family:'Fraunces',serif; font-size:1.2rem; color:#002147; margin-bottom:1.2rem; padding-bottom:0.8rem; border-bottom:2px solid #F0F4FF; }
+  .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:0.8rem; }
+  .form-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.8rem; margin-bottom:0.8rem; }
+  .form-group { display:flex; flex-direction:column; gap:0.3rem; }
+  .form-group label { font-size:0.78rem; font-weight:800; color:#5a6a7e; text-transform:uppercase; letter-spacing:0.5px; }
+  .form-group input, .form-group select { padding:0.6rem 0.9rem; border:2px solid #e0e8f4; border-radius:10px; font-family:'Nunito',sans-serif; font-size:0.9rem; color:#002147; }
+  .form-group input:focus, .form-group select:focus { outline:none; border-color:#002147; }
+  .btn { padding:0.65rem 1.4rem; border-radius:100px; border:none; font-family:'Nunito',sans-serif; font-weight:800; font-size:0.9rem; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s; }
+  .btn-navy { background:#002147; color:#fff; }
+  .btn-navy:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,33,71,0.3); }
+  .btn-red { background:#B22234; color:#fff; }
+  .btn-red:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(178,34,52,0.3); }
+  .btn-sm { padding:0.35rem 0.8rem; font-size:0.8rem; }
+  .btn-login { width:100%; padding:0.85rem; background:#B22234; color:#fff; font-size:1rem; margin-top:0.5rem; }
+  .input-login { width:100%; padding:0.75rem 1rem; border:2px solid #e0e8f4; border-radius:10px; font-family:'Nunito',sans-serif; font-size:1rem; margin-bottom:0.8rem; text-align:center; letter-spacing:2px; }
+  .input-login:focus { outline:none; border-color:#002147; }
+  .err { background:#fef2f2; border:1px solid #fecaca; border-radius:8px; padding:0.6rem 1rem; font-size:0.83rem; color:#e63946; font-weight:700; margin-bottom:0.8rem; display:none; }
+  .success-msg { background:#f0faf5; border:1px solid #c3e9d5; border-radius:8px; padding:0.6rem 1rem; font-size:0.83rem; color:#1a7f4b; font-weight:700; margin-top:0.8rem; display:none; }
+  table { width:100%; border-collapse:collapse; font-size:0.88rem; }
+  th { text-align:left; font-size:0.75rem; font-weight:800; color:#5a6a7e; text-transform:uppercase; letter-spacing:0.5px; padding:0.5rem 0.8rem; border-bottom:2px solid #F0F4FF; }
+  td { padding:0.7rem 0.8rem; border-bottom:1px solid #F0F4FF; vertical-align:middle; }
+  tr:last-child td { border-bottom:none; }
+  tr:hover td { background:#F0F4FF; }
+  .sport-badge { display:inline-block; padding:0.2rem 0.6rem; border-radius:100px; font-size:0.75rem; font-weight:700; background:rgba(178,34,52,0.1); color:#B22234; }
+  .taken-input { width:52px; padding:0.3rem 0.5rem; border:2px solid #e0e8f4; border-radius:8px; font-family:'Nunito',sans-serif; font-size:0.88rem; text-align:center; color:#002147; }
+  .taken-input:focus { outline:none; border-color:#002147; }
+  .empty-state { text-align:center; padding:2rem; color:#8a9ab5; font-size:0.9rem; }
+  @media (max-width:600px) {
+    .form-row, .form-row-3 { grid-template-columns:1fr; }
+    table { font-size:0.8rem; }
+    td, th { padding:0.5rem 0.4rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <div class="login-card">
+    <h1>⚾ Admin</h1>
+    <p>First Play Sports · Coach Mark</p>
+    <div class="err" id="loginErr">Wrong password. Try again.</div>
+    <input class="input-login" type="password" id="passwordInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')login()">
+    <button class="btn btn-login" onclick="login()">Sign In</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminWrap" style="display:none;">
+  <div class="admin-wrap">
+    <div class="admin-header">
+      <h1>First Play Sports — <span>Admin</span></h1>
+      <button class="logout-btn" onclick="logout()">Sign Out</button>
+    </div>
+
+    <!-- ADD SESSION -->
+    <div class="card">
+      <h2>➕ Add a Session</h2>
+      <div class="err" id="addErr"></div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Sport</label>
+          <select id="addSport">
+            <option value="baseball">⚾ Baseball</option>
+            <option value="football">🏈 Flag Football</option>
+            <option value="basketball">🏀 Basketball</option>
+            <option value="soccer">⚽ Soccer</option>
+            <option value="golf">⛳ Golf</option>
+            <option value="pickleball">🏓 Pickleball</option>
+            <option value="volleyball">🏐 Volleyball</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Session Name</label>
+          <input type="text" id="addName" placeholder="e.g. Baseball Basics">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Day</label>
+          <input type="text" id="addDay" placeholder="e.g. Sat May 3">
+        </div>
+        <div class="form-group">
+          <label>Time</label>
+          <input type="text" id="addTime" placeholder="e.g. 10:00 AM – 11:00 AM">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Max Spots</label>
+          <input type="number" id="addTotal" value="6" min="1" max="20">
+        </div>
+      </div>
+      <button class="btn btn-navy" onclick="addSession()">Add Session</button>
+      <div class="success-msg" id="addSuccess">Session added!</div>
+    </div>
+
+    <!-- SESSIONS TABLE -->
+    <div class="card">
+      <h2>📋 Current Sessions</h2>
+      <div id="sessionsTableWrap"><div class="empty-state">Loading...</div></div>
+    </div>
+
+    <!-- REVIEWS TABLE -->
+    <div class="card">
+      <h2>⭐ Reviews</h2>
+      <div id="reviewsTableWrap"><div class="empty-state">Loading...</div></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+let token = '';
+
+function login() {
+  const pw = document.getElementById('passwordInput').value;
+  if (!pw) return;
+  token = pw;
+  // Test with a real API call
+  fetch('/api/slots').then(() => {
+    // Verify password by hitting admin route
+    fetch('/api/admin/sessions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
+      body: JSON.stringify({}) // will fail validation but will tell us if auth passed
+    }).then(r => {
+      if (r.status === 401) {
+        document.getElementById('loginErr').style.display = 'block';
+        token = '';
+      } else {
+        // 400 means auth passed, just bad data — that's fine
+        document.getElementById('loginWrap').style.display = 'none';
+        document.getElementById('adminWrap').style.display = 'block';
+        loadSessions();
+        loadReviews();
+      }
+    });
+  });
+}
+
+function logout() {
+  token = '';
+  document.getElementById('loginWrap').style.display = 'flex';
+  document.getElementById('adminWrap').style.display = 'none';
+  document.getElementById('passwordInput').value = '';
+}
+
+async function loadSessions() {
+  const res = await fetch('/api/slots');
+  const sessions = await res.json();
+  const wrap = document.getElementById('sessionsTableWrap');
+  if (!sessions.length) { wrap.innerHTML = '<div class="empty-state">No sessions. Add one above.</div>'; return; }
+  wrap.innerHTML = `<table>
+    <thead><tr>
+      <th>Sport</th><th>Name</th><th>Day</th><th>Time</th><th>Spots Taken</th><th>Total</th><th></th>
+    </tr></thead>
+    <tbody>${sessions.map(s => `
+      <tr>
+        <td><span class="sport-badge">${s.icon} ${s.sport}</span></td>
+        <td>${s.name}</td>
+        <td>${s.day}</td>
+        <td>${s.time}</td>
+        <td><input class="taken-input" type="number" min="0" max="${s.total}" value="${s.taken}" id="taken_${s.id}"> of ${s.total}</td>
+        <td>${s.total}</td>
+        <td style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+          <button class="btn btn-navy btn-sm" onclick="updateTaken('${s.id}')">Save</button>
+          <button class="btn btn-red btn-sm" onclick="removeSession('${s.id}')">Remove</button>
+        </td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+async function loadReviews() {
+  const res = await fetch('/api/reviews');
+  const reviews = await res.json();
+  const wrap = document.getElementById('reviewsTableWrap');
+  if (!reviews.length) { wrap.innerHTML = '<div class="empty-state">No reviews yet.</div>'; return; }
+  wrap.innerHTML = `<table>
+    <thead><tr><th>Name</th><th>Sport</th><th>Rating</th><th>Comment</th><th>Date</th><th></th></tr></thead>
+    <tbody>${reviews.map(r => `
+      <tr>
+        <td>${r.name}</td>
+        <td><span class="sport-badge">${r.sport}</span></td>
+        <td>${'★'.repeat(r.rating)}</td>
+        <td style="max-width:280px;font-size:0.82rem;color:#4a5a72;">${r.comment}</td>
+        <td>${r.date}</td>
+        <td><button class="btn btn-red btn-sm" onclick="removeReview('${r.id}')">Delete</button></td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+async function addSession() {
+  const sport = document.getElementById('addSport').value;
+  const name  = document.getElementById('addName').value.trim();
+  const day   = document.getElementById('addDay').value.trim();
+  const time  = document.getElementById('addTime').value.trim();
+  const total = document.getElementById('addTotal').value;
+  const errEl = document.getElementById('addErr');
+  errEl.style.display = 'none';
+  if (!name || !day || !time) { errEl.textContent = 'Please fill in name, day, and time.'; errEl.style.display = 'block'; return; }
+  const res = await fetch('/api/admin/sessions', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
+    body: JSON.stringify({ sport, name, day, time, total }),
+  });
+  const data = await res.json();
+  if (!res.ok) { errEl.textContent = data.error; errEl.style.display = 'block'; return; }
+  document.getElementById('addSuccess').style.display = 'block';
+  setTimeout(() => document.getElementById('addSuccess').style.display = 'none', 3000);
+  document.getElementById('addName').value = '';
+  document.getElementById('addDay').value = '';
+  document.getElementById('addTime').value = '';
+  loadSessions();
+}
+
+async function removeSession(id) {
+  if (!confirm('Remove this session? This cannot be undone.')) return;
+  await fetch(`/api/admin/sessions/${id}`, { method: 'DELETE', headers: { 'x-admin-token': token } });
+  loadSessions();
+}
+
+async function updateTaken(id) {
+  const val = document.getElementById(`taken_${id}`).value;
+  await fetch(`/api/admin/sessions/${id}`, {
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
+    body: JSON.stringify({ taken: val }),
+  });
+  loadSessions();
+}
+
+async function removeReview(id) {
+  if (!confirm('Delete this review?')) return;
+  await fetch(`/api/admin/reviews/${id}`, { method: 'DELETE', headers: { 'x-admin-token': token } });
+  loadReviews();
+}
+</script>
+</body>
+</html>
