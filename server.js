@@ -7,93 +7,76 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 
-// — Stripe webhook needs raw body ————————————————————————————
 app.use('/webhook', express.raw({ type: 'application/json' }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
-// — Sessions ————————————————————————————————————————————————
+app.use((req, res, next) => {
+  const blocked = ['/server.js', '/package.json', '/package-lock.json', '/render.yaml'];
+  if (blocked.includes(req.path)) return res.status(404).send('Not found');
+  next();
+});
+
+app.use(express.static(__dirname));
+
 const sessions = [
-  // --- Sat Apr 25 ---
   { id: '1',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '2',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '3',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
   { id: '4',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
   { id: '5',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat Apr 25', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
-  // --- Sun Apr 26 ---
   { id: '6',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '7',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '8',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun Apr 26', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
-  // --- Sat May 16 ---
   { id: '9',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '10', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '11', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
   { id: '12', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
   { id: '13', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat May 16', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
-  // --- Sun May 17 ---
   { id: '14', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
   { id: '15', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
   { id: '16', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun May 17', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
 ];
 
-// — Email transporter ————————————————————————————————————————
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.GMAIL_USER,
+    pass: process.env.GMAIL_APP_PASSWORD,
   },
 });
 
-// — Routes ————————————————————————————————————————————————————
-
-// Get all slots
 app.get('/api/slots', (req, res) => {
   res.json(sessions);
 });
 
-// Success page
 app.get('/success', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'success.html'));
+  res.sendFile(path.join(__dirname, 'success.html'));
 });
 
-// Create Stripe checkout session
 app.post('/api/book', async (req, res) => {
   const { sessionId, parentName, kidName, kidAge, contactInfo, notes } = req.body;
-
   const session = sessions.find(s => s.id === sessionId);
   if (!session) return res.status(404).json({ error: 'Session not found' });
   if (session.taken >= session.total) return res.status(400).json({ error: 'Session is full' });
-
   try {
     const checkoutSession = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
-      line_items: [
-        {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: `${session.name} — ${session.day} ${session.time}`,
-              description: `Coach Mark · First Play Sports · Kid: ${kidName} (age ${kidAge})`,
-            },
-            unit_amount: 2000, // $20.00
+      line_items: [{
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: `${session.name} — ${session.day} ${session.time}`,
+            description: `Coach Mark · First Play Sports · Kid: ${kidName} (age ${kidAge})`,
           },
-          quantity: 1,
+          unit_amount: 2000,
         },
-      ],
+        quantity: 1,
+      }],
       mode: 'payment',
       success_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/#schedule`,
-      metadata: {
-        sessionId,
-        parentName,
-        kidName,
-        kidAge,
-        contactInfo,
-        notes: notes || '',
-      },
+      metadata: { sessionId, parentName, kidName, kidAge, contactInfo, notes: notes || '' },
     });
-
     res.json({ url: checkoutSession.url });
   } catch (err) {
     console.error('Stripe error:', err.message);
@@ -101,11 +84,9 @@ app.post('/api/book', async (req, res) => {
   }
 });
 
-// Stripe webhook — fires after successful payment
 app.post('/webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
   let event;
-
   try {
     event = stripe.webhooks.constructEvent(req.body, sig, process.env.STRIPE_WEBHOOK_SECRET);
   } catch (err) {
@@ -116,22 +97,14 @@ app.post('/webhook', async (req, res) => {
   if (event.type === 'checkout.session.completed') {
     const data = event.data.object;
     const { sessionId, parentName, kidName, kidAge, contactInfo, notes } = data.metadata;
-
-    // Mark spot as taken
     const session = sessions.find(s => s.id === sessionId);
     if (session) session.taken += 1;
-
-    const sessionDetails = session
-      ? `${session.name} — ${session.day} ${session.time}`
-      : sessionId;
-
-    // Extract email from contactInfo (format: "email / phone" or just "email")
+    const sessionDetails = session ? `${session.name} — ${session.day} ${session.time}` : sessionId;
     const emailAddress = contactInfo ? contactInfo.split(' /')[0].trim() : null;
 
-    // Email to Coach Mark
     try {
       await transporter.sendMail({
-        from: process.env.EMAIL_USER,
+        from: process.env.GMAIL_USER,
         to: 'firstplaysportswv@gmail.com',
         subject: `New Booking: ${kidName} — ${session ? session.day : sessionId}`,
         html: `
@@ -147,8 +120,7 @@ app.post('/webhook', async (req, res) => {
               <p style="font-size:16px;"><strong>Notes:</strong> ${notes || 'None'}</p>
               <p style="font-size:16px;"><strong>Amount paid:</strong> $20.00</p>
             </div>
-          </div>
-        `,
+          </div>`,
         text: `New booking!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${sessionDetails}\nNotes: ${notes || 'None'}\nAmount paid: $20.00`,
       });
       console.log('Coach Mark email sent successfully');
@@ -156,11 +128,10 @@ app.post('/webhook', async (req, res) => {
       console.error('Coach Mark email error:', emailErr.message);
     }
 
-    // Email to parent
     if (emailAddress && emailAddress.includes('@')) {
       try {
         await transporter.sendMail({
-          from: process.env.EMAIL_USER,
+          from: process.env.GMAIL_USER,
           to: emailAddress,
           subject: `You're booked! First Play Sports — ${session ? session.day : ''}`,
           html: `
@@ -183,8 +154,7 @@ app.post('/webhook', async (req, res) => {
                 <p style="font-size:15px;">Questions? Reach Coach Mark at <a href="mailto:firstplaysportswv@gmail.com">firstplaysportswv@gmail.com</a> or (724) 799-4778.</p>
                 <p style="font-size:15px;">See you on the field!<br><strong>— Coach Mark</strong><br>First Play Sports</p>
               </div>
-            </div>
-          `,
+            </div>`,
           text: `Hi ${parentName},\n\nYou're all set!\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Huntfield Community Grass Park · Charles Town, WV\nAmount paid: $20.00\n\nJust bring ${kidName} in comfortable clothes and sneakers — Coach Mark handles everything else.\n\nQuestions? firstplaysportswv@gmail.com or (724) 799-4778\n\nSee you on the field!\n— Coach Mark\nFirst Play Sports`,
         });
         console.log('Parent confirmation email sent to:', emailAddress);
@@ -199,6 +169,5 @@ app.post('/webhook', async (req, res) => {
   res.json({ received: true });
 });
 
-// — Start server ————————————————————————————————————————————
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`First Play Sports server running on port ${PORT}`));
