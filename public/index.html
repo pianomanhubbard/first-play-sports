@@ -870,7 +870,16 @@
 </div>
 
 <script>
-let allSlots = [];
+let allSlots = [
+      { id: '1', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '2', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '3', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+      { id: '4', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '5', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '6', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun Apr 26', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+      { id: '7', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 27', time: '6:00 PM – 7:00 PM',   taken: 0, total: 6 },
+      { id: '8', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 27', time: '7:00 PM – 8:00 PM',   taken: 0, total: 6 },
+    ];
 
 async function loadSlots() {
   try {
