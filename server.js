@@ -29,11 +29,7 @@ const sessions = [
   { id: '8',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 27', time: '7:00 PM – 8:00 PM',   taken: 0, total: 6 },
 ];
 
-const reviews = [
-  { id: 'r1', name: 'Sarah M.', sport: 'baseball', rating: 5, comment: 'Coach Mark was incredible with my 5-year-old. She had never held a bat before and by the end of the hour she was making contact every swing. We will definitely be back!', date: 'April 2025' },
-  { id: 'r2', name: 'James T.', sport: 'baseball', rating: 5, comment: 'My son is 7 and was nervous before the session. Coach Mark had him laughing within the first five minutes. Real coaching, real patience. Worth every penny.', date: 'April 2025' },
-  { id: 'r3', name: 'Danielle R.', sport: 'football', rating: 5, comment: "We brought four kids from the neighborhood and it was the best Saturday morning we've had all spring. Coach Mark keeps every kid engaged the whole time.", date: 'April 2025' },
-];
+const reviews = [];
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'firstplay2025';
 
