@@ -45,7 +45,7 @@ app.get('/api/slots', (req, res) => {
 });
 
 app.get('/success', (req, res) => {
-  res.sendFile(path.join(__dirname, 'success.html'));
+  res.sendFile(path.join(__dirname, 'public', 'success.html'));
 });
 
 app.post('/api/book', async (req, res) => {
