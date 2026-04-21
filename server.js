@@ -35,6 +35,8 @@ const reviews = [
   { id: 'r3', name: 'Danielle R.', sport: 'football', rating: 5, comment: "We brought four kids from the neighborhood and it was the best Saturday morning we've had all spring. Coach Mark keeps every kid engaged the whole time.", date: 'April 2025' },
 ];
 
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'firstplay2025';
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -42,6 +44,8 @@ const transporter = nodemailer.createTransport({
     pass: process.env.GMAIL_APP_PASSWORD,
   },
 });
+
+// ── PUBLIC ROUTES ────────────────────────────────────────────
 
 app.get('/api/slots', (req, res) => {
   res.json(sessions);
@@ -107,6 +111,72 @@ app.post('/api/book', async (req, res) => {
     res.status(500).json({ error: 'Payment setup failed. Please try again.' });
   }
 });
+
+// ── ADMIN AUTH MIDDLEWARE ────────────────────────────────────
+
+function adminAuth(req, res, next) {
+  const token = req.headers['x-admin-token'];
+  if (token === ADMIN_PASSWORD) return next();
+  res.status(401).json({ error: 'Unauthorized' });
+}
+
+// ── ADMIN API ROUTES ─────────────────────────────────────────
+
+// Add a session
+app.post('/api/admin/sessions', adminAuth, (req, res) => {
+  const { sport, icon, name, day, time, total } = req.body;
+  if (!sport || !name || !day || !time || !total) {
+    return res.status(400).json({ error: 'sport, name, day, time, and total are required.' });
+  }
+  const sportIcons = { baseball: '⚾', football: '🏈', basketball: '🏀', soccer: '⚽', golf: '⛳', pickleball: '🏓', volleyball: '🏐', general: '🏅' };
+  const newSession = {
+    id: Date.now().toString(),
+    sport,
+    icon: icon || sportIcons[sport] || '🏅',
+    name,
+    day,
+    time,
+    taken: 0,
+    total: parseInt(total, 10),
+  };
+  sessions.push(newSession);
+  res.json({ success: true, session: newSession });
+});
+
+// Remove a session
+app.delete('/api/admin/sessions/:id', adminAuth, (req, res) => {
+  const idx = sessions.findIndex(s => s.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: 'Session not found' });
+  sessions.splice(idx, 1);
+  res.json({ success: true });
+});
+
+// Update taken count
+app.patch('/api/admin/sessions/:id', adminAuth, (req, res) => {
+  const session = sessions.find(s => s.id === req.params.id);
+  if (!session) return res.status(404).json({ error: 'Session not found' });
+  const { taken } = req.body;
+  if (taken === undefined || isNaN(parseInt(taken, 10))) {
+    return res.status(400).json({ error: 'taken must be a number' });
+  }
+  session.taken = Math.max(0, Math.min(parseInt(taken, 10), session.total));
+  res.json({ success: true, session });
+});
+
+// Delete a review
+app.delete('/api/admin/reviews/:id', adminAuth, (req, res) => {
+  const idx = reviews.findIndex(r => r.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: 'Review not found' });
+  reviews.splice(idx, 1);
+  res.json({ success: true });
+});
+
+// Admin page
+app.get('/admin', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'admin.html'));
+});
+
+// ── WEBHOOK ──────────────────────────────────────────────────
 
 app.post('/webhook', async (req, res) => {
   const sig = req.headers['stripe-signature'];
