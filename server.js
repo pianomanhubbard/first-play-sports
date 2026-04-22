@@ -29,7 +29,9 @@ const sessions = [
   { id: '8',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Mon Apr 27', time: '7:00 PM – 8:00 PM',   taken: 0, total: 6 },
 ];
 
-const reviews = [];
+const reviews = [
+  { id: 'r1', name: 'Heather M.', sport: 'baseball', rating: 5, comment: 'Coach Mark was an incredible coach for my 6 year old during Fall 2025. He combines patience, skill, and humor in a way that makes kids excited to learn and play. His passion for baseball really shines through, and it helped my son build confidence and fall in love with the game. My son is thriving and truly enjoys baseball thanks to his coaching. Highly recommend!', date: 'April 2026' },
+];
 
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'firstplay2025';
 
