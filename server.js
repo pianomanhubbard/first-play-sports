@@ -59,6 +59,45 @@ app.get('/api/camp-sessions', (req, res) => res.json(campSessions));
 
 app.get('/success', (req, res) => res.sendFile(path.join(__dirname, 'public', 'success.html')));
 
+// — Admin auth middleware ————————————————————————————————————
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'firstplay2024';
+function adminAuth(req, res, next) {
+  const token = req.headers['x-admin-token'];
+  if (token !== ADMIN_PASSWORD) return res.status(401).json({ error: 'Unauthorized' });
+  next();
+}
+
+// — Admin routes ————————————————————————————————————————————
+// Add session
+app.post('/api/admin/sessions', adminAuth, (req, res) => {
+  const { sport, name, day, time, total } = req.body;
+  if (!sport || !name || !day || !time) return res.status(400).json({ error: 'Missing required fields' });
+  const icons = { baseball:'⚾', football:'🏈', basketball:'🏀', soccer:'⚽', golf:'⛳', pickleball:'🏓', volleyball:'🏐' };
+  const id = String(Date.now());
+  sessions.push({ id, sport, icon: icons[sport] || '🏅', name, day, time, taken: 0, total: parseInt(total) || 6 });
+  res.json({ success: true, id });
+});
+
+// Remove session
+app.delete('/api/admin/sessions/:id', adminAuth, (req, res) => {
+  const idx = sessions.findIndex(s => s.id === req.params.id);
+  if (idx === -1) return res.status(404).json({ error: 'Session not found' });
+  sessions.splice(idx, 1);
+  res.json({ success: true });
+});
+
+// Update taken count
+app.patch('/api/admin/sessions/:id', adminAuth, (req, res) => {
+  const session = sessions.find(s => s.id === req.params.id);
+  if (!session) return res.status(404).json({ error: 'Session not found' });
+  session.taken = parseInt(req.body.taken) || 0;
+  res.json({ success: true });
+});
+
+// Reviews (stub — returns empty if no reviews system)
+app.get('/api/reviews', (req, res) => res.json([]));
+app.delete('/api/admin/reviews/:id', adminAuth, (req, res) => res.json({ success: true }));
+
 // — Regular session booking ————————————————————————————————————
 app.post('/api/book', async (req, res) => {
   const { sessionId, parentName, kidName, kidAge, contactInfo, notes } = req.body;
