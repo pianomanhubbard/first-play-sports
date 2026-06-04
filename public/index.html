@@ -108,8 +108,8 @@
   .section-sub { font-size: 1.05rem; color: #5a6a7e; max-width: 540px; line-height: 1.7; margin-bottom: 3rem; }
 
   /* -- CAMP SECTION -- */
-  .camp-section { background: #0a1f0a; position: relative; overflow: hidden; }
-  .camp-section::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px); pointer-events: none; }
+  .camp-section { background: #1B3A6B; position: relative; overflow: hidden; }
+  .camp-section::before { display: none; }
   .camp-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; position: relative; z-index: 1; }
   .camp-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,210,63,0.15); border: 1px solid rgba(255,210,63,0.5); color: #FFD23F; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.8rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
   .camp-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
@@ -351,11 +351,7 @@
       </div>
       <div class="camp-right">
         <h2 style="color:#fff;">Coach Mark's Baseball Camp</h2>
-        <div class="camp-dates">
-          <span class="camp-date-pill">📅 July 6–10, 2025</span>
-          <span class="camp-date-pill">📍 Field by WHS Tennis Courts</span>
-          <span class="camp-date-pill">Ages 4–11</span>
-        </div>
+
         <p>Three sessions daily — morning, afternoon, and evening — so every kid finds their fit. Choose one day or commit to the full week and save.</p>
         <div class="camp-cards">
           <div class="camp-card" onclick="openCampBooking('camp-morning')">
@@ -710,6 +706,16 @@ function openCampBooking(campId) {
       <button class="camp-option-btn selected" id="optWeek" onclick="selectCampOption('week')"><span class="camp-option-price">$120</span><span class="camp-option-label">Full Week (Mon–Fri)</span></button>
       <button class="camp-option-btn" id="optDay" onclick="selectCampOption('day')"><span class="camp-option-price">$30</span><span class="camp-option-label">Single Day</span></button>
     </div>
+    <div id="dayPicker" style="display:none;background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
+      <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend?</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday July 7"> Monday, July 7</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday July 8"> Tuesday, July 8</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday July 9"> Wednesday, July 9</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday July 10"> Thursday, July 10</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday July 11"> Friday, July 11</label>
+      </div>
+    </div>
     <div class="form-error" id="formError"></div>
     <div class="form-group"><label>Your Name (Parent/Guardian)</label><input type="text" placeholder="Jane Smith" id="parentName"></div>
     <div class="form-row">
@@ -728,8 +734,15 @@ function selectCampOption(option) {
   selectedCampOption = option;
   document.getElementById('optWeek').classList.toggle('selected', option === 'week');
   document.getElementById('optDay').classList.toggle('selected', option === 'day');
+  const dayPicker = document.getElementById('dayPicker');
+  if (dayPicker) dayPicker.style.display = option === 'day' ? 'block' : 'none';
   const btn = document.getElementById('bookBtn');
   if (btn) btn.textContent = `Register & Pay ${option === 'week' ? '$120' : '$30'} ⚾`;
+}
+
+function getSelectedDays() {
+  const checkboxes = document.querySelectorAll('.day-checkbox:checked');
+  return Array.from(checkboxes).map(cb => cb.value);
 }
 
 async function submitBooking(slotId) {
@@ -768,12 +781,18 @@ async function submitCampBooking(campId) {
   const errEl  = document.getElementById('formError');
   if (!parent || !kid || !age || !email) { errEl.textContent = 'Please fill in your name, child\'s name, age, and email.'; errEl.style.display = 'block'; return; }
   if (!email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+  if (selectedCampOption === 'day') {
+    const days = getSelectedDays();
+    if (days.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
+  }
   errEl.style.display = 'none';
   const btn = document.getElementById('bookBtn');
   btn.disabled = true; btn.textContent = 'Taking you to payment…';
   const contactInfo = email + (phone ? ` / ${phone}` : '');
+  const selectedDays = selectedCampOption === 'day' ? getSelectedDays().join(', ') : 'Full Week (Mon–Fri)';
+  const notesWithDays = selectedDays ? `Days: ${selectedDays}${notes ? ' | ' + notes : ''}` : notes;
   try {
-    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: selectedCampOption, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes }) });
+    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: selectedCampOption, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Booking failed');
     window.location.href = data.url;
