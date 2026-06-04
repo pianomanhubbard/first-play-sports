@@ -707,14 +707,15 @@ function openCampBooking(campId) {
       <button class="camp-option-btn" id="optDay" onclick="selectCampOption('day')"><span class="camp-option-price">$30</span><span class="camp-option-label">Single Day</span></button>
     </div>
     <div id="dayPicker" style="display:none;background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
-      <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend?</p>
+      <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend? ($30 per day)</p>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday July 7"> Monday, July 7</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday July 8"> Tuesday, July 8</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday July 9"> Wednesday, July 9</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday July 10"> Thursday, July 10</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday July 11"> Friday, July 11</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday July 7" onchange="updateDayPrice()"> Monday, July 7</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday July 8" onchange="updateDayPrice()"> Tuesday, July 8</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday July 9" onchange="updateDayPrice()"> Wednesday, July 9</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday July 10" onchange="updateDayPrice()"> Thursday, July 10</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday July 11" onchange="updateDayPrice()"> Friday, July 11</label>
       </div>
+      <p id="dayTotal" style="margin-top:0.75rem;font-family:'Fraunces',serif;font-size:1.2rem;color:var(--coach-red);font-weight:900;">Total: $0</p>
     </div>
     <div class="form-error" id="formError"></div>
     <div class="form-group"><label>Your Name (Parent/Guardian)</label><input type="text" placeholder="Jane Smith" id="parentName"></div>
@@ -737,7 +738,20 @@ function selectCampOption(option) {
   const dayPicker = document.getElementById('dayPicker');
   if (dayPicker) dayPicker.style.display = option === 'day' ? 'block' : 'none';
   const btn = document.getElementById('bookBtn');
-  if (btn) btn.textContent = `Register & Pay ${option === 'week' ? '$120' : '$30'} ⚾`;
+  if (option === 'week') {
+    if (btn) btn.textContent = 'Register & Pay $120 ⚾';
+  } else {
+    updateDayPrice();
+  }
+}
+
+function updateDayPrice() {
+  const days = getSelectedDays();
+  const total = days.length * 30;
+  const totalEl = document.getElementById('dayTotal');
+  if (totalEl) totalEl.textContent = `Total: $${total}`;
+  const btn = document.getElementById('bookBtn');
+  if (btn) btn.textContent = total > 0 ? `Register & Pay $${total} ⚾` : 'Select days to continue ⚾';
 }
 
 function getSelectedDays() {
@@ -781,23 +795,23 @@ async function submitCampBooking(campId) {
   const errEl  = document.getElementById('formError');
   if (!parent || !kid || !age || !email) { errEl.textContent = 'Please fill in your name, child\'s name, age, and email.'; errEl.style.display = 'block'; return; }
   if (!email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
-  if (selectedCampOption === 'day') {
-    const days = getSelectedDays();
-    if (days.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
-  }
+  const selectedDays = getSelectedDays();
+  if (selectedCampOption === 'day' && selectedDays.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
   errEl.style.display = 'none';
   const btn = document.getElementById('bookBtn');
   btn.disabled = true; btn.textContent = 'Taking you to payment…';
   const contactInfo = email + (phone ? ` / ${phone}` : '');
-  const selectedDays = selectedCampOption === 'day' ? getSelectedDays().join(', ') : 'Full Week (Mon–Fri)';
-  const notesWithDays = selectedDays ? `Days: ${selectedDays}${notes ? ' | ' + notes : ''}` : notes;
+  const daysNote = selectedCampOption === 'day' ? `Days: ${selectedDays.join(', ')}` : 'Full Week (Mon–Fri)';
+  const notesWithDays = `${daysNote}${notes ? ' | ' + notes : ''}`;
+  const dayCount = selectedCampOption === 'day' ? selectedDays.length : 0;
+  const totalPrice = selectedCampOption === 'week' ? '$120' : `$${selectedDays.length * 30}`;
   try {
-    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: selectedCampOption, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
+    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: selectedCampOption, dayCount, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Booking failed');
     window.location.href = data.url;
   } catch (err) {
-    btn.disabled = false; btn.textContent = `Register & Pay ${selectedCampOption === 'week' ? '$120' : '$30'} ⚾`;
+    btn.disabled = false; btn.textContent = `Register & Pay ${totalPrice} ⚾`;
     errEl.textContent = err.message || 'Something went wrong. Please try again.';
     errEl.style.display = 'block';
   }
