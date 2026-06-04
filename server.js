@@ -94,13 +94,14 @@ app.post('/api/book', async (req, res) => {
 
 // — Camp booking ————————————————————————————————————————————
 app.post('/api/book-camp', async (req, res) => {
-  const { campSessionId, option, parentName, kidName, kidAge, contactInfo, notes } = req.body;
+  const { campSessionId, option, dayCount, parentName, kidName, kidAge, contactInfo, notes } = req.body;
   const campSession = campSessions.find(s => s.id === campSessionId);
   if (!campSession) return res.status(404).json({ error: 'Camp session not found' });
 
   const isWeek = option === 'week';
-  const amount = isWeek ? 12000 : 3000;
-  const label = isWeek ? 'Full Week ($120)' : 'Single Day ($30)';
+  const days = isWeek ? 5 : (parseInt(dayCount) || 1);
+  const amount = isWeek ? 12000 : days * 3000;
+  const label = isWeek ? 'Full Week ($120)' : `${days} Day${days > 1 ? 's' : ''} ($${days * 30})`;
 
   try {
     const checkoutSession = await stripe.checkout.sessions.create({
@@ -119,7 +120,7 @@ app.post('/api/book-camp', async (req, res) => {
       mode: 'payment',
       success_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/#camp`,
-      metadata: { campSessionId, option, parentName, kidName, kidAge, contactInfo, notes: notes || '', type: 'camp' },
+      metadata: { campSessionId, option, dayCount: String(days), parentName, kidName, kidAge, contactInfo, notes: notes || '', type: 'camp' },
     });
     res.json({ url: checkoutSession.url });
   } catch (err) {
