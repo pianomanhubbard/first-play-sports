@@ -658,14 +658,9 @@ async function loadSlots() {
     const res = await fetch('/api/slots');
     if (!res.ok) throw new Error('Server returned ' + res.status);
     allSlots = await res.json();
-    if (!allSlots.length) throw new Error('No sessions returned');
     renderSlots('all');
   } catch (err) {
-    allSlots = [
-      { id: '1', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
-      { id: '2', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
-      { id: '3', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat Apr 25', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
-    ];
+    allSlots = [];
     renderSlots('all');
   }
 }
@@ -687,7 +682,7 @@ async function loadCampSessions() {
 function renderSlots(filter) {
   const grid = document.getElementById('slotsGrid');
   const filtered = filter === 'all' ? allSlots : allSlots.filter(s => s.sport === filter);
-  if (!filtered.length) { grid.innerHTML = '<div class="slots-loading">No sessions available right now. Check back soon!</div>'; return; }
+  if (!filtered.length) { grid.innerHTML = '<div class="slots-loading">⏰ Individual 1-hour sessions coming soon — check back here for dates!</div>'; return; }
   grid.innerHTML = filtered.map(slot => {
     const isFull = slot.taken >= slot.total;
     const open = slot.total - slot.taken;
