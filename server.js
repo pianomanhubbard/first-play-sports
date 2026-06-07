@@ -38,9 +38,8 @@ const sessions = [
 
 // — Camp Sessions ————————————————————————————————————————————————
 const campSessions = [
-  { id: 'camp-morning', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–7 Years Old', level: 'T-Ball / Coach Pitch', icon: '🌅' },
-  { id: 'camp-afternoon', name: 'Afternoon Camp', time: '1 PM – 4 PM', ages: '7–11 Years Old', level: 'Kid Pitch', icon: '☀️' },
-  { id: 'camp-evening', name: 'Evening Camp', time: '5 PM – 8 PM', ages: '4–9 Years Old', level: 'Mixed Level', icon: '🌇' },
+  { id: 'camp-morning', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅' },
+  { id: 'camp-evening', name: 'Evening Camp', time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇' },
 ];
 
 // — Email transporter ————————————————————————————————————————
