@@ -21,7 +21,6 @@
   .card { background:#fff; border-radius:16px; padding:1.8rem; margin-bottom:1.5rem; box-shadow:0 2px 12px rgba(0,0,0,0.06); }
   .card h2 { font-family:'Fraunces',serif; font-size:1.2rem; color:#002147; margin-bottom:1.2rem; padding-bottom:0.8rem; border-bottom:2px solid #F0F4FF; }
   .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:0.8rem; }
-  .form-row-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.8rem; margin-bottom:0.8rem; }
   .form-group { display:flex; flex-direction:column; gap:0.3rem; }
   .form-group label { font-size:0.78rem; font-weight:800; color:#5a6a7e; text-transform:uppercase; letter-spacing:0.5px; }
   .form-group input, .form-group select { padding:0.6rem 0.9rem; border:2px solid #e0e8f4; border-radius:10px; font-family:'Nunito',sans-serif; font-size:0.9rem; color:#002147; }
@@ -47,7 +46,7 @@
   .taken-input:focus { outline:none; border-color:#002147; }
   .empty-state { text-align:center; padding:2rem; color:#8a9ab5; font-size:0.9rem; }
   @media (max-width:600px) {
-    .form-row, .form-row-3 { grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
     table { font-size:0.8rem; }
     td, th { padding:0.5rem 0.4rem; }
   }
@@ -134,30 +133,27 @@
 <script>
 let token = '';
 
-function login() {
+async function login() {
   const pw = document.getElementById('passwordInput').value;
   if (!pw) return;
-  token = pw;
-  // Test with a real API call
-  fetch('/api/slots').then(() => {
-    // Verify password by hitting admin route
-    fetch('/api/admin/sessions', {
+  try {
+    const res = await fetch('/api/admin/verify', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'x-admin-token': token },
-      body: JSON.stringify({}) // will fail validation but will tell us if auth passed
-    }).then(r => {
-      if (r.status === 401) {
-        document.getElementById('loginErr').style.display = 'block';
-        token = '';
-      } else {
-        // 400 means auth passed, just bad data — that's fine
-        document.getElementById('loginWrap').style.display = 'none';
-        document.getElementById('adminWrap').style.display = 'block';
-        loadSessions();
-        loadReviews();
-      }
+      headers: { 'Content-Type': 'application/json', 'x-admin-token': pw },
     });
-  });
+    if (res.status === 401) {
+      document.getElementById('loginErr').style.display = 'block';
+      return;
+    }
+    token = pw;
+    document.getElementById('loginErr').style.display = 'none';
+    document.getElementById('loginWrap').style.display = 'none';
+    document.getElementById('adminWrap').style.display = 'block';
+    loadSessions();
+    loadReviews();
+  } catch (err) {
+    document.getElementById('loginErr').style.display = 'block';
+  }
 }
 
 function logout() {
