@@ -38,8 +38,10 @@ const sessions = [
 
 // — Camp Sessions ————————————————————————————————————————————————
 const campSessions = [
-  { id: 'camp-morning', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅' },
-  { id: 'camp-evening', name: 'Evening Camp', time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇' },
+  { id: 'camp-morning-w1', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 6–10' },
+  { id: 'camp-evening-w1', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 6–10' },
+  { id: 'camp-morning-w2', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 13–17' },
+  { id: 'camp-evening-w2', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 13–17' },
 ];
 
 // — Email transporter ————————————————————————————————————————
@@ -67,6 +69,11 @@ function adminAuth(req, res, next) {
 }
 
 // — Admin routes ————————————————————————————————————————————
+// Verify admin password
+app.post('/api/admin/verify', adminAuth, (req, res) => {
+  res.json({ ok: true });
+});
+
 // Add session
 app.post('/api/admin/sessions', adminAuth, (req, res) => {
   const { sport, name, day, time, total } = req.body;
@@ -148,7 +155,7 @@ app.post('/api/book-camp', async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: `Baseball Camp — ${campSession.name} — July 6–10`,
+            name: `Baseball Camp — ${campSession.name} — ${campSession.week || 'July 6–10'}`,
             description: `Coach Mark · ${campSession.time} · ${campSession.ages} · ${label} · Kid: ${kidName} (age ${kidAge})`,
           },
           unit_amount: amount,
