@@ -347,32 +347,19 @@
     <div class="camp-badge">🌟 NOW REGISTERING — SUMMER 2025</div>
     <div class="camp-layout reveal">
       <div class="camp-poster">
-        <img src="/baseball-camp.png" alt="Coach Mark's Baseball Camp — July 6-10">
+        <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp — July 6-10">
       </div>
       <div class="camp-right">
-        <h2 style="color:#fff;">Coach Mark's Baseball Camp</h2>
+        <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
 
-        <p>Three sessions daily — morning, afternoon, and evening — so every kid finds their fit. Choose one day or commit to the full week and save.</p>
+        <p>A different sport every day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more. Two sessions daily so every kid finds their fit. Choose one day or commit to the full week and save.</p>
         <div class="camp-cards">
           <div class="camp-card" onclick="openCampBooking('camp-morning')">
             <div class="camp-card-left">
               <div class="camp-card-icon">🌅</div>
               <div>
                 <div class="camp-card-name">Morning Camp</div>
-                <div class="camp-card-details">9 AM – 12 PM · Ages 4–7 · T-Ball / Coach Pitch</div>
-              </div>
-            </div>
-            <div class="camp-card-price">
-              <div class="camp-card-price-main">$120</div>
-              <div class="camp-card-price-sub">full week · $30/day</div>
-            </div>
-          </div>
-          <div class="camp-card" onclick="openCampBooking('camp-afternoon')">
-            <div class="camp-card-left">
-              <div class="camp-card-icon">☀️</div>
-              <div>
-                <div class="camp-card-name">Afternoon Camp</div>
-                <div class="camp-card-details">1 PM – 4 PM · Ages 7–11 · Kid Pitch</div>
+                <div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div>
               </div>
             </div>
             <div class="camp-card-price">
@@ -385,7 +372,7 @@
               <div class="camp-card-icon">🌇</div>
               <div>
                 <div class="camp-card-name">Evening Camp</div>
-                <div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · Mixed Level</div>
+                <div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div>
               </div>
             </div>
             <div class="camp-card-price">
@@ -643,9 +630,8 @@ async function loadCampSessions() {
     allCampSessions = await res.json();
   } catch (err) {
     allCampSessions = [
-      { id: 'camp-morning',   name: 'Morning Camp',   time: '9 AM – 12 PM', ages: '4–7 Years Old', level: 'T-Ball / Coach Pitch', icon: '🌅' },
-      { id: 'camp-afternoon', name: 'Afternoon Camp', time: '1 PM – 4 PM',  ages: '7–11 Years Old', level: 'Kid Pitch',           icon: '☀️' },
-      { id: 'camp-evening',   name: 'Evening Camp',   time: '5 PM – 8 PM',  ages: '4–9 Years Old',  level: 'Mixed Level',         icon: '🌇' },
+      { id: 'camp-morning',   name: 'Morning Camp',   time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅' },
+      { id: 'camp-evening',   name: 'Evening Camp',   time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇' },
     ];
   }
 }
