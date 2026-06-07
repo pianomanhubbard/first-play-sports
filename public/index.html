@@ -329,7 +329,8 @@
       <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">For most kids, <span class="cm">Coach Mark</span> will be the first coach they ever have. He takes that seriously.</p>
       <p class="hero-sub">Most leagues start at 6 or 7. <span class="cm">Coach Mark</span> teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.</p>
       <div class="hero-btns">
-        <a href="#camp" class="btn-primary">⚾ Summer Camp — July 6–10</a>
+        <a href="#camp-week1" class="btn-primary">⚾ Summer Camp — July 6–10</a>
+        <a href="#camp-week2" class="btn-primary">⚾ Summer Camp — July 13–17</a>
         <a href="#schedule" class="btn-outline">Book a Session</a>
       </div>
     </div>
@@ -341,20 +342,20 @@
   </div>
 </section>
 
-<!-- SUMMER CAMP -->
-<section class="camp-section" id="camp">
+<!-- SUMMER CAMP WEEK 1 -->
+<section class="camp-section" id="camp-week1">
   <div class="camp-inner">
-    <div class="camp-badge">🌟 NOW REGISTERING — SUMMER 2025</div>
+    <div class="camp-badge">🌟 NOW REGISTERING — WEEK 1</div>
     <div class="camp-layout reveal">
       <div class="camp-poster">
         <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp — July 6-10">
       </div>
       <div class="camp-right">
         <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
-
+        <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 6–10, 2025</p>
         <p>A different sport every day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more. Two sessions daily so every kid finds their fit. Choose one day or commit to the full week and save.</p>
         <div class="camp-cards">
-          <div class="camp-card" onclick="openCampBooking('camp-morning')">
+          <div class="camp-card" onclick="openCampBooking('camp-morning-w1')">
             <div class="camp-card-left">
               <div class="camp-card-icon">🌅</div>
               <div>
@@ -367,7 +368,52 @@
               <div class="camp-card-price-sub">full week · $30/day</div>
             </div>
           </div>
-          <div class="camp-card" onclick="openCampBooking('camp-evening')">
+          <div class="camp-card" onclick="openCampBooking('camp-evening-w1')">
+            <div class="camp-card-left">
+              <div class="camp-card-icon">🌇</div>
+              <div>
+                <div class="camp-card-name">Evening Camp</div>
+                <div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div>
+              </div>
+            </div>
+            <div class="camp-card-price">
+              <div class="camp-card-price-main">$120</div>
+              <div class="camp-card-price-sub">full week · $30/day</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMER CAMP WEEK 2 -->
+<section class="camp-section" id="camp-week2" style="border-top:2px solid rgba(255,255,255,0.08);">
+  <div class="camp-inner">
+    <div class="camp-badge">🌟 NOW REGISTERING — WEEK 2</div>
+    <div class="camp-layout reveal">
+      <div class="camp-poster">
+        <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp — July 13-17">
+      </div>
+      <div class="camp-right">
+        <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
+        <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 13–17, 2025</p>
+        <p>Same great camp, second week. A different sport every day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more. Two sessions daily. Choose one day or the full week.</p>
+        <div class="camp-cards">
+          <div class="camp-card" onclick="openCampBooking('camp-morning-w2')">
+            <div class="camp-card-left">
+              <div class="camp-card-icon">🌅</div>
+              <div>
+                <div class="camp-card-name">Morning Camp</div>
+                <div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div>
+              </div>
+            </div>
+            <div class="camp-card-price">
+              <div class="camp-card-price-main">$120</div>
+              <div class="camp-card-price-sub">full week · $30/day</div>
+            </div>
+          </div>
+          <div class="camp-card" onclick="openCampBooking('camp-evening-w2')">
             <div class="camp-card-left">
               <div class="camp-card-icon">🌇</div>
               <div>
@@ -389,9 +435,9 @@
 <!-- SCHEDULING -->
 <section class="section schedule-section" id="schedule" style="background-color:#F0F4FF;color:#002147;">
   <div class="section-inner">
-    <div class="section-tag">Book a Session</div>
-    <h2>Pick your time.</h2>
-    <p class="section-sub"><span class="cm">Coach Mark</span> is always up to date — pick a slot, fill in details, and you are confirmed.</p>
+    <div class="section-tag">Individual Lessons</div>
+    <h2>Can't make camp? Book a standalone session.</h2>
+    <p class="section-sub">These aren't camp days — they're individual 1-hour lessons at Huntfield. Perfect if camp doesn't fit your schedule, or if your kid wants extra reps on a specific sport. Pick a slot, show up, and <span class="cm">Coach Mark</span> handles the rest.</p>
     <div class="schedule-ui reveal">
       <div class="schedule-header"><h3>Upcoming Sessions</h3></div>
       <div class="schedule-filters">
@@ -630,8 +676,10 @@ async function loadCampSessions() {
     allCampSessions = await res.json();
   } catch (err) {
     allCampSessions = [
-      { id: 'camp-morning',   name: 'Morning Camp',   time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅' },
-      { id: 'camp-evening',   name: 'Evening Camp',   time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇' },
+      { id: 'camp-morning-w1', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 6–10' },
+      { id: 'camp-evening-w1', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 6–10' },
+      { id: 'camp-morning-w2', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 13–17' },
+      { id: 'camp-evening-w2', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 13–17' },
     ];
   }
 }
@@ -683,9 +731,10 @@ function openBooking(slotId) {
 function openCampBooking(campId) {
   const camp = allCampSessions.find(s => s.id === campId);
   if (!camp) return;
+  const weekLabel = camp.week || 'July 6–10';
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header"><h3>Register for Camp</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
-    <div class="modal-slot-info"><div class="modal-slot-icon">${camp.icon}</div><div class="modal-slot-detail"><h4>${camp.name} — July 6–10</h4><p>${camp.time} · ${camp.ages}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${camp.level}</p></div></div>
+    <div class="modal-slot-info"><div class="modal-slot-icon">${camp.icon}</div><div class="modal-slot-detail"><h4>${camp.name} — ${weekLabel}</h4><p>${camp.time} · ${camp.ages}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${camp.level}</p></div></div>
     <div class="form-note">📍 Field by WHS Tennis Courts · Charles Town, WV</div>
     <p style="font-weight:800;font-size:0.9rem;color:var(--navy);margin-bottom:0.75rem;">Choose your option:</p>
     <div class="camp-option-toggle">
@@ -695,11 +744,11 @@ function openCampBooking(campId) {
     <div id="dayPicker" style="display:none;background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
       <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend? ($30 per day)</p>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday July 7" onchange="updateDayPrice()"> Monday, July 7</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday July 8" onchange="updateDayPrice()"> Tuesday, July 8</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday July 9" onchange="updateDayPrice()"> Wednesday, July 9</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday July 10" onchange="updateDayPrice()"> Thursday, July 10</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday July 11" onchange="updateDayPrice()"> Friday, July 11</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday" onchange="updateDayPrice()"> Monday</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday" onchange="updateDayPrice()"> Tuesday</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday" onchange="updateDayPrice()"> Wednesday</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday" onchange="updateDayPrice()"> Thursday</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday" onchange="updateDayPrice()"> Friday</label>
       </div>
       <p id="dayTotal" style="margin-top:0.75rem;font-family:'Fraunces',serif;font-size:1.2rem;color:var(--coach-red);font-weight:900;">Total: $0</p>
     </div>
@@ -712,7 +761,8 @@ function openCampBooking(campId) {
     <div class="form-group"><label>Your Email</label><input type="email" placeholder="jane@example.com" id="contactEmail"></div>
     <div class="form-group"><label>Your Phone (optional)</label><input type="text" placeholder="(555) 000-0000" id="contactPhone"></div>
     <div class="form-group"><label>Anything Coach Mark should know? (optional)</label><input type="text" placeholder="e.g. Never played before!" id="notes"></div>
-    <button class="btn-book" id="bookBtn" onclick="submitCampBooking('${camp.id}')">Register &amp; Pay ⚾</button>`;
+    <button class="btn-book" id="bookBtn" onclick="submitCampBooking('${camp.id}')">Register &amp; Pay $120 ⚾</button>`;
+  selectedCampOption = 'week';
   document.getElementById('modalOverlay').classList.add('open');
 }
 
