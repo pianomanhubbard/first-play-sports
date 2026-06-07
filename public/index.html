@@ -32,7 +32,7 @@
     width: 100%;
   }
 
-  .cm { color: var(--coach-red) !important; font-weight: inherit; }
+  .cm { color: var(--coach-red) !important; font-weight: 800 !important; }
 
   /* -- NAV -- */
   nav {
@@ -296,7 +296,6 @@
   <div class="nav-logo" style="display:flex;flex-direction:column;line-height:1.2;"><span class="cm">Coach Mark</span><span class="sub" style="letter-spacing:0.03em;">First Play Sports · Ages 4–9</span></div>
   <ul class="nav-links">
     <li><a href="#camp">⚾ Summer Camp</a></li>
-    <li><a href="#how">How It Works</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#sports">Sports</a></li>
     <li><a href="#about">About</a></li>
@@ -310,7 +309,6 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#camp" onclick="closeMobileMenu()">⚾ Summer Camp</a>
   <a href="#schedule" onclick="closeMobileMenu()">Book a Session ⚾</a>
-  <a href="#how" onclick="closeMobileMenu()">How It Works</a>
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
   <a href="#sports" onclick="closeMobileMenu()">Sports</a>
   <a href="#about" onclick="closeMobileMenu()">About <span class="cm">Coach Mark</span></a>
@@ -324,20 +322,19 @@
   <div class="hero-dots"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-badge">&#9889; AGES 4-9 &middot; NO SEASON COMMITMENT</div>
-      <h1>Sports start <em>before</em> the team does.</h1>
+      <div class="hero-badge">&#9889; AGES 4–9 &middot; JULY 6–10 &amp; JULY 13–17</div>
+      <h1>This summer, your kid becomes an <em>athlete.</em></h1>
       <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">For most kids, <span class="cm">Coach Mark</span> will be the first coach they ever have. He takes that seriously.</p>
-      <p class="hero-sub">Most leagues start at 6 or 7. <span class="cm">Coach Mark</span> teaches kids how to throw, catch, dribble, and kick <em>before</em> the pressure of a real season — on your schedule, with your friends, just for the love of the game.</p>
+      <p class="hero-sub"><span class="cm">Coach Mark</span>'s All-Star Summer Camp runs 3 hours a day, Monday through Friday — a different sport every single day. Sign up for the full week or pick the days that work for you.</p>
       <div class="hero-btns">
-        <a href="#camp-week1" class="btn-primary">⚾ Summer Camp — July 6–10</a>
-        <a href="#camp-week2" class="btn-primary">⚾ Summer Camp — July 13–17</a>
-        <a href="#schedule" class="btn-outline">Book a Session</a>
+        <a href="#camp-week1" class="btn-primary">⚾ Register — July 6–10</a>
+        <a href="#camp-week2" class="btn-primary">⚾ Register — July 13–17</a>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-card"><div class="stat-num">No season. No schedule. Just show up.</div><div class="stat-label">Book one session at a time. Come back when it works for you.</div></div>
-      <div class="stat-card"><div class="stat-num">4–6 kids. Every session.</div><div class="stat-label">Your child gets coached. Not just watched.</div></div>
-      <div class="stat-card"><div class="stat-num">Bring your crew.</div><div class="stat-label">Coordinate with other families and book the same session together.</div></div>
+      <div class="stat-card"><div class="stat-num">3 hours a day. 5 days. A different sport each day.</div><div class="stat-label">Baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more.</div></div>
+      <div class="stat-card"><div class="stat-num">$120 for the full week.</div><div class="stat-label">Or pick individual days at $30 each. No pressure to commit to the whole week.</div></div>
+      <div class="stat-card"><div class="stat-num">Two sessions daily.</div><div class="stat-label">Morning (9 AM–12 PM) or Evening (5 PM–8 PM) — pick what works for your family.</div></div>
     </div>
   </div>
 </section>
@@ -352,8 +349,9 @@
       </div>
       <div class="camp-right">
         <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
-        <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 6–10, 2025</p>
-        <p>A different sport every day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more. Two sessions daily so every kid finds their fit. Choose one day or commit to the full week and save.</p>
+        <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 6–10, 2025 · Field by WHS Tennis Courts</p>
+        <p style="margin-bottom:1rem;">3 hours a day, Monday through Friday. A different sport every single day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more.</p>
+        <p style="margin-bottom:1.5rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
         <div class="camp-cards">
           <div class="camp-card" onclick="openCampBooking('camp-morning-w1')">
             <div class="camp-card-left">
@@ -391,40 +389,36 @@
 <section class="camp-section" id="camp-week2" style="border-top:2px solid rgba(255,255,255,0.08);">
   <div class="camp-inner">
     <div class="camp-badge">🌟 NOW REGISTERING — WEEK 2</div>
-    <div class="camp-layout reveal">
-      <div class="camp-poster">
-        <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp — July 13-17">
-      </div>
-      <div class="camp-right">
-        <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
-        <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 13–17, 2025</p>
-        <p>Same great camp, second week. A different sport every day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more. Two sessions daily. Choose one day or the full week.</p>
-        <div class="camp-cards">
-          <div class="camp-card" onclick="openCampBooking('camp-morning-w2')">
-            <div class="camp-card-left">
-              <div class="camp-card-icon">🌅</div>
-              <div>
-                <div class="camp-card-name">Morning Camp</div>
-                <div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div>
-              </div>
-            </div>
-            <div class="camp-card-price">
-              <div class="camp-card-price-main">$120</div>
-              <div class="camp-card-price-sub">full week · $30/day</div>
+    <div class="reveal">
+      <h2 style="color:#fff;margin-bottom:0.5rem;">Coach Mark's All-Star Summer Camp</h2>
+      <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 13–17, 2025 · Field by WHS Tennis Courts</p>
+      <p style="color:rgba(255,255,255,0.8);margin-bottom:1rem;">3 hours a day, Monday through Friday. Same great camp as Week 1 — a different sport every single day.</p>
+      <p style="margin-bottom:2rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
+      <div class="camp-cards" style="max-width:600px;">
+        <div class="camp-card" onclick="openCampBooking('camp-morning-w2')">
+          <div class="camp-card-left">
+            <div class="camp-card-icon">🌅</div>
+            <div>
+              <div class="camp-card-name">Morning Camp</div>
+              <div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div>
             </div>
           </div>
-          <div class="camp-card" onclick="openCampBooking('camp-evening-w2')">
-            <div class="camp-card-left">
-              <div class="camp-card-icon">🌇</div>
-              <div>
-                <div class="camp-card-name">Evening Camp</div>
-                <div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div>
-              </div>
+          <div class="camp-card-price">
+            <div class="camp-card-price-main">$120</div>
+            <div class="camp-card-price-sub">full week · $30/day</div>
+          </div>
+        </div>
+        <div class="camp-card" onclick="openCampBooking('camp-evening-w2')">
+          <div class="camp-card-left">
+            <div class="camp-card-icon">🌇</div>
+            <div>
+              <div class="camp-card-name">Evening Camp</div>
+              <div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div>
             </div>
-            <div class="camp-card-price">
-              <div class="camp-card-price-main">$120</div>
-              <div class="camp-card-price-sub">full week · $30/day</div>
-            </div>
+          </div>
+          <div class="camp-card-price">
+            <div class="camp-card-price-main">$120</div>
+            <div class="camp-card-price-sub">full week · $30/day</div>
           </div>
         </div>
       </div>
@@ -437,7 +431,21 @@
   <div class="section-inner">
     <div class="section-tag">Individual Lessons</div>
     <h2>Can't make camp? Book a standalone session.</h2>
-    <p class="section-sub">These aren't camp days — they're individual 1-hour lessons at Huntfield. Perfect if camp doesn't fit your schedule, or if your kid wants extra reps on a specific sport. Pick a slot, show up, and <span class="cm">Coach Mark</span> handles the rest.</p>
+    <p class="section-sub">These aren't camp days — they're individual 1-hour lessons at Huntfield. Perfect if camp doesn't fit your schedule, if your kid wants extra reps on a specific sport, or if you want them to <strong>try a sport for the first time before committing to a full season.</strong></p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;">
+      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">No season. No schedule. Just show up.</div>
+        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Book one session at a time. Come back when it works for you.</div>
+      </div>
+      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">4–6 kids. Every session.</div>
+        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Your child gets coached. Not just watched.</div>
+      </div>
+      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">Bring your crew.</div>
+        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Coordinate with other families and book the same session together.</div>
+      </div>
+    </div>
     <div class="schedule-ui reveal">
       <div class="schedule-header"><h3>Upcoming Sessions</h3></div>
       <div class="schedule-filters">
@@ -447,32 +455,6 @@
       </div>
       <div class="slots-grid" id="slotsGrid"><div class="slots-loading">Loading sessions...</div></div>
       <p style="margin-top:1.5rem;font-size:0.95rem;color:#4a5a72;text-align:center;padding:0 1.5rem 1.5rem;">&#128205; <strong>Huntfield Community Grass Park</strong> · Front of neighborhood by the dome · Charles Town, WV</p>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section" id="how" style="background-color:#1B3A6B;color:#ffffff;">
-  <div class="section-inner">
-    <div class="section-tag">How It Works</div>
-    <h2>Simple, flexible, fun.</h2>
-    <p class="section-sub">No season sign-ups. No worrying if your kid will lose interest. Just pick a slot, show up, and let them fall in love with sport.</p>
-    <div class="steps reveal">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Pick a Time Slot</h3>
-        <p>Browse available sessions and pick what works for your family. Morning, afternoon, weekend — <span class="cm">Coach Mark</span> keeps slots flexible.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
-        <h3>Bring Friends (Optional)</h3>
-        <p>Coordinate with other parents and book the same session. Up to 6 kids per session so it never feels like a crowd.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
-        <h3>Show Up &amp; Play</h3>
-        <p>No gear required to start. <span class="cm">Coach Mark</span> handles everything. Your kid throws their first strike, drains their first bucket, and goes home beaming.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -493,7 +475,7 @@
           <li>1-hour group session</li>
           <li>4–6 kids per group</li>
           <li>Your choice of sport</li>
-          <li>No gear needed — <span class="cm">Coach Mark</span>'s got it</li>
+          <li>No gear needed — <span class="cm">Coach Mark</span> has everything</li>
           <li>No commitment required</li>
         </ul>
         <a href="#schedule" class="btn-stripe" style="margin-top:1.5rem;display:block;background:#1B3A6B;color:#fff;text-align:center;">Book a Session</a>
