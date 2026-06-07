@@ -274,6 +274,7 @@
     .nav-links { display: none !important; }
     .nav-hamburger { display: flex !important; }
     .camp-layout { grid-template-columns: 1fr !important; }
+    .three-pills { grid-template-columns: 1fr !important; }
     .about-two-col { grid-template-columns: 1fr !important; }
     .always-know-two-col { grid-template-columns: 1fr !important; }
   }
@@ -323,9 +324,9 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-badge">&#9889; AGES 4–9 &middot; JULY 6–10 &amp; JULY 13–17</div>
-      <h1>This summer, your kid becomes an <em>athlete.</em></h1>
-      <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">For most kids, <span class="cm">Coach Mark</span> will be the first coach they ever have. He takes that seriously.</p>
-      <p class="hero-sub"><span class="cm">Coach Mark</span>'s All-Star Summer Camp runs 3 hours a day, Monday through Friday — a different sport every single day. Sign up for the full week or pick the days that work for you.</p>
+      <h1>Sports start <em>before</em> the team does.</h1>
+      <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">Whether your child is brand new to a sport or already on a team, <span class="cm">Coach Mark</span> will help them fall in love with the game.</p>
+      <p class="hero-sub"><span class="cm" style="color:var(--coach-red)!important;">Coach Mark's</span> All-Star Summer Camp runs 3 hours a day, Monday through Friday — a different sport every single day. Perfect for first-timers. Sign up for the full week or pick the days that work for you.</p>
       <div class="hero-btns">
         <a href="#camp-week1" class="btn-primary">⚾ Register — July 6–10</a>
         <a href="#camp-week2" class="btn-primary">⚾ Register — July 13–17</a>
@@ -340,15 +341,14 @@
 </section>
 
 <!-- SUMMER CAMP WEEK 1 -->
-<section class="camp-section" id="camp-week1">
-  <div class="camp-inner">
-    <div class="camp-badge">🌟 NOW REGISTERING — WEEK 1</div>
+<section class="camp-section" id="camp-week1" style="padding-top:0;">
+  <div class="camp-inner" style="padding-top:3rem;">
     <div class="camp-layout reveal">
       <div class="camp-poster">
         <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp — July 6-10">
       </div>
       <div class="camp-right">
-        <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp</h2>
+        <h2 style="color:#fff;">Coach Mark's All-Star Summer Camp — Week 1</h2>
         <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 6–10, 2025 · Field by WHS Tennis Courts</p>
         <p style="margin-bottom:1rem;">3 hours a day, Monday through Friday. A different sport every single day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more.</p>
         <p style="margin-bottom:1.5rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
@@ -388,9 +388,8 @@
 <!-- SUMMER CAMP WEEK 2 -->
 <section class="camp-section" id="camp-week2" style="border-top:2px solid rgba(255,255,255,0.08);">
   <div class="camp-inner">
-    <div class="camp-badge">🌟 NOW REGISTERING — WEEK 2</div>
     <div class="reveal">
-      <h2 style="color:#fff;margin-bottom:0.5rem;">Coach Mark's All-Star Summer Camp</h2>
+      <h2 style="color:#fff;margin-bottom:0.5rem;">Coach Mark's All-Star Summer Camp — Week 2</h2>
       <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 13–17, 2025 · Field by WHS Tennis Courts</p>
       <p style="color:rgba(255,255,255,0.8);margin-bottom:1rem;">3 hours a day, Monday through Friday. Same great camp as Week 1 — a different sport every single day.</p>
       <p style="margin-bottom:2rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
@@ -432,17 +431,17 @@
     <div class="section-tag">Individual Lessons</div>
     <h2>Can't make camp? Book a standalone session.</h2>
     <p class="section-sub">These aren't camp days — they're individual 1-hour lessons at Huntfield. Perfect if camp doesn't fit your schedule, if your kid wants extra reps on a specific sport, or if you want them to <strong>try a sport for the first time before committing to a full season.</strong></p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;" class="three-pills">
       <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">No season. No schedule. Just show up.</div>
+        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">No season. No schedule. Just show up.</div>
         <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Book one session at a time. Come back when it works for you.</div>
       </div>
       <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">4–6 kids. Every session.</div>
+        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">4–6 kids. Every session.</div>
         <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Your child gets coached. Not just watched.</div>
       </div>
       <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">Bring your crew.</div>
+        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">Bring your crew.</div>
         <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Coordinate with other families and book the same session together.</div>
       </div>
     </div>
@@ -564,7 +563,7 @@
     <h2 style="color:#002147;font-size:clamp(2rem,4vw,3rem);margin-bottom:1.5rem;">This is real coaching.</h2>
     <img src="/coach-group.jpg" style="width:100%;max-width:100%;max-height:350px;object-fit:cover;object-position:center center;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.12);margin-bottom:2rem;" alt="Coach Mark coaching kids on the baseball field">
     <p style="font-size:1.05rem;color:#4a5a72;max-width:680px;line-height:1.8;margin-bottom:3rem;">Every session runs like a real practice. <span class="cm">Coach Mark</span> runs drills, teaches fundamentals, and gives every kid individual attention.</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2rem;" class="three-pills">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Structure</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;">Every session has a plan, a skill focus, and a clear beginning and end.</p></div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Instruction</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;"><span class="cm">Coach Mark</span> teaches. Every kid leaves having learned something specific.</p></div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.1rem;font-weight:900;color:#002147;margin-bottom:0.5rem;">Individual Attention</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.6;">4–6 kids per session means your child is never invisible.</p></div>
