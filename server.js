@@ -14,14 +14,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // — Regular Sessions ————————————————————————————————————————————————
 const sessions = [];
-// Add sessions via the admin page at /admin.html
 
-// — Camp Sessions ————————————————————————————————————————————————
+// — Summer Sessions ————————————————————————————————————————————————
 const campSessions = [
-  { id: 'camp-morning-w1', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 6–10' },
-  { id: 'camp-evening-w1', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 6–10' },
-  { id: 'camp-morning-w2', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 13–17' },
-  { id: 'camp-evening-w2', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 13–17' },
+  { id: 'summer-session-morning', name: 'Morning Session', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'Starting July 6' },
+  { id: 'summer-session-evening', name: 'Evening Session', time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'Starting July 6' },
 ];
 
 // — Email transporter ————————————————————————————————————————
@@ -49,12 +46,8 @@ function adminAuth(req, res, next) {
 }
 
 // — Admin routes ————————————————————————————————————————————
-// Verify admin password
-app.post('/api/admin/verify', adminAuth, (req, res) => {
-  res.json({ ok: true });
-});
+app.post('/api/admin/verify', adminAuth, (req, res) => res.json({ ok: true }));
 
-// Add session
 app.post('/api/admin/sessions', adminAuth, (req, res) => {
   const { sport, name, day, time, total } = req.body;
   if (!sport || !name || !day || !time) return res.status(400).json({ error: 'Missing required fields' });
@@ -64,7 +57,6 @@ app.post('/api/admin/sessions', adminAuth, (req, res) => {
   res.json({ success: true, id });
 });
 
-// Remove session
 app.delete('/api/admin/sessions/:id', adminAuth, (req, res) => {
   const idx = sessions.findIndex(s => s.id === req.params.id);
   if (idx === -1) return res.status(404).json({ error: 'Session not found' });
@@ -72,7 +64,6 @@ app.delete('/api/admin/sessions/:id', adminAuth, (req, res) => {
   res.json({ success: true });
 });
 
-// Update taken count
 app.patch('/api/admin/sessions/:id', adminAuth, (req, res) => {
   const session = sessions.find(s => s.id === req.params.id);
   if (!session) return res.status(404).json({ error: 'Session not found' });
@@ -80,7 +71,6 @@ app.patch('/api/admin/sessions/:id', adminAuth, (req, res) => {
   res.json({ success: true });
 });
 
-// Reviews (stub — returns empty if no reviews system)
 app.get('/api/reviews', (req, res) => res.json([]));
 app.delete('/api/admin/reviews/:id', adminAuth, (req, res) => res.json({ success: true }));
 
@@ -101,13 +91,13 @@ app.post('/api/book', async (req, res) => {
             name: `${session.name} — ${session.day} ${session.time}`,
             description: `Coach Mark · First Play Sports · Kid: ${kidName} (age ${kidAge})`,
           },
-          unit_amount: 2000,
+          unit_amount: 2500,
         },
         quantity: 1,
       }],
       mode: 'payment',
       success_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/#schedule`,
+      cancel_url: `${process.env.BASE_URL || 'https://firstplaysports.com'}/#camp`,
       metadata: { sessionId, parentName, kidName, kidAge, contactInfo, notes: notes || '', type: 'session' },
     });
     res.json({ url: checkoutSession.url });
@@ -117,16 +107,15 @@ app.post('/api/book', async (req, res) => {
   }
 });
 
-// — Camp booking ————————————————————————————————————————————
+// — Summer session booking ————————————————————————————————————
 app.post('/api/book-camp', async (req, res) => {
   const { campSessionId, option, dayCount, parentName, kidName, kidAge, contactInfo, notes } = req.body;
   const campSession = campSessions.find(s => s.id === campSessionId);
-  if (!campSession) return res.status(404).json({ error: 'Camp session not found' });
+  if (!campSession) return res.status(404).json({ error: 'Session not found' });
 
-  const isWeek = option === 'week';
-  const days = isWeek ? 5 : (parseInt(dayCount) || 1);
-  const amount = isWeek ? 12000 : days * 3000;
-  const label = isWeek ? 'Full Week ($120)' : `${days} Day${days > 1 ? 's' : ''} ($${days * 30})`;
+  const days = parseInt(dayCount) || 1;
+  const amount = days * 2500; // $25 per day
+  const label = `${days} Day${days > 1 ? 's' : ''} ($${days * 25})`;
 
   try {
     const checkoutSession = await stripe.checkout.sessions.create({
@@ -135,8 +124,8 @@ app.post('/api/book-camp', async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: `Baseball Camp — ${campSession.name} — ${campSession.week || 'July 6–10'}`,
-            description: `Coach Mark · ${campSession.time} · ${campSession.ages} · ${label} · Kid: ${kidName} (age ${kidAge})`,
+            name: `All-Star Sports Days — ${campSession.name}`,
+            description: `Coach Mark · ${campSession.time} · Ages 4–9 · ${label} · Kid: ${kidName} (age ${kidAge})`,
           },
           unit_amount: amount,
         },
@@ -167,22 +156,24 @@ app.post('/webhook', async (req, res) => {
 
   if (event.type === 'checkout.session.completed') {
     const data = event.data.object;
-    const { parentName, kidName, kidAge, contactInfo, notes, type, sessionId, campSessionId, option } = data.metadata;
+    const { parentName, kidName, kidAge, contactInfo, notes, type, sessionId, campSessionId, dayCount } = data.metadata;
     const emailAddress = contactInfo ? contactInfo.split(' /')[0].trim() : null;
 
-    let sessionDetails, subjectSuffix;
+    let sessionDetails, subjectSuffix, amountPaid;
+
     if (type === 'camp') {
       const cs = campSessions.find(s => s.id === campSessionId);
-      sessionDetails = cs ? `Baseball Camp — ${cs.name} (${cs.time}) — July 6–10 — ${option === 'week' ? 'Full Week' : 'Single Day'}` : campSessionId;
-      subjectSuffix = 'Baseball Camp — July 6–10';
+      const days = parseInt(dayCount) || 1;
+      amountPaid = `$${days * 25}.00`;
+      sessionDetails = cs ? `All-Star Sports Days — ${cs.name} (${cs.time}) — ${notes}` : campSessionId;
+      subjectSuffix = cs ? cs.name : campSessionId;
     } else {
       const s = sessions.find(s => s.id === sessionId);
       if (s) s.taken += 1;
+      amountPaid = '$25.00';
       sessionDetails = s ? `${s.name} — ${s.day} ${s.time}` : sessionId;
       subjectSuffix = s ? s.day : sessionId;
     }
-
-    const amountPaid = type === 'camp' ? (option === 'week' ? '$120.00' : '$30.00') : '$20.00';
 
     // Email to Coach Mark
     try {
@@ -193,7 +184,7 @@ app.post('/webhook', async (req, res) => {
         html: `
           <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
             <div style="background:#002147;padding:20px;text-align:center;">
-              <h2 style="color:#FFD23F;margin:0;">New Booking Received!</h2>
+              <h2 style="color:#ffffff;margin:0;">New Booking Received!</h2>
             </div>
             <div style="padding:24px;background:#f9f9f9;">
               <p style="font-size:16px;"><strong>Parent:</strong> ${parentName}</p>
@@ -206,7 +197,6 @@ app.post('/webhook', async (req, res) => {
           </div>`,
         text: `New booking!\n\nParent: ${parentName}\nKid: ${kidName} (age ${kidAge})\nContact: ${contactInfo}\nSession: ${sessionDetails}\nNotes: ${notes || 'None'}\nAmount paid: ${amountPaid}`,
       });
-      console.log('Coach Mark email sent successfully');
     } catch (emailErr) {
       console.error('Coach Mark email error:', emailErr.message);
     }
@@ -217,12 +207,12 @@ app.post('/webhook', async (req, res) => {
         await transporter.sendMail({
           from: process.env.EMAIL_USER,
           to: emailAddress,
-          subject: `You're booked! First Play Sports — ${subjectSuffix}`,
+          subject: `You're booked! Coach Mark's All-Star Sports Days`,
           html: `
             <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
               <div style="background:#002147;padding:20px;text-align:center;">
-                <h2 style="color:#FFD23F;margin:0;">You're Booked! ⚾</h2>
-                <p style="color:rgba(255,255,255,0.8);margin:8px 0 0;">First Play Sports</p>
+                <h2 style="color:#ffffff;margin:0;">You're Booked! ⚾</h2>
+                <p style="color:rgba(255,255,255,0.8);margin:8px 0 0;">Coach Mark's All-Star Sports Days</p>
               </div>
               <div style="padding:24px;background:#f9f9f9;">
                 <p style="font-size:16px;">Hi ${parentName},</p>
@@ -231,7 +221,7 @@ app.post('/webhook', async (req, res) => {
                   <p style="margin:4px 0;font-size:15px;"><strong>Kid:</strong> ${kidName} (age ${kidAge})</p>
                   <p style="margin:4px 0;font-size:15px;"><strong>Session:</strong> ${sessionDetails}</p>
                   <p style="margin:4px 0;font-size:15px;"><strong>Coach:</strong> Coach Mark Lucas</p>
-                  <p style="margin:4px 0;font-size:15px;"><strong>Location:</strong> Field by WHS Tennis Courts · Charles Town, WV</p>
+                  <p style="margin:4px 0;font-size:15px;"><strong>Location:</strong> Huntfield Community · Beside Washington High School · Charles Town, WV</p>
                   <p style="margin:4px 0;font-size:15px;"><strong>Amount paid:</strong> ${amountPaid}</p>
                 </div>
                 <p style="font-size:15px;">Just bring ${kidName} in comfortable clothes and sneakers — Coach Mark handles everything else.</p>
@@ -239,9 +229,8 @@ app.post('/webhook', async (req, res) => {
                 <p style="font-size:15px;">See you on the field!<br><strong>— Coach Mark</strong><br>First Play Sports</p>
               </div>
             </div>`,
-          text: `Hi ${parentName},\n\nYou're all set!\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Field by WHS Tennis Courts · Charles Town, WV\nAmount paid: ${amountPaid}\n\nQuestions? firstplaysportswv@gmail.com or (724) 799-4778\n\nSee you on the field!\n— Coach Mark`,
+          text: `Hi ${parentName},\n\nYou're all set!\n\nKid: ${kidName} (age ${kidAge})\nSession: ${sessionDetails}\nCoach: Coach Mark Lucas\nLocation: Huntfield Community · Beside Washington High School · Charles Town, WV\nAmount paid: ${amountPaid}\n\nQuestions? firstplaysportswv@gmail.com or (724) 799-4778\n\nSee you on the field!\n— Coach Mark`,
         });
-        console.log('Parent confirmation email sent to:', emailAddress);
       } catch (emailErr) {
         console.error('Parent email error:', emailErr.message);
       }
