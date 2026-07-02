@@ -409,7 +409,7 @@
     <p class="section-sub" style="margin:0.5rem auto 2.5rem;">We've heard them all.</p>
     <div class="faq-grid reveal">
       <div class="faq-item"><h4>Do you offer all sports every session?</h4><p>Not all at once. <span class="cm">Coach Mark</span> runs sport-specific sessions and rotates based on the season. Baseball is the featured sport this spring.</p></div>
-      <div class="faq-item"><h4>Where do sessions take place?</h4><p>All-Star Sports Days sessions are at Huntfield Community, beside Washington High School in Washington, PA.</p></div>
+      <div class="faq-item"><h4>Where do sessions take place?</h4><p>All-Star Sports Days sessions are at Huntfield Community, beside Washington High School in Charles Town, WV.</p></div>
       <div class="faq-item"><h4>My kid has never played before. Is that okay?</h4><p>That's literally the whole point! <span class="cm">Coach Mark</span> specializes in first-timers. Zero experience needed.</p></div>
       <div class="faq-item"><h4>Can I book just one session and see how it goes?</h4><p>Absolutely. No pressure to commit to anything after that first session. Just show up, have fun, and go from there.</p></div>
       <div class="faq-item"><h4>Can we fill a session with our friend group?</h4><p>Yes! Grab 4–6 families, all book the same time slot, and make it your own little crew. It's the most fun way to do it.</p></div>
@@ -540,7 +540,7 @@ function openSessionBooking(timeSlot) {
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header"><h3>Book a Session</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-slot-info"><div class="modal-slot-icon">${icon}</div><div class="modal-slot-detail"><h4>${isEvening ? 'Evening' : 'Morning'} Session — ${timeLabel}</h4><p>Ages 4–9 · Starting July 6</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">$25 · 3-hour session</p></div></div>
-    <div class="form-note">📍 Huntfield Community · Beside Washington High School · Washington, PA</div>
+    <div class="form-note">📍 Huntfield Community · Beside Washington High School · Charles Town, WV</div>
     <div style="background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
       <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) would you like to attend? ($25 per day)</p>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
@@ -612,7 +612,7 @@ function openCampBooking(campId) {
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header"><h3>Register for Camp</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-slot-info"><div class="modal-slot-icon">${camp.icon}</div><div class="modal-slot-detail"><h4>${camp.name} — ${camp.week}</h4><p>${camp.time} · ${camp.ages}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${camp.level}</p></div></div>
-    <div class="form-note">📍 Huntfield Community · Beside Washington High School · Washington, PA</div>
+    <div class="form-note">📍 Huntfield Community · Beside Washington High School · Charles Town, WV</div>
     <div id="dayPicker" style="background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
       <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend? ($30 per day)</p>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
