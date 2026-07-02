@@ -39,7 +39,7 @@
   .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem; }
   h1 { font-family: "Fraunces", serif; font-size: clamp(2.8rem,5vw,4.2rem); font-weight: 900; color: #ffffff; margin-bottom: 1.2rem; }
   em { font-style: italic; color: var(--coach-red); }
-  .hero-sub { font-size:1.1rem; color:#ffffff; line-height:1.7; max-width:460px; margin-bottom:2rem; }
+  .hero-sub { font-size:1rem; color:#ffffff; line-height:1.8; max-width:460px; margin-bottom:2rem; }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary { background: var(--orange); color: #fff; padding: 0.85rem 1.8rem; border-radius: 100px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(255,107,53,0.4); display: inline-block; }
   .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(255,107,53,0.5); }
@@ -61,7 +61,7 @@
   .section-inner { max-width: 1100px; margin: 0 auto; }
   .section-tag { display: inline-block; background: #ffffff; color: var(--navy); padding: 0.3rem 0.9rem; border-radius: 100px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
   h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1rem; }
-  .section-sub { font-size: 1.05rem; color: #5a6a7e; max-width: 540px; line-height: 1.7; margin-bottom: 3rem; }
+  .section-sub { font-size: 1.05rem; color: #5a6a7e; max-width: 540px; line-height: 1.8; margin-bottom: 3rem; }
   .camp-section { background: #1B3A6B; position: relative; overflow: hidden; }
   .camp-section::before { display: none; }
   .camp-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; position: relative; z-index: 1; }
@@ -180,6 +180,12 @@
     .always-know-two-col { grid-template-columns: 1fr !important; }
   }
   @media (max-width: 480px) {
+    h1 { font-size: 2.2rem !important; }
+    h2 { font-size: 1.6rem !important; }
+    .hero-sub { font-size: 0.95rem !important; }
+    .price-amount { font-size: 2.8rem !important; }
+    .coach-quote { font-size: 0.88rem !important; }
+    .why-list li { font-size: 0.92rem !important; }
     .sports-grid { grid-template-columns: 1fr 1fr !important; }
     .form-row { grid-template-columns: 1fr !important; }
     .hero-btns { flex-direction: column !important; }
@@ -232,7 +238,7 @@
     </div>
     <div class="hero-stats">
       <div class="stat-card"><div class="stat-num">Coach Mark's All-Star Sports Days — Starting July 6.</div><div class="stat-label">A different sport every day. Starting July 6 and running all summer.</div></div>
-      <div class="stat-card"><div class="stat-num">$25 per session.</div><div class="stat-label">Same price as always. Book one at a time. Come back whenever it works.</div></div>
+      <div class="stat-card"><div class="stat-num">$25 per session.</div><div class="stat-label">Same price as always. Book&nbsp;one at&nbsp;a&nbsp;time. Come back whenever it works.</div></div>
       <div class="stat-card"><div class="stat-num">Two time slots daily.</div><div class="stat-label">Morning (9 AM–12 PM) or Evening (5 PM–8 PM) — pick what works for your schedule.</div></div>
     </div>
   </div>
@@ -274,13 +280,13 @@
         <span class="price-sport-icon">&#9918;</span>
         <h3>One Session</h3>
         <div class="price-amount" style="font-size:3.5rem;">$25</div>
-        <div class="price-per">per child · 3-hour session</div>
+        <div class="price-per">per&nbsp;child · 3-hour&nbsp;session</div>
         <ul class="price-features" style="margin-top:1.2rem;">
-          <li>3 hours of coaching and sports</li>
-          <li>4–6 kids per group</li>
-          <li>Your choice of sport</li>
-          <li>No gear needed — Coach Mark's got it</li>
-          <li>No commitment required</li>
+          <li>3&nbsp;hours of coaching and&nbsp;sports</li>
+          <li>4–6&nbsp;kids per&nbsp;group</li>
+          <li>Your choice of&nbsp;sport</li>
+          <li style="white-space:normal;">No gear needed&nbsp;— Coach&nbsp;Mark's&nbsp;got&nbsp;it</li>
+          <li>No commitment&nbsp;required</li>
         </ul>
         <a href="#camp" class="btn-stripe" style="margin-top:1.5rem;display:block;background:#1B3A6B;color:#fff;text-align:center;">Book a Session</a>
       </div>
@@ -340,19 +346,19 @@
         <h2>Kid sports should be <span style="color:#B22234;">fun.</span></h2>
         <p class="section-sub"><span class="cm">Coach Mark</span> has spent four years coaching his own kids in local leagues right here in Jefferson County. He knows exactly what a 4-year-old needs from their first coach.</p>
         <ul class="why-list">
-          <li>No season commitment — book one session at a time</li>
-          <li>Small groups (4–6 kids) means real attention for every child</li>
+          <li>No season commitment&nbsp;— book one session at&nbsp;a&nbsp;time</li>
+          <li>Small groups (4–6&nbsp;kids) means real attention for every child</li>
           <li>Multi-sport: baseball, basketball, football, pickleball</li>
-          <li>Perfect for 4–9 year olds who've never played before</li>
-          <li>Parents can coordinate with friends to fill a session together</li>
-          <li>Zero pressure — this is about building confidence, not stats</li>
+          <li>Perfect for 4–9&nbsp;year olds who've never played before</li>
+          <li>Parents can coordinate with friends to fill a session&nbsp;together</li>
+          <li>Zero pressure&nbsp;— this is about building confidence, not&nbsp;stats</li>
         </ul>
       </div>
       <div class="coach-card">
         <div class="coach-avatar" style="overflow:hidden;border:3px solid #fff;border-radius:50%;"><img src="/coachmark_headshot.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center center;" alt="Coach Mark"></div>
         <div class="coach-name">Coach Mark</div>
         <div class="coach-title">Youth Sports Coach · Ages 4–9</div>
-        <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star — it's to make sure they actually want to come back."</p>
+        <p class="coach-quote">"I'll coach your kid on your schedule. The goal isn't to make them a star&nbsp;— it's to make sure they actually want to come&nbsp;back."</p>
         <div class="coach-sports">
           <span class="sport-tag">⚾ Baseball</span><span class="sport-tag">🏀 Basketball</span><span class="sport-tag">🏈 Football</span><span class="sport-tag">🏓 Pickleball</span><span class="sport-tag">⛳ Golf</span><span class="sport-tag">🏐 Volleyball</span><span class="sport-tag">⚽ Soccer</span><span class="sport-tag">🎯 Yard Games</span>
         </div>
@@ -387,7 +393,7 @@
           <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">When you sign your child up for a rec league, you get whoever shows up. Maybe a great coach. Maybe a well-meaning dad who volunteered because nobody else did.</p>
           <div style="border-left:4px solid #B22234;padding-left:1.2rem;margin-bottom:1.5rem;"><p style="font-weight:800;color:#fff;font-size:1.15rem;">First Play Sports does not work that way.</p></div>
           <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.85);">Every session is <strong><span class="cm">Coach Mark</span></strong>. Not a substitute. Not a staff rotation. <strong><span class="cm">Coach Mark</span></strong> shows up, runs the session, coaches your kid, and goes home.</p>
-          <p style="font-weight:800;color:#ffffff;font-size:1.2rem;">That is not a small thing. That is the whole thing.</p>
+          <p style="font-weight:800;color:#ffffff;font-size:1.2rem;">That is not a small&nbsp;thing. That is the whole&nbsp;thing.</p>
         </div>
       </div>
       <img src="/coach-joey.jpg" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.4);" alt="Coach Mark giving individual attention">
