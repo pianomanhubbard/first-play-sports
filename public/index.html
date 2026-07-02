@@ -16,12 +16,12 @@
   body { font-family: 'Nunito', sans-serif; background: var(--cream); color: var(--navy); overflow-x: hidden; width: 100%; }
   .cm { color: var(--coach-red) !important; font-weight: 800 !important; }
   nav { position: fixed; top: 0; width: 100%; z-index: 100; background: var(--navy); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; height: 64px; box-shadow: 0 2px 20px rgba(0,0,0,0.25); }
-  .nav-logo { font-family: 'Fraunces', serif; font-size: 1.3rem; color: #ffffff; letter-spacing: -0.5px; }
+  .nav-logo { font-family: 'Fraunces', serif; font-size: 1.3rem; color: #ffffff; letter-spacing: -0.5px; text-decoration: none; }
   .nav-logo .cm { color: var(--coach-red) !important; }
   .nav-logo span.sub { color: rgba(255,255,255,0.75) !important; font-size: 0.65rem; font-weight: 400; font-family: 'Nunito', sans-serif; }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.5px; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--sun); }
+  .nav-links a:hover { color: #ffffff; }
   .nav-cta { background: var(--orange); color: #fff !important; padding: 0.45rem 1.1rem; border-radius: 100px; font-weight: 800 !important; }
   .nav-cta:hover { background: #ff8552; color: #fff !important; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
@@ -34,11 +34,11 @@
   .mobile-menu a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 700; font-size: 1rem; padding: 0.6rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
   .mobile-menu a:last-child { border-bottom: none; color: var(--orange); font-size: 1.1rem; }
   .hero { min-height: 100vh; background: var(--navy); display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 64px; }
-  .hero-dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgba(255,210,63,0.25) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 60px 60px, 30px 30px; background-position: 0 0, 15px 15px; }
+  .hero-dots { position: absolute; inset: 0; pointer-events: none; background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px), radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 60px 60px, 30px 30px; background-position: 0 0, 15px 15px; }
   .hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; max-width:1100px; margin:0 auto; padding:4rem 2rem 10rem; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,210,63,0.15); border: 1px solid rgba(255,210,63,0.4); color: var(--sun); padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.4); color: #ffffff; padding: 0.35rem 0.9rem; border-radius: 100px; font-size: 0.8rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1.2rem; }
   h1 { font-family: "Fraunces", serif; font-size: clamp(2.8rem,5vw,4.2rem); font-weight: 900; color: #ffffff; margin-bottom: 1.2rem; }
-  h1 em { font-style: italic; color: var(--coach-red); }
+  em { font-style: italic; color: var(--coach-red); }
   .hero-sub { font-size:1.1rem; color:#ffffff; line-height:1.7; max-width:460px; margin-bottom:2rem; }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary { background: var(--orange); color: #fff; padding: 0.85rem 1.8rem; border-radius: 100px; font-weight: 800; font-size: 1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 20px rgba(255,107,53,0.4); display: inline-block; }
@@ -46,7 +46,7 @@
   .btn-outline { border: 2px solid rgba(255,255,255,0.3); color: #fff; padding: 0.85rem 1.8rem; border-radius: 100px; font-weight: 700; font-size: 1rem; text-decoration: none; transition: border-color 0.2s, background 0.2s; display: inline-block; }
   .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
   .hero-stats { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-  .stat-card { flex:1; background:rgba(255,255,255,0.08); border-left:4px solid var(--coach-red); border-radius:12px; padding:28px 24px; transition: transform 0.2s; }
+  .stat-card { flex:1; background:rgba(255,255,255,0.08); border-left:4px solid #B22234; border-radius:12px; padding:28px 24px; transition: transform 0.2s; }
   .stat-card:hover { transform: translateY(-3px); }
   .stat-card:first-child { grid-column:1 / -1; }
   .stat-num { font-size:1.3rem; font-weight:900; color:#fff; display:block; margin-bottom:4px; line-height:1.3; }
@@ -59,7 +59,7 @@
   @keyframes floatBall { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(15deg); } }
   .section { padding: 6rem 2rem; }
   .section-inner { max-width: 1100px; margin: 0 auto; }
-  .section-tag { display: inline-block; background: var(--sun); color: var(--navy); padding: 0.3rem 0.9rem; border-radius: 100px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
+  .section-tag { display: inline-block; background: #ffffff; color: var(--navy); padding: 0.3rem 0.9rem; border-radius: 100px; font-weight: 800; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; }
   h2 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin-bottom: 1rem; }
   .section-sub { font-size: 1.05rem; color: #5a6a7e; max-width: 540px; line-height: 1.7; margin-bottom: 3rem; }
   .camp-section { background: #1B3A6B; position: relative; overflow: hidden; }
@@ -67,13 +67,13 @@
   .camp-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; position: relative; z-index: 1; }
   .camp-cards { display: flex; flex-direction: column; gap: 1rem; }
   .camp-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 1.4rem 1.6rem; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: space-between; }
-  .camp-card:hover { background: rgba(255,255,255,0.1); border-color: #FFD23F; transform: translateX(4px); }
+  .camp-card:hover { background: rgba(255,255,255,0.1); border-color: #ffffff; transform: translateX(4px); }
   .camp-card-left { display: flex; align-items: center; gap: 1rem; }
   .camp-card-icon { font-size: 2rem; }
   .camp-card-name { font-weight: 900; color: #fff; font-size: 1rem; margin-bottom: 0.2rem; }
   .camp-card-details { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
   .camp-card-price { text-align: right; }
-  .camp-card-price-main { font-family: 'Fraunces', serif; font-size: 1.4rem; color: #FFD23F; font-weight: 900; }
+  .camp-card-price-main { font-family: 'Fraunces', serif; font-size: 1.4rem; color: #ffffff; font-weight: 900; }
   .camp-card-price-sub { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
   .why-section { padding-bottom: 2rem; background-color: #1B3A6B !important; color: #ffffff !important; }
   .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
@@ -83,12 +83,12 @@
   .why-list li { display: flex; align-items: flex-start; gap: 0.9rem; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.85); }
   .why-list li::before { content: '✓'; min-width: 28px; height: 28px; background: #1B3A6B; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.8rem; margin-top: 2px; }
   .coach-card { background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.20); border-radius: 24px; padding: 2.5rem; text-align: center; }
-  .coach-avatar { width: 120px; height: 120px; background: linear-gradient(135deg, var(--grass), var(--grass-dark)); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border: 4px solid var(--sun); }
+  .coach-avatar { width: 120px; height: 120px; background: linear-gradient(135deg, var(--grass), var(--grass-dark)); border-radius: 50%; margin: 0 auto 1.2rem; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; border: 4px solid #ffffff; }
   .coach-name { font-family: 'Fraunces', serif; font-size: 1.7rem; color: var(--coach-red); margin-bottom: 0.3rem; }
-  .coach-title { color: var(--sun); font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.5px; }
+  .coach-title { color: #ffffff; font-weight: 700; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.5px; }
   .coach-quote { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.7; font-style: italic; }
   .coach-sports { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
-  .sport-tag { background: rgba(255,210,63,0.15); border: 1px solid rgba(255,210,63,0.3); color: var(--sun); padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.8rem; font-weight: 700; }
+  .sport-tag { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.3); color: #ffffff; padding: 0.25rem 0.75rem; border-radius: 100px; font-size: 0.8rem; font-weight: 700; }
   .sports-section { background: #1B3A6B; }
   .sports-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
   .sport-card { background: #fff; border-radius: 20px; padding: 2rem 1.2rem; text-align: center; box-shadow: 0 3px 16px rgba(0,0,0,0.06); transition: transform 0.2s, box-shadow 0.2s; }
@@ -138,12 +138,6 @@
   .btn-book { width: 100%; background: var(--orange); color: #fff; border: none; padding: 0.9rem; border-radius: 100px; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 1rem; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 16px rgba(255,107,53,0.35); }
   .btn-book:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(255,107,53,0.45); }
   .btn-book:disabled { opacity: 0.6; cursor: not-allowed; }
-  .camp-option-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.2rem; }
-  .camp-option-btn { padding: 0.9rem; border-radius: 12px; border: 2px solid #e8e2d8; background: #fff; cursor: pointer; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--navy); transition: all 0.15s; text-align: center; }
-  .camp-option-btn.selected { border-color: var(--coach-red); background: #fef2f2; color: var(--coach-red); }
-  .camp-option-price { font-family: 'Fraunces', serif; font-size: 1.4rem; display: block; }
-  .camp-option-label { font-size: 0.75rem; color: #5a6a7e; }
-  .camp-option-btn.selected .camp-option-label { color: var(--coach-red); }
   .pricing-section { background: #fff; }
   .price-card { background: #fff; border: 2px solid #e8e2d8; border-radius: 24px; padding: 2.2rem 1.8rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
   .price-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.1); }
@@ -165,10 +159,10 @@
   .cta-section { background: #1B3A6B !important; padding: 6rem 2rem; text-align: center; position: relative; overflow: hidden; }
   .cta-section h2 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
   .cta-section p { color: rgba(255,255,255,0.8); font-size: 1.1rem; max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
-  .cta-btn { display: inline-block; background: var(--sun); color: var(--navy); padding: 1rem 2.5rem; border-radius: 100px; font-weight: 900; font-size: 1.1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
+  .cta-btn { display: inline-block; background: #ffffff; color: var(--navy); padding: 1rem 2.5rem; border-radius: 100px; font-weight: 900; font-size: 1.1rem; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 6px 24px rgba(0,0,0,0.2); }
   .cta-btn:hover { transform: translateY(-3px); }
   footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 2rem; text-align: center; font-size: 0.85rem; }
-  footer strong { color: #FFD23F; } footer .cm { color: var(--coach-red) !important; }
+  footer strong { color: #ffffff; } footer .cm { color: var(--coach-red) !important; }
   @media (max-width: 768px) {
     body, html { overflow-x: hidden; }
     section, .section, .section-inner, nav, footer { width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; padding-left: 1rem !important; padding-right: 1rem !important; }
@@ -190,7 +184,6 @@
     .form-row { grid-template-columns: 1fr !important; }
     .hero-btns { flex-direction: column !important; }
     .hero-btns a { text-align: center !important; }
-    .camp-option-toggle { grid-template-columns: 1fr !important; }
   }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -201,18 +194,18 @@
 <nav>
   <div class="nav-logo" style="display:flex;flex-direction:column;line-height:1.2;"><span class="cm">Coach Mark</span><span class="sub" style="letter-spacing:0.03em;">First Play Sports · Ages 4–9</span></div>
   <ul class="nav-links">
-    <li><a href="#camp-week1">⚾ Summer Camp</a></li>
+    <li><a href="#camp">⚾ Summer Sessions</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#sports">Sports</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#schedule" class="nav-cta">Book a Session</a></li>
+    <li><a href="#camp" class="nav-cta">Book a Session</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#camp-week1" onclick="closeMobileMenu()">⚾ Summer Camp</a>
-  <a href="#schedule" onclick="closeMobileMenu()">Book a Session ⚾</a>
+  <a href="#camp" onclick="closeMobileMenu()">⚾ Summer Sessions</a>
+  <a href="#camp" onclick="closeMobileMenu()">Book a Session ⚾</a>
   <a href="#pricing" onclick="closeMobileMenu()">Pricing</a>
   <a href="#sports" onclick="closeMobileMenu()">Sports</a>
   <a href="#about" onclick="closeMobileMenu()">About <span class="cm">Coach Mark</span></a>
@@ -226,108 +219,46 @@
   <div class="hero-dots"></div>
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-badge">&#9889; AGES 4–9 &middot; JULY 6–10 &amp; JULY 13–17</div>
+      <div class="hero-badge">&#9889; AGES 4–9 &middot; NO SEASON COMMITMENT &middot; REAL COACHING &middot; SESSIONS STARTING JULY 6</div>
       <h1>Sports start <em>before</em> the team does.</h1>
       <p class="hero-accent" style="font-style:italic;font-size:1rem;color:#ffffff;margin-bottom:0.8rem;">Whether your child is brand new to a sport or already on a team, <span class="cm">Coach Mark</span> will help them fall in love with the game.</p>
-      <p class="hero-sub"><span class="cm">Coach Mark's</span> All-Star Summer Camp runs 3 hours a day, Monday through Friday — a different sport every single day. Perfect for first-timers. Sign up for the full week or pick the days that work for you.</p>
+      <p class="hero-sub">Your kids have the whole summer ahead of them — <span class="cm">Coach Mark</span> is ready to fill it. Starting July 6, he's running daily 3-hour sports sessions for kids ages 4–9. Baseball, flag football, and more. Morning or evening. Pick a day, show up, and let your kid play.</p>
       <div class="hero-btns">
-        <a href="#camp-week1" class="btn-primary">⚾ Register — July 6–10</a>
-        <a href="#camp-week2" class="btn-primary">⚾ Register — July 13–17</a>
+        <a href="#camp" class="btn-primary">Book a Session</a>
       </div>
     </div>
     <div class="hero-stats">
-      <div class="stat-card"><div class="stat-num">3 hours a day. 5 days. A different sport each day.</div><div class="stat-label">Baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more.</div></div>
-      <div class="stat-card"><div class="stat-num">$120 for the full week.</div><div class="stat-label">Or pick individual days at $30 each. No pressure to commit to the whole week.</div></div>
-      <div class="stat-card"><div class="stat-num">Two sessions daily.</div><div class="stat-label">Morning (9 AM–12 PM) or Evening (5 PM–8 PM) — pick what works for your family.</div></div>
+      <div class="stat-card"><div class="stat-num">Daily sessions now available.</div><div class="stat-label">Starting July 6, Coach Mark is offering sessions Monday through Friday — 3 hours a day, same sports, same small groups.</div></div>
+      <div class="stat-card"><div class="stat-num">$25 per session.</div><div class="stat-label">Same price as always. Book one at a time. Come back whenever it works.</div></div>
+      <div class="stat-card"><div class="stat-num">Two time slots daily.</div><div class="stat-label">Morning (9 AM–12 PM) or Evening (5 PM–8 PM) — pick what works for your schedule.</div></div>
     </div>
   </div>
 </section>
 
-<!-- CAMP FLIER -->
-<section class="camp-section">
-  <div class="camp-inner" style="padding-top:4rem;padding-bottom:3rem;display:flex;justify-content:center;">
-    <div style="max-width:500px;width:100%;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-      <img src="/baseball-camp.png" alt="Coach Mark's All-Star Summer Camp" style="width:100%;display:block;">
-    </div>
-  </div>
-</section>
 
-<!-- SUMMER CAMP WEEK 1 -->
-<section class="camp-section" id="camp-week1" style="border-top:2px solid rgba(255,255,255,0.08);">
+
+<!-- SUMMER SESSIONS -->
+<section class="camp-section" id="camp" style="border-top:2px solid rgba(255,255,255,0.08);">
   <div class="camp-inner">
     <div class="reveal">
-      <h2 style="color:#fff;margin-bottom:0.5rem;">Coach Mark's All-Star Summer Camp — Week 1</h2>
-      <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 6–10, 2025 · Field by WHS Tennis Courts</p>
-      <p style="color:rgba(255,255,255,0.85);margin-bottom:1rem;">3 hours a day, Monday through Friday. A different sport every single day — baseball, kickball, flag football, soccer, golf, basketball, pickleball, yard games, and more.</p>
-      <p style="margin-bottom:2rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
+      <h2 style="color:#fff;margin-bottom:0.5rem;">Daily Sessions — Starting July 6</h2>
+      <p style="color:#ffffff;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 Available July 6–15 · Field by WHS Tennis Courts</p>
+      <p style="color:rgba(255,255,255,0.85);margin-bottom:2rem;"><span class="cm">Coach Mark</span> runs 3-hour sports sessions for kids ages 4–9. Small groups. Real coaching. Baseball, flag football, and more. Pick a day that works for your family, pick your time, and book it. That's it.</p>
       <div class="camp-cards" style="max-width:600px;">
-        <div class="camp-card" onclick="openCampBooking('camp-morning-w1')">
-          <div class="camp-card-left"><div class="camp-card-icon">🌅</div><div><div class="camp-card-name">Morning Camp</div><div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div></div></div>
-          <div class="camp-card-price"><div class="camp-card-price-main">$120</div><div class="camp-card-price-sub">full week · $30/day</div></div>
+        <div class="camp-card" onclick="openSessionBooking('morning')">
+          <div class="camp-card-left"><div class="camp-card-icon">🌅</div><div><div class="camp-card-name">Morning Session</div><div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · Baseball &amp; Flag Football</div></div></div>
+          <div class="camp-card-price"><div class="camp-card-price-main">$25</div><div class="camp-card-price-sub">per session</div></div>
         </div>
-        <div class="camp-card" onclick="openCampBooking('camp-evening-w1')">
-          <div class="camp-card-left"><div class="camp-card-icon">🌇</div><div><div class="camp-card-name">Evening Camp</div><div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div></div></div>
-          <div class="camp-card-price"><div class="camp-card-price-main">$120</div><div class="camp-card-price-sub">full week · $30/day</div></div>
+        <div class="camp-card" onclick="openSessionBooking('evening')">
+          <div class="camp-card-left"><div class="camp-card-icon">🌇</div><div><div class="camp-card-name">Evening Session</div><div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · Baseball &amp; Flag Football</div></div></div>
+          <div class="camp-card-price"><div class="camp-card-price-main">$25</div><div class="camp-card-price-sub">per session</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SUMMER CAMP WEEK 2 -->
-<section class="camp-section" id="camp-week2" style="border-top:2px solid rgba(255,255,255,0.08);">
-  <div class="camp-inner">
-    <div class="reveal">
-      <h2 style="color:#fff;margin-bottom:0.5rem;">Coach Mark's All-Star Summer Camp — Week 2</h2>
-      <p style="color:#FFD23F;font-weight:800;font-size:1.1rem;margin-bottom:0.5rem;">📅 July 13–17, 2025 · Field by WHS Tennis Courts</p>
-      <p style="color:rgba(255,255,255,0.8);margin-bottom:1rem;">3 hours a day, Monday through Friday. Same great camp as Week 1 — a different sport every single day.</p>
-      <p style="margin-bottom:2rem;"><strong style="color:#fff;">$120 for the full week</strong> <span style="color:rgba(255,255,255,0.7);">or</span> <strong style="color:#fff;">$30 per day</strong> <span style="color:rgba(255,255,255,0.7);">— pick the days that work for you. No equipment needed.</span></p>
-      <div class="camp-cards" style="max-width:600px;">
-        <div class="camp-card" onclick="openCampBooking('camp-morning-w2')">
-          <div class="camp-card-left"><div class="camp-card-icon">🌅</div><div><div class="camp-card-name">Morning Camp</div><div class="camp-card-details">9 AM – 12 PM · Ages 4–9 · All Sports</div></div></div>
-          <div class="camp-card-price"><div class="camp-card-price-main">$120</div><div class="camp-card-price-sub">full week · $30/day</div></div>
-        </div>
-        <div class="camp-card" onclick="openCampBooking('camp-evening-w2')">
-          <div class="camp-card-left"><div class="camp-card-icon">🌇</div><div><div class="camp-card-name">Evening Camp</div><div class="camp-card-details">5 PM – 8 PM · Ages 4–9 · All Sports</div></div></div>
-          <div class="camp-card-price"><div class="camp-card-price-main">$120</div><div class="camp-card-price-sub">full week · $30/day</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- SCHEDULING -->
-<section class="section schedule-section" id="schedule" style="background-color:#F0F4FF;color:#002147;">
-  <div class="section-inner">
-    <div class="section-tag">Individual Lessons</div>
-    <h2>Can't make camp? Book a standalone session.</h2>
-    <p class="section-sub">These aren't camp days — they're individual 1-hour lessons at Huntfield. Perfect if camp doesn't fit your schedule, if your kid wants extra reps on a specific sport, or if you want them to <strong>try a sport for the first time before committing to a full season.</strong></p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2.5rem;" class="three-pills">
-      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">No season. No schedule. Just show up.</div>
-        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Book one session at a time. Come back when it works for you.</div>
-      </div>
-      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">4–6 kids. Every session.</div>
-        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Your child gets coached. Not just watched.</div>
-      </div>
-      <div style="background:#fff;border-left:4px solid #B22234;border-radius:12px;padding:1.4rem 1.2rem;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
-        <div style="font-size:1rem;font-weight:900;color:#002147;margin-bottom:0.4rem;">Bring your crew.</div>
-        <div style="font-size:0.88rem;color:#5a6a7e;line-height:1.5;">Coordinate with other families and book the same session together.</div>
-      </div>
-    </div>
-    <div class="schedule-ui reveal">
-      <div class="schedule-header"><h3>Upcoming Sessions</h3></div>
-      <div class="schedule-filters">
-        <button class="filter-chip active" onclick="filterSlots('all', this)">All Sports</button>
-        <button class="filter-chip sport-baseball" onclick="filterSlots('baseball', this)">⚾ Baseball</button>
-        <button class="filter-chip sport-football" onclick="filterSlots('football', this)">🏈 Flag Football</button>
-      </div>
-      <div class="slots-grid" id="slotsGrid"><div class="slots-loading">Loading sessions...</div></div>
-      <p style="margin-top:1.5rem;font-size:0.95rem;color:#4a5a72;text-align:center;padding:0 1.5rem 1.5rem;">&#128205; <strong>Huntfield Community Grass Park</strong> · Front of neighborhood by the dome · Charles Town, WV</p>
-    </div>
-  </div>
-</section>
 
 <!-- PRICING -->
 <section class="section pricing-section" id="pricing" style="background-color:#F0F4FF;color:#002147;">
@@ -339,16 +270,16 @@
       <div class="price-card" style="text-align:center;">
         <span class="price-sport-icon">&#9918;</span>
         <h3>One Session</h3>
-        <div class="price-amount" style="font-size:3.5rem;">$20</div>
-        <div class="price-per">per child, per session</div>
+        <div class="price-amount" style="font-size:3.5rem;">$25</div>
+        <div class="price-per">per child · 3-hour session</div>
         <ul class="price-features" style="margin-top:1.2rem;">
-          <li>1-hour group session</li>
+          <li>3 hours of coaching and sports</li>
           <li>4–6 kids per group</li>
           <li>Your choice of sport</li>
-          <li>No gear needed — <span class="cm">Coach Mark</span> has everything</li>
+          <li>No gear needed — Coach Mark's got it</li>
           <li>No commitment required</li>
         </ul>
-        <a href="#schedule" class="btn-stripe" style="margin-top:1.5rem;display:block;background:#1B3A6B;color:#fff;text-align:center;">Book a Session</a>
+        <a href="#camp" class="btn-stripe" style="margin-top:1.5rem;display:block;background:#1B3A6B;color:#fff;text-align:center;">Book a Session</a>
       </div>
     </div>
   </div>
@@ -383,7 +314,7 @@
       <div style="font-size:1.05rem;line-height:1.9;color:#4a5a72;">
         <p style="margin-bottom:1.2rem;color:#002147;"><strong><span class="cm">Coach Mark</span> Lucas</strong> has spent 16 years as a high school teacher — and has spent every one of those years coaching kids in the Jefferson County community where he lives and where his own kids play ball.</p>
         <p style="margin-bottom:1.2rem;color:#002147;">His coaching resume is not a credential on a wall. It is years of showing up. High school baseball. High school basketball. Tee ball. Coach pitch. Kid pitch. JCLL youth basketball. JCLL youth soccer.</p>
-        <p style="margin-bottom:1.2rem;color:#002147;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 4. They are both athletes. That is not an accident.</p>
+        <p style="margin-bottom:1.2rem;color:#002147;">His son <strong>Palmer</strong> is 7. His daughter <strong>Joey</strong> is 5. They are both athletes. That is not an accident.</p>
         <p style="margin-bottom:1.2rem;color:#002147;"><strong><span class="cm">Coach Mark</span></strong> is married to <strong>Tommie Lucas, Jefferson County Teacher of the Year</strong> and a teacher at Washington High School right here in Charles Town.</p>
         <img src="/palmer-joey.jpg" style="width:100%;max-width:380px;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.1);margin-bottom:1rem;" alt="Palmer and Joey">
         <p style="font-size:1.1rem;font-style:italic;color:#002147;border-left:4px solid #B22234;padding-left:1.2rem;margin-top:1.5rem;">When you bring your child to First Play Sports, you are not dropping them off with a stranger. You are handing them to someone who has spent a career earning the right to be called Coach.</p>
@@ -392,7 +323,7 @@
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;border-top:1px solid rgba(0,33,71,0.15);padding-top:2rem;" class="three-pills">
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">16 Years</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">High school teacher in Jefferson County</p></div>
       <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">Every Level</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">Tee ball through high school in baseball, basketball, and soccer</p></div>
-      <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">2 Kids</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">Palmer, 7, and Joey, 4 — his proof of concept</p></div>
+      <div style="border-left:4px solid #B22234;padding-left:1.2rem;"><div style="font-size:1.4rem;font-weight:900;color:#002147;margin-bottom:0.3rem;">2 Kids</div><p style="font-size:0.9rem;color:#4a5a72;line-height:1.5;">Palmer, 7, and Joey, 5 — his proof of concept</p></div>
     </div>
   </div>
 </section>
@@ -402,7 +333,7 @@
   <div class="section-inner">
     <div class="why-grid">
       <div class="why-text">
-        <div class="section-tag" style="background:var(--sun);color:var(--navy);">Why <span class="cm" style="color:var(--coach-red)!important;">Coach Mark</span></div>
+        <div class="section-tag">Why <span class="cm" style="color:var(--coach-red)!important;">Coach Mark</span></div>
         <h2>Kid sports should be <span style="color:#B22234;">fun.</span></h2>
         <p class="section-sub"><span class="cm">Coach Mark</span> has spent four years coaching his own kids in local leagues right here in Jefferson County. He knows exactly what a 4-year-old needs from their first coach.</p>
         <ul class="why-list">
@@ -473,7 +404,7 @@
       <div class="faq-item"><h4>My kid has never played before. Is that okay?</h4><p>That's literally the whole point! <span class="cm">Coach Mark</span> specializes in first-timers. Zero experience needed.</p></div>
       <div class="faq-item"><h4>Can I book just one session and see how it goes?</h4><p>Absolutely. No pressure to commit to anything after that first session. Just show up, have fun, and go from there.</p></div>
       <div class="faq-item"><h4>Can we fill a session with our friend group?</h4><p>Yes! Grab 4–6 families, all book the same time slot, and make it your own little crew. It's the most fun way to do it.</p></div>
-      <div class="faq-item"><h4>What ages are sessions for?</h4><p>Regular sessions: ages 4–9. Summer camp: ages 4–9 with morning and evening sessions daily.</p></div>
+      <div class="faq-item"><h4>What ages are sessions for?</h4><p>All sessions are for kids ages 4–9. Morning (9 AM–12 PM) and evening (5 PM–8 PM) slots are available July 6–15.</p></div>
       <div class="faq-item"><h4>Do we need to bring equipment?</h4><p>Nope. <span class="cm">Coach Mark</span> supplies everything. Just bring your kid in comfortable clothes and sneakers.</p></div>
       <div class="faq-item"><h4>What if my kid wants to try different sports?</h4><p>Each session is sport-specific. Great for kids who haven't found their thing yet — just book a different sport next time.</p></div>
     </div>
@@ -483,9 +414,9 @@
 <!-- CTA -->
 <section class="cta-section" style="background-color:#1B3A6B;">
   <div style="position:relative;z-index:1;">
-    <h2>Ready to register for camp?</h2>
-    <p>No commitment beyond what you sign up for. Pick your week, pick your session, and let's go.</p>
-    <a href="#camp-week1" class="cta-btn">Register for Summer Camp ⚾</a>
+    <h2>Ready to book a session?</h2>
+    <p>Sessions are available every day starting July 6. Pick a day, pick a time, and book it. No commitment beyond that.</p>
+    <a href="#camp" class="cta-btn">Book a Session ⚾</a>
   </div>
 </section>
 
@@ -506,11 +437,37 @@ let allCampSessions = [];
 
 async function loadSlots() {
   try {
-    const res = await fetch('/api/slots');
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch('/api/slots', { signal: controller.signal });
+    clearTimeout(timeout);
     if (!res.ok) throw new Error('Server returned ' + res.status);
     allSlots = await res.json();
+    if (!allSlots.length) throw new Error('No sessions returned');
+    slots = allSlots;
     renderSlots('all');
-  } catch (err) { allSlots = []; renderSlots('all'); }
+  } catch (err) {
+    console.error('loadSlots error:', err.message);
+    allSlots = [
+      { id: '1',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '2',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '3',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+      { id: '4',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat Apr 25', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
+      { id: '5',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat Apr 25', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
+      { id: '6',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '7',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun Apr 26', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '8',  sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun Apr 26', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+      { id: '9',  sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '10', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '11', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+      { id: '12', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sat May 16', time: '1:00 PM – 2:00 PM',   taken: 0, total: 6 },
+      { id: '13', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sat May 16', time: '2:00 PM – 3:00 PM',   taken: 0, total: 6 },
+      { id: '14', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '10:00 AM – 11:00 AM', taken: 0, total: 6 },
+      { id: '15', sport: 'baseball', icon: '⚾', name: 'Baseball Basics', day: 'Sun May 17', time: '11:00 AM – 12:00 PM', taken: 0, total: 6 },
+      { id: '16', sport: 'football', icon: '🏈', name: 'Flag Football',   day: 'Sun May 17', time: '12:00 PM – 1:00 PM',  taken: 0, total: 6 },
+    ];
+    renderSlots('all');
+  }
 }
 
 async function loadCampSessions() {
@@ -519,10 +476,8 @@ async function loadCampSessions() {
     allCampSessions = await res.json();
   } catch (err) {
     allCampSessions = [
-      { id: 'camp-morning-w1', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 6–10' },
-      { id: 'camp-evening-w1', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 6–10' },
-      { id: 'camp-morning-w2', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 13–17' },
-      { id: 'camp-evening-w2', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 13–17' },
+      { id: 'camp-morning', name: 'Morning Camp', time: '9 AM – 12 PM', ages: '4–9 Years Old', level: 'All Sports', icon: '🌅', week: 'July 6–15' },
+      { id: 'camp-evening', name: 'Evening Camp',  time: '5 PM – 8 PM',  ages: '4–9 Years Old', level: 'All Sports', icon: '🌇', week: 'July 6–15' },
     ];
   }
 }
@@ -530,7 +485,7 @@ async function loadCampSessions() {
 function renderSlots(filter) {
   const grid = document.getElementById('slotsGrid');
   const filtered = filter === 'all' ? allSlots : allSlots.filter(s => s.sport === filter);
-  if (!filtered.length) { grid.innerHTML = '<div class="slots-loading">⏰ Individual 1-hour sessions coming soon — check back here for dates!</div>'; return; }
+  if (!filtered.length) { grid.innerHTML = '<div class="slots-loading">⏰ No sessions found for that sport yet — check back soon!</div>'; return; }
   grid.innerHTML = filtered.map(slot => {
     const isFull = slot.taken >= slot.total;
     const open = slot.total - slot.taken;
@@ -555,7 +510,7 @@ function openBooking(slotId) {
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header"><h3>Book Your Spot</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
     <div class="modal-slot-info"><div class="modal-slot-icon">${slot.icon}</div><div class="modal-slot-detail"><h4>${slot.name}</h4><p>${slot.day} · ${slot.time}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${open} spot${open !== 1 ? 's' : ''} remaining</p></div></div>
-    <div class="form-note">💳 You'll be taken to a secure Stripe checkout to pay $20. Your spot is confirmed once payment is complete.</div>
+    <div class="form-note">💳 You'll be taken to a secure Stripe checkout to pay $25. Your spot is confirmed once payment is complete.</div>
     <div class="form-error" id="formError"></div>
     <div class="form-group"><label>Your Name (Parent/Guardian)</label><input type="text" placeholder="Jane Smith" id="parentName"></div>
     <div class="form-row">
@@ -565,33 +520,103 @@ function openBooking(slotId) {
     <div class="form-group"><label>Your Email</label><input type="email" placeholder="jane@example.com" id="contactEmail"></div>
     <div class="form-group"><label>Your Phone (optional)</label><input type="text" placeholder="(555) 000-0000" id="contactPhone"></div>
     <div class="form-group"><label>Anything Coach Mark should know? (optional)</label><input type="text" placeholder="e.g. First time ever holding a bat!" id="notes"></div>
-    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Reserve This Spot — $20 ⚾</button>`;
+    <button class="btn-book" id="bookBtn" onclick="submitBooking('${slot.id}')">Reserve This Spot — $25 ⚾</button>`;
   document.getElementById('modalOverlay').classList.add('open');
+}
+
+function openSessionBooking(timeSlot) {
+  const isEvening = timeSlot === 'evening';
+  const timeLabel = isEvening ? '5 PM – 8 PM' : '9 AM – 12 PM';
+  const icon = isEvening ? '🌇' : '🌅';
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-header"><h3>Book a Session</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-slot-info"><div class="modal-slot-icon">${icon}</div><div class="modal-slot-detail"><h4>${isEvening ? 'Evening' : 'Morning'} Session — ${timeLabel}</h4><p>Ages 4–9 · Baseball &amp; Flag Football · July 6–15</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">$25 · 3-hour session</p></div></div>
+    <div class="form-note">📍 Field by WHS Tennis Courts · Charles Town, WV</div>
+    <div style="background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
+      <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) would you like to attend? ($25 per day)</p>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;">
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Mon Jul 6" onchange="updateSessionPrice()"> Mon Jul 6</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tue Jul 7" onchange="updateSessionPrice()"> Tue Jul 7</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wed Jul 8" onchange="updateSessionPrice()"> Wed Jul 8</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thu Jul 9" onchange="updateSessionPrice()"> Thu Jul 9</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Fri Jul 10" onchange="updateSessionPrice()"> Fri Jul 10</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Mon Jul 13" onchange="updateSessionPrice()"> Mon Jul 13</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tue Jul 14" onchange="updateSessionPrice()"> Tue Jul 14</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wed Jul 15" onchange="updateSessionPrice()"> Wed Jul 15</label>
+      </div>
+      <p id="sessionTotal" style="margin-top:0.75rem;font-family:'Fraunces',serif;font-size:1.2rem;color:#B22234;font-weight:900;">Total: $0</p>
+    </div>
+    <div class="form-error" id="formError"></div>
+    <div class="form-group"><label>Your Name (Parent/Guardian)</label><input type="text" placeholder="Jane Smith" id="parentName"></div>
+    <div class="form-row">
+      <div class="form-group"><label>Child's Name</label><input type="text" placeholder="Alex" id="kidName"></div>
+      <div class="form-group"><label>Child's Age</label><select id="kidAge"><option value="">Select age</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
+    </div>
+    <div class="form-group"><label>Your Email</label><input type="email" placeholder="jane@example.com" id="contactEmail"></div>
+    <div class="form-group"><label>Your Phone (optional)</label><input type="text" placeholder="(555) 000-0000" id="contactPhone"></div>
+    <div class="form-group"><label>Anything Coach Mark should know? (optional)</label><input type="text" placeholder="e.g. First time ever holding a bat!" id="notes"></div>
+    <button class="btn-book" id="bookBtn" onclick="submitSessionBooking('${timeSlot}')">Select days above to continue ⚾</button>`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function updateSessionPrice() {
+  const days = Array.from(document.querySelectorAll('.day-checkbox:checked')).map(cb => cb.value);
+  const total = days.length * 25;
+  const totalEl = document.getElementById('sessionTotal');
+  if (totalEl) totalEl.textContent = `Total: $${total}`;
+  const btn = document.getElementById('bookBtn');
+  if (btn) btn.textContent = total > 0 ? `Book & Pay $${total} ⚾` : 'Select days above to continue ⚾';
+}
+
+async function submitSessionBooking(timeSlot) {
+  const parent = document.getElementById('parentName').value.trim();
+  const kid = document.getElementById('kidName').value.trim();
+  const age = document.getElementById('kidAge').value;
+  const email = document.getElementById('contactEmail').value.trim();
+  const phone = document.getElementById('contactPhone').value.trim();
+  const notes = document.getElementById('notes').value.trim();
+  const errEl = document.getElementById('formError');
+  if (!parent || !kid || !age || !email) { errEl.textContent = "Please fill in your name, child's name, age, and email."; errEl.style.display = 'block'; return; }
+  if (!email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+  const selectedDays = Array.from(document.querySelectorAll('.day-checkbox:checked')).map(cb => cb.value);
+  if (selectedDays.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
+  errEl.style.display = 'none';
+  const btn = document.getElementById('bookBtn');
+  btn.disabled = true; btn.textContent = 'Taking you to payment…';
+  const contactInfo = email + (phone ? ` / ${phone}` : '');
+  const timeLabel = timeSlot === 'evening' ? '5 PM – 8 PM' : '9 AM – 12 PM';
+  const notesWithDays = `Days: ${selectedDays.join(', ')} | Time: ${timeLabel}${notes ? ' | ' + notes : ''}`;
+  try {
+    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: 'summer-session-' + timeSlot, option: 'day', dayCount: selectedDays.length, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Booking failed');
+    window.location.href = data.url;
+  } catch (err) {
+    btn.disabled = false; btn.textContent = `Select days above to continue ⚾`;
+    errEl.textContent = err.message || 'Something went wrong. Please try again.'; errEl.style.display = 'block';
+  }
 }
 
 function openCampBooking(campId) {
   const camp = allCampSessions.find(s => s.id === campId);
   if (!camp) return;
-  const weekLabel = camp.week || 'July 6–10';
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-header"><h3>Register for Camp</h3><button class="modal-close" onclick="closeModal()">✕</button></div>
-    <div class="modal-slot-info"><div class="modal-slot-icon">${camp.icon}</div><div class="modal-slot-detail"><h4>${camp.name} — ${weekLabel}</h4><p>${camp.time} · ${camp.ages}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${camp.level}</p></div></div>
+    <div class="modal-slot-info"><div class="modal-slot-icon">${camp.icon}</div><div class="modal-slot-detail"><h4>${camp.name} — ${camp.week}</h4><p>${camp.time} · ${camp.ages}</p><p style="color:var(--grass);font-weight:700;margin-top:4px;">${camp.level}</p></div></div>
     <div class="form-note">📍 Field by WHS Tennis Courts · Charles Town, WV</div>
-    <p style="font-weight:800;font-size:0.9rem;color:var(--navy);margin-bottom:0.75rem;">Choose your option:</p>
-    <div class="camp-option-toggle">
-      <button class="camp-option-btn selected" id="optWeek" onclick="selectCampOption('week')"><span class="camp-option-price">$120</span><span class="camp-option-label">Full Week (Mon–Fri)</span></button>
-      <button class="camp-option-btn" id="optDay" onclick="selectCampOption('day')"><span class="camp-option-price">$30</span><span class="camp-option-label">Single Day</span></button>
-    </div>
-    <div id="dayPicker" style="display:none;background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
+    <div id="dayPicker" style="background:#f8f9ff;border:2px solid #e0e8f4;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1.2rem;">
       <p style="font-weight:800;font-size:0.85rem;color:var(--navy);margin-bottom:0.75rem;">Which day(s) will you attend? ($30 per day)</p>
       <div style="display:flex;flex-direction:column;gap:0.5rem;">
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Monday" onchange="updateDayPrice()"> Monday</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tuesday" onchange="updateDayPrice()"> Tuesday</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wednesday" onchange="updateDayPrice()"> Wednesday</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thursday" onchange="updateDayPrice()"> Thursday</label>
-        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Friday" onchange="updateDayPrice()"> Friday</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Mon Jul 6" onchange="updateDayPrice()"> Mon Jul 6</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tue Jul 7" onchange="updateDayPrice()"> Tue Jul 7</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wed Jul 8" onchange="updateDayPrice()"> Wed Jul 8</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Thu Jul 9" onchange="updateDayPrice()"> Thu Jul 9</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Fri Jul 10" onchange="updateDayPrice()"> Fri Jul 10</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Mon Jul 13" onchange="updateDayPrice()"> Mon Jul 13</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Tue Jul 14" onchange="updateDayPrice()"> Tue Jul 14</label>
+        <label style="display:flex;align-items:center;gap:0.6rem;font-size:0.9rem;font-weight:600;cursor:pointer;"><input type="checkbox" class="day-checkbox" value="Wed Jul 15" onchange="updateDayPrice()"> Wed Jul 15</label>
       </div>
-      <p id="dayTotal" style="margin-top:0.75rem;font-family:'Fraunces',serif;font-size:1.2rem;color:var(--coach-red);font-weight:900;">Total: $0</p>
+      <p id="dayTotal" style="margin-top:0.75rem;font-family:'Fraunces',serif;font-size:1.2rem;color:#B22234;font-weight:900;">Total: $0</p>
     </div>
     <div class="form-error" id="formError"></div>
     <div class="form-group"><label>Your Name (Parent/Guardian)</label><input type="text" placeholder="Jane Smith" id="parentName"></div>
@@ -602,21 +627,8 @@ function openCampBooking(campId) {
     <div class="form-group"><label>Your Email</label><input type="email" placeholder="jane@example.com" id="contactEmail"></div>
     <div class="form-group"><label>Your Phone (optional)</label><input type="text" placeholder="(555) 000-0000" id="contactPhone"></div>
     <div class="form-group"><label>Anything Coach Mark should know? (optional)</label><input type="text" placeholder="e.g. Never played before!" id="notes"></div>
-    <button class="btn-book" id="bookBtn" onclick="submitCampBooking('${camp.id}')">Register &amp; Pay $120 ⚾</button>`;
-  selectedCampOption = 'week';
+    <button class="btn-book" id="bookBtn" onclick="submitCampBooking('${camp.id}')">Select days above to continue ⚾</button>`;
   document.getElementById('modalOverlay').classList.add('open');
-}
-
-let selectedCampOption = 'week';
-function selectCampOption(option) {
-  selectedCampOption = option;
-  document.getElementById('optWeek').classList.toggle('selected', option === 'week');
-  document.getElementById('optDay').classList.toggle('selected', option === 'day');
-  const dayPicker = document.getElementById('dayPicker');
-  if (dayPicker) dayPicker.style.display = option === 'day' ? 'block' : 'none';
-  const btn = document.getElementById('bookBtn');
-  if (option === 'week') { if (btn) btn.textContent = 'Register & Pay $120 ⚾'; }
-  else { updateDayPrice(); }
 }
 
 function updateDayPrice() {
@@ -625,7 +637,7 @@ function updateDayPrice() {
   const totalEl = document.getElementById('dayTotal');
   if (totalEl) totalEl.textContent = `Total: $${total}`;
   const btn = document.getElementById('bookBtn');
-  if (btn) btn.textContent = total > 0 ? `Register & Pay $${total} ⚾` : 'Select days to continue ⚾';
+  if (btn) btn.textContent = total > 0 ? `Register & Pay $${total} ⚾` : 'Select days above to continue ⚾';
 }
 
 function getSelectedDays() {
@@ -652,7 +664,7 @@ async function submitBooking(slotId) {
     if (!res.ok) throw new Error(data.error || 'Booking failed');
     window.location.href = data.url;
   } catch (err) {
-    btn.disabled = false; btn.textContent = 'Reserve This Spot — $20 ⚾';
+    btn.disabled = false; btn.textContent = 'Reserve This Spot — $25 ⚾';
     errEl.textContent = err.message || 'Something went wrong. Please try again.'; errEl.style.display = 'block';
   }
 }
@@ -668,22 +680,22 @@ async function submitCampBooking(campId) {
   if (!parent || !kid || !age || !email) { errEl.textContent = "Please fill in your name, child's name, age, and email."; errEl.style.display = 'block'; return; }
   if (!email.includes('@')) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
   const selectedDays = getSelectedDays();
-  if (selectedCampOption === 'day' && selectedDays.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
+  if (selectedDays.length === 0) { errEl.textContent = 'Please select at least one day.'; errEl.style.display = 'block'; return; }
   errEl.style.display = 'none';
   const btn = document.getElementById('bookBtn');
   btn.disabled = true; btn.textContent = 'Taking you to payment…';
   const contactInfo = email + (phone ? ` / ${phone}` : '');
-  const daysNote = selectedCampOption === 'day' ? `Days: ${selectedDays.join(', ')}` : 'Full Week (Mon–Fri)';
+  const daysNote = `Days: ${selectedDays.join(', ')}`;
   const notesWithDays = `${daysNote}${notes ? ' | ' + notes : ''}`;
-  const dayCount = selectedCampOption === 'day' ? selectedDays.length : 0;
-  const totalPrice = selectedCampOption === 'week' ? '$120' : `$${selectedDays.length * 30}`;
+  const dayCount = selectedDays.length;
+  const totalPrice = `$${selectedDays.length * 30}`;
   try {
-    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: selectedCampOption, dayCount, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
+    const res = await fetch('/api/book-camp', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ campSessionId: campId, option: 'day', dayCount, parentName: parent, kidName: kid, kidAge: age, contactInfo, notes: notesWithDays }) });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Booking failed');
     window.location.href = data.url;
   } catch (err) {
-    btn.disabled = false; btn.textContent = `Register & Pay ${totalPrice} ⚾`;
+    btn.disabled = false; btn.textContent = `Select days above to continue ⚾`;
     errEl.textContent = err.message || 'Something went wrong. Please try again.'; errEl.style.display = 'block';
   }
 }
